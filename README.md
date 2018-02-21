@@ -1,7 +1,7 @@
 # AlterWear
-### Setup
+## Setup
 
-#### Hardware
+### Hardware
 **Correct datasheet, we think**
 - The working one is , which [has been discontinued.](http://www.pervasivedisplays.com/kits/ext_kit). The datasheet is "EPD Extension board_Schematic_Gerber_v05". The files are available at that link, but also uploaded to this repo.
 - Pervasive Displays (e-ink manufacturer) [support](http://www.pervasivedisplays.com/contact). Definitely contact them if you have issues! They should help you with specific questions.
@@ -11,7 +11,7 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
-#### Software
+### Software
 - Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have. This also has the Arduino library that runs on the Arduino to power the board.
 - Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
 - The Arduino Pro Mini is programmed over FTDI (3.3V I think).
