@@ -7,4 +7,5 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 - The Arduino Pro Mini is programmed over FTDI (3.3V I think).
+- Pervasive Displays (e-ink manufacturer) [support](http://www.pervasivedisplays.com/contact).
  
