@@ -5,5 +5,6 @@
 - Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
 - This is a screenshot of the circuit diagram [Fig. 5-1](https://www.dropbox.com/s/spbxfzleej3tsp5/Screenshot%202018-02-21%2015.26.41.png?dl=0) from the datasheet.
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
-Screenshot
+Screenshot.
+- The Arduino Pro Mini is programmed over FTDI (3.3V I think).
  
