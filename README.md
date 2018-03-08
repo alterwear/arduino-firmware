@@ -25,5 +25,7 @@ EPD breakout board (green):
 - Goals: Recreate it on the breadboard, then simplify if possible, then create an SMD version.
 
 Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-paper-adapter-board
+- Original crowdsource campaign: https://www.crowdsupply.com/soniktech/e-paper-shield-kit
+- Library code and example: https://github.com/jarek319/EPD215
 - Compatible with: 20+-pin e-ink displays (connector is straight).
 - Goals: Get it working (library code freezes and we don't know why), recreate and build our own.
