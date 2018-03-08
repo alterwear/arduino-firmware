@@ -20,10 +20,10 @@ Screenshot.
 
 # Breakout board notes
 
-- EPD breakout board (green):
+EPD breakout board (green):
 - Compatible with: 40+pin e-ink display (connector is zig-zag).
 - Goals: Recreate it on the breadboard, then simplify if possible, then create an SMD version.
 
-- Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-paper-adapter-board
+Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-paper-adapter-board
 - Compatible with: 20+-pin e-ink displays (connector is straight).
 - Goals: Get it working (library code freezes and we don't know why), recreate and build our own.
