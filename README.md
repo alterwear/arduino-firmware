@@ -29,3 +29,7 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - Library code and example: https://github.com/jarek319/EPD215
 - Compatible with: 20+-pin e-ink displays (connector is straight).
 - Goals: Get it working (library code freezes and we don't know why), recreate and build our own.
+
+
+## Other notes
+Technical support email: 	techsupport@pervasivedisplays.com
