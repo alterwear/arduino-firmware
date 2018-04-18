@@ -15,7 +15,8 @@ Screenshot.
 - Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have. This also has the Arduino library that runs on the Arduino to power the board.
 - Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
 - The Arduino Pro Mini is programmed over FTDI (3.3V I think).
-
+- Paul Schow's github: https://github.com/paulschow/epapercard
+- Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
  
 
 # Breakout board notes
