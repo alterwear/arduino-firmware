@@ -16,6 +16,7 @@ Screenshot.
 - Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
 - The Arduino Pro Mini is programmed over FTDI (3.3V I think).
 - Paul Schow's github: https://github.com/paulschow/epapercard
+(specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.
 - Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
  
 
