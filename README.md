@@ -14,15 +14,16 @@ Screenshot.
 ### Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
-2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
+2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
 
 #### Arduino Pro Mini
 1. The Arduino Pro Mini is programmed over FTDI (3.3V I think).
 
 #### Experimental
 1. Paul Schow's github: https://github.com/paulschow/epapercard
-(specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.
-2. Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
+(specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.)
+2. "Our" version of Paul's code: https://github.com/molecule/epapercard
+3. Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
  
 
 # Breakout board notes
