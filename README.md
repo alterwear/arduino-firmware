@@ -12,15 +12,25 @@
 Screenshot.
 
 ### Software
-- Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have. This also has the Arduino library that runs on the Arduino to power the board.
-- Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
-- The Arduino Pro Mini is programmed over FTDI (3.3V I think).
-- Paul Schow's github: https://github.com/paulschow/epapercard
+#### Default (Arduino UNO and GRATIS library)
+1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
+2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200
+
+#### Arduino Pro Mini
+1. The Arduino Pro Mini is programmed over FTDI (3.3V I think).
+
+#### Experimental
+1. Paul Schow's github: https://github.com/paulschow/epapercard
 (specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.
-- Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
+2. Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
  
 
 # Breakout board notes
+
+How to find the COG #:
+- official page: http://www.pervasivedisplays.com/products/label_info
+- semi-helpful Adafruit forum thread: https://forums.adafruit.com/viewtopic.php?f=19&t=56535&start=15
+
 
 EPD breakout board (green):
 - Compatible with: 40+pin e-ink display (connector is zig-zag).
