@@ -24,6 +24,9 @@ Screenshot.
 (specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.)
 2. "Our" version of Paul's code: https://github.com/molecule/epapercard
 3. Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
+
+### Image editing
+1. http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno
  
 
 # Breakout board notes
