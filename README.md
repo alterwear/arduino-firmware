@@ -48,4 +48,8 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 
 ## Other notes
-Technical support email: 	techsupport@pervasivedisplays.com
+- Technical support email: 	techsupport@pervasivedisplays.com
+- [Old badger link.](https://web.archive.org/web/20170802044828/http://wyolum.com/projects/badger/)
+- [BADGEr code](https://github.com/wyolum/EPD)
+- [BADGEr v4 from Seeed Studio ($50)](https://www.seeedstudio.com/BADGEr_v4-p-1587.html)
+- [Instructions from MSR for making custom e-ink thing.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7508851)
