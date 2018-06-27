@@ -1,5 +1,5 @@
 # AlterWear
-## Setup
+## Basic E-Ink Setup
 
 ### Hardware
 **Correct datasheet, we think**
@@ -28,6 +28,13 @@ Screenshot.
 ### Image editing
 1. http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno
  
+## Basic NFC Setup on Uno
+
+[Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
+
+0. Note that the NFC cannot be connected to Tx, Rx while uploading.
+1. Connect GND, 3.3V to the Arduino
+2. 
 
 # Breakout board notes
 
