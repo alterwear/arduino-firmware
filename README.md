@@ -30,11 +30,15 @@ Screenshot.
  
 ## Basic NFC Setup on Uno
 
-[Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
+Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up resistors because they are "open drain".[2] According to [1], the tag click has pull-up resistors on SDA and SCLK already.
 
 0. Note that the NFC cannot be connected to Tx, Rx while uploading.
 1. Connect GND, 3.3V to the Arduino
 2. 
+
+[1][Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
+
+[2][How To Mechatronics - I2C](https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
 
 # Breakout board notes
 
