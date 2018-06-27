@@ -30,7 +30,7 @@ Screenshot.
  
 ## Basic NFC Setup on Uno
 
-Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up resistors because they are "open drain".[2] According to [1], the tag click has pull-up resistors on SDA and SCLK already. Table 15[3] says the I2C address is 04h.
+Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up resistors because they are "open drain".[2] According to [1], the tag click has pull-up resistors on SDA and SCLK already. Table 15[3] says the I2C address is 04h. [A good tutorial on I2C from Sparkfun](https://learn.sparkfun.com/tutorials/i2c)
 
 0. Note that the NFC cannot be connected to Tx, Rx while uploading.
 1. Connect GND, 3.3V to the Arduino
