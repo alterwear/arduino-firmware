@@ -42,6 +42,10 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
    - Info re: I2C: https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/
    - Added a follow-up to this comment: https://community.nxp.com/message/1026052
 
+## NFC on Arduino Pro Mini
+0. PWR and GND like normal, solder the two little extra pins (A4, A5) in the middle of the board next to A3. This is what connects to the SDL and SCLK of the NFC board).
+1. Use eink_i2c.
+
 [1][Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
 
 [2][How To Mechatronics - I2C](https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
