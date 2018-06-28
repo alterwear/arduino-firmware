@@ -34,7 +34,13 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
 
 0. Note that the NFC cannot be connected to Tx, Rx while uploading.
 1. Connect GND, 3.3V to the Arduino
-2. 
+2. Possibly relevant:
+   - https://community.nxp.com/message/977712?commentID=977712#comment-977712
+   - Confirmed we're using the NT3H1101 (in the paper). [Datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H1101_1201.pdf). Ch. 9.6 has addressing info. I believe it's 85, 0b1010101, or 0x55. 
+   - Trying to use this library: https://www.arduino.cc/en/Reference/Wire
+   - I contacted Angela Lee via NXP: https://community.nxp.com/thread/469669
+   - Info re: I2C: https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/
+   - Added a follow-up to this comment: https://community.nxp.com/message/1026052
 
 [1][Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
 
@@ -42,6 +48,8 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
 
 [3][NT3H2111_2211 Datasheet](https://download.mikroe.com/documents/datasheets/NT3H2111_2211.pdf)
 (Relevant portion [here](https://www.dropbox.com/s/d4i99ricvakj35r/Screenshot%202018-06-27%2012.02.47.png?dl=0) )
+
+
 
 # Breakout board notes
 
