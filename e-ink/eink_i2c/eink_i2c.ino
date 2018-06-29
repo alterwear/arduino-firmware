@@ -300,14 +300,14 @@ void loop() {
           EPD.setFactor(temperature); // adjust for current temperature  
       
         if (idesired_state == 49){
-            EPD.image(IMAGE_2_BITS);
+            EPD.image_0(IMAGE_2_BITS);
         } else if (idesired_state == 48){
-            EPD.image(IMAGE_1_BITS);
+            EPD.image_0(IMAGE_1_BITS);
         } else if (idesired_state = 50){
           for (int i = 0; i < 10; i++){
-            EPD.image(IMAGE_3_BITS);
+            EPD.image_0(IMAGE_3_BITS);
             delay(50);
-            EPD.image(IMAGE_4_BITS);
+            EPD.image_0(IMAGE_4_BITS);
             delay(50);
           }
         }
