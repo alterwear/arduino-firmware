@@ -57,7 +57,7 @@
 #include <EPD_PINOUT.h>
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1  text_image
+#define IMAGE_1  end_trip
 #define IMAGE_2  cat
 
 // Error message for MSP430
