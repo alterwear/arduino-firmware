@@ -56,12 +56,12 @@
 #include <S5813A.h>
 #include <EPD_PINOUT.h>
 
-// select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1  logo
-#define IMAGE_2  signatures1
-#define IMAGE_3  kitty1
-#define IMAGE_4  kitty2
-#define IMAGE_5  nametag
+// select two images from:  text_image text_hello cat aphrodite venus saturn
+#define IMAGE_1  cat
+#define IMAGE_2  saturn
+#define IMAGE_3  text_image
+#define IMAGE_4  venus
+#define IMAGE_5  text_hello
 
 // Error message for MSP430
 #if (SCREEN_SIZE == 270) && defined(__MSP430G2553__)
