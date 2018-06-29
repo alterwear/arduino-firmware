@@ -42,6 +42,10 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
    - Info re: I2C: https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/
    - Added a follow-up to this comment: https://community.nxp.com/message/1026052
 
+## NFC on Arduino Pro Mini
+0. PWR and GND like normal, solder the two little extra pins (A4, A5) in the middle of the board next to A3. This is what connects to the SDL and SCLK of the NFC board).
+1. Use eink_i2c.
+
 [1][Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
 
 [2][How To Mechatronics - I2C](https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
@@ -49,7 +53,37 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
 [3][NT3H2111_2211 Datasheet](https://download.mikroe.com/documents/datasheets/NT3H2111_2211.pdf)
 (Relevant portion [here](https://www.dropbox.com/s/d4i99ricvakj35r/Screenshot%202018-06-27%2012.02.47.png?dl=0) )
 
+## Making custom images
+[These instructions](http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno) were very helpful. 
 
+Dimensions:
+
+- 1.44": 96x128 pixels
+- 2": 96x200 pixels
+- 1.44": 176x264 pixels
+
+Steps summarized here:
+
+1. For a 2.0" board, open an Illustrator file.
+2. Create an artboard that is 95x199 pixels in dimensions (note: one pixel smaller than you want the final one to be).
+3. The image should be longer than it is wide.
+4. Export that artboard as a jpg. Make sure it is now 96x200 pixels.
+5. Using [this web app](https://www.online-utility.org/image/convert/to/XBM), convert to xbm.
+6. Validate the file was built correctly:
+
+You'll want to open your image files in a text editor like Sublime or Atom and check that the first lines have the following format:
+
+```
+#define myimage_2_0_width 200
+#define myimage_2_0_height 96
+static unsigned char myimage_2_0_bits[] = {
+    ...
+}
+```
+
+That is, the #define and char array declaration are named the same as your file and have the proper width, height, and screen size set. Open some of the images that exist in the Images directory for reference if you like.
+7. Add your new xbm file to Arduino/libraries/Images
+8. That should work.
 
 # Breakout board notes
 
