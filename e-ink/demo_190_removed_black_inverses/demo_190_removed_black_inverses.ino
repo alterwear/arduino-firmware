@@ -51,14 +51,14 @@
 #include <SPI.h>
 #include <EPD_FLASH.h>
 #include <EPD_V231_G2.h>
-#define SCREEN_SIZE 190
+#define SCREEN_SIZE 200
 #include <EPD_PANELS.h>
 #include <S5813A.h>
 #include <EPD_PINOUT.h>
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1  text_image
-#define IMAGE_2  cat
+#define IMAGE_1  start_trip
+#define IMAGE_2  end_trip
 
 // Error message for MSP430
 #if (SCREEN_SIZE == 270) && defined(__MSP430G2553__)
