@@ -158,6 +158,7 @@ void setup() {
 	digitalWrite(Pin_EPD_FLASH_CS, HIGH);
 
 	Serial.begin(9600);
+ Serial.println("Code: demo_removed_black_inverses");
 	delay(500);
 
 #if defined(__AVR__)

@@ -38,7 +38,7 @@ int current_state;
 void setup() {
   Wire.begin();       // join i2c bus (address optional for master)
   Serial.begin(9600);          // start serial communication at 9600bps
-  Serial.println("i2c-basic-test");
+  Serial.println("Code: i2c-basic-test");
 
   current_state = 0; // can we initialize it to this?
   current_state = EEPROM.read(eeprom_addr);

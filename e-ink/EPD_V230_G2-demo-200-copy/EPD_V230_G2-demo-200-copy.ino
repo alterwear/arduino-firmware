@@ -58,7 +58,7 @@
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
 #define IMAGE_1  end_trip
-#define IMAGE_2  cat
+#define IMAGE_2  start_trip
 
 // Error message for MSP430
 #if (SCREEN_SIZE == 270) && defined(__MSP430G2553__)
@@ -157,6 +157,7 @@ void setup() {
   digitalWrite(Pin_EPD_FLASH_CS, HIGH);
 
   Serial.begin(9600);
+  Serial.println("Code: EPD_V230_G2-demo-200-copy");
   delay(500);
 
 #if defined(__AVR__)
