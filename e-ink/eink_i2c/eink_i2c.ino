@@ -32,8 +32,8 @@
 #include <EEPROM.h>
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1  cat
-#define IMAGE_2  text_image
+#define IMAGE_1 cat
+#define IMAGE_2 text_image
 #define IMAGE_3 saturn
 #define IMAGE_4 venus
 
