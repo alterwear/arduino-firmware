@@ -120,4 +120,4 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - Uno works well, reads NFC fine.
 - How big are my current images? Does the code currently store all of them on the Uno? Where exactly? What's the capacity? What's the transfer time?
 - Would there be a way to do a "diff" of two images, and only redraw the "different" pixels? Could use less memory.
-- Can I run the Uno off the NFC power? (almost def note but should try it).
+- ~~Can I run the Uno off the NFC power? (almost def note but should try it).~~ --> NO.
