@@ -20,7 +20,7 @@
 #include <SPI.h>
 #include <EPD_FLASH.h>
 #include <EPD_V231_G2.h>
-#define SCREEN_SIZE 144
+#define SCREEN_SIZE 200
 #include <EPD_PANELS.h>
 #include <S5813A.h>
 #include <EPD_PINOUT.h>
@@ -237,6 +237,7 @@ void loop() {
   Serial.print(temperature, DEC);
   Serial.println(" Celsius");
 
+  Serial.println("Reading from device over i2c");
   //i2c: read block of user data from the device
   Wire.beginTransmission(byte(SLAVE_ADDR));
   Wire.write(int_reg_addr);
@@ -262,6 +263,7 @@ void loop() {
     rdata_15 = Wire.read();
     rdata_16 = Wire.read();
   }
+    Serial.print("Desired state: ");
     Serial.println(desired_state, HEX);
     int idesired_state = (int) desired_state;
     
@@ -304,7 +306,8 @@ void loop() {
             EPD.image_0(IMAGE_2_BITS);
         } else if (idesired_state == 48){
             EPD.image_0(IMAGE_1_BITS);
-        } else if (idesired_state = 50){
+        } else if (idesired_state = 50){ // is this meant to set idesired_state to 50? Typo?
+          Serial.println("Inside possible typo if block");
           for (int i = 0; i < 10; i++){
             EPD.image_0(IMAGE_3_BITS);
             delay(50);
