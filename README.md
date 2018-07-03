@@ -16,6 +16,8 @@ Screenshot.
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
 
+
+
 #### Arduino Pro Mini
 1. The Arduino Pro Mini is programmed over FTDI (3.3V I think).
 
@@ -114,8 +116,21 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - [BADGEr v4 from Seeed Studio ($50)](https://www.seeedstudio.com/BADGEr_v4-p-1587.html)
 - [Instructions from MSR for making custom e-ink thing.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7508851)
 
+To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
+
 ## Current Status
 
+#### July 3 2018
+- Take out lines from lib code:
+```
+this->frame_fixed_repeat(0xaa, EPD_compensate); // changes nothing obvious, at least w/ 4 image switches.
+this->frame_fixed_repeat(0xaa, EPD_white); // changes nothing obvious, w/ 4 image switches.
+this->frame_data_repeat(image, EPD_inverse); // Didn't "do inverse of image", image seems darker (need to compare w/ orig video)
+this->frame_data_repeat(image, EPD_normal);
+```
+Next: need to try actually timing.
+
+#### July 2 2018
 - Pro mini janks up my USB ports: too annoying to work with since I have to continually restart.
 - Uno works well, reads NFC fine.
 - How big are my current images? Does the code currently store all of them on the Uno? Where exactly? What's the capacity? What's the transfer time?
