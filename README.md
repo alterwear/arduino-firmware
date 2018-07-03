@@ -30,10 +30,13 @@ Screenshot.
  
 ## Basic NFC Setup on Uno
 
-Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up resistors because they are "open drain".[2] According to [1], the tag click has pull-up resistors on SDA and SCLK already. Table 15[3] says the I2C address is 04h. [A good tutorial on I2C from Sparkfun](https://learn.sparkfun.com/tutorials/i2c)
+Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up resistors because they are "open drain".[2] According to [1], the tag click has pull-up resistors on SDA and SCLK already. Table 15[3] says the I2C address is 04h. [A good tutorial on I2C from Sparkfun](https://learn.sparkfun.com/tutorials/i2c). Uno: A4 (SDA), A5 (SCL).
 
 0. Note that the NFC cannot be connected to Tx, Rx while uploading.
-1. Connect GND, 3.3V to the Arduino
+1. Connect GND, 3.3V to the Arduino power pins. Connect SDA to A4 and SCL to A5.
+3. Use eink_i2c (which use Wire library) to read from NFC and update code.
+
+
 2. Possibly relevant:
    - https://community.nxp.com/message/977712?commentID=977712#comment-977712
    - Confirmed we're using the NT3H1101 (in the paper). [Datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H1101_1201.pdf). Ch. 9.6 has addressing info. I believe it's 85, 0b1010101, or 0x55. 
@@ -43,6 +46,7 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
    - Added a follow-up to this comment: https://community.nxp.com/message/1026052
 
 ## NFC on Arduino Pro Mini
+Note: Somehow this pro mini 3.3v w/ FTDI cable really messes up my USB ports on my Mac (need to restart my computer to reset them).
 0. PWR and GND like normal, solder the two little extra pins (A4, A5) in the middle of the board next to A3. This is what connects to the SDL and SCLK of the NFC board).
 1. Use eink_i2c.
 
@@ -109,3 +113,11 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - [BADGEr code](https://github.com/wyolum/EPD)
 - [BADGEr v4 from Seeed Studio ($50)](https://www.seeedstudio.com/BADGEr_v4-p-1587.html)
 - [Instructions from MSR for making custom e-ink thing.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7508851)
+
+## Current Status
+
+- Pro mini janks up my USB ports: too annoying to work with since I have to continually restart.
+- Uno works well, reads NFC fine.
+- How big are my current images? Does the code currently store all of them on the Uno? Where exactly? What's the capacity? What's the transfer time?
+- Would there be a way to do a "diff" of two images, and only redraw the "different" pixels? Could use less memory.
+- ~~Can I run the Uno off the NFC power? (almost def note but should try it).~~ --> NO.
