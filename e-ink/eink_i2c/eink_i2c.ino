@@ -229,7 +229,9 @@ byte desired_state;
 // main loop
 void loop() {
 
-  Serial.print("Current state: ");
+  Serial.print("Current state HEX: ");
+  Serial.println(current_state, HEX);
+  Serial.print("Current state DEC: ");
   Serial.println(current_state);
   
   int temperature = S5813A.read();
@@ -263,16 +265,18 @@ void loop() {
     rdata_15 = Wire.read();
     rdata_16 = Wire.read();
   }
-    Serial.print("Desired state: ");
+    Serial.print("Desired state HEX: ");
     Serial.println(desired_state, HEX);
+     Serial.print("Desired state DEC: ");
+    Serial.println(desired_state);
     int idesired_state = (int) desired_state;
     
 
     // this cast makes things weird
-    // send 0 via NFC, i2c reads 48
-    // send 1 via NFC, i2c reads 49
-    // send 2 via NFC, i2c reads 50
-    // send 3 via NFC, i2c reads 51
+    // send 0 via NFC, i2c reads 48 DEC, 30 HEX
+    // send 1 via NFC, i2c reads 49 DEC, 31 HEX
+    // send 2 via NFC, i2c reads 50 DEC, 32 HEX
+    // send 3 via NFC, i2c reads 51 DEC, 33 HEX
 
     //right now this only supports switching between two images, but we can expand to have more!
     if (idesired_state == 255 || idesired_state == 0){
@@ -282,6 +286,7 @@ void loop() {
     else if (idesired_state == current_state){
       delay(1000);
       //DO NOTHING; keep checking
+      Serial.println("current state is desired state");
     } else {
           //only power on eink if we need to change it
           EPD.begin(); // power up the EPD panel
@@ -308,12 +313,7 @@ void loop() {
             EPD.image_0(IMAGE_1_BITS);
         } else if (idesired_state = 50){ // is this meant to set idesired_state to 50? Typo?
           Serial.println("Inside possible typo if block");
-          for (int i = 0; i < 10; i++){
-            EPD.image_0(IMAGE_3_BITS);
-            delay(50);
-            EPD.image_0(IMAGE_4_BITS);
-            delay(50);
-          }
+          EPD.image_0(IMAGE_4_BITS);
         }
         
 
