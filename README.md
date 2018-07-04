@@ -122,6 +122,14 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### July 5 2018
+**TODO**
+- read: https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/
+- App changes
+  - Upload to my phone
+  - Add ability to send more data (up to 10MB?)
+  - Try to send a simple pic.
+
 #### July 3 2018
 - Take out lines from lib code:
 ```
