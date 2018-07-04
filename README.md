@@ -115,6 +115,8 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - [BADGEr code](https://github.com/wyolum/EPD)
 - [BADGEr v4 from Seeed Studio ($50)](https://www.seeedstudio.com/BADGEr_v4-p-1587.html)
 - [Instructions from MSR for making custom e-ink thing.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7508851)
+- [Semi-helpful review from Paul Schow](https://www.paulschow.com/2017/02/pervasive-displays-epd-extension-kit.html).
+- [Much more helpful review](https://embeddedcomputing.weebly.com/pervasive-displays-e-paper-epd-extension-kit-gen-2.html)
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
