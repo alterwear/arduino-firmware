@@ -311,16 +311,19 @@ void loop() {
             EPD.image_0(IMAGE_2_BITS);
         } else if (idesired_state == 48){
             EPD.image_0(IMAGE_1_BITS);
-        } else if (idesired_state = 50){ // is this meant to set idesired_state to 50? Typo?
+        } else if (idesired_state == 50){ // is this meant to set idesired_state to 50? Typo?
           Serial.println("Inside possible typo if block");
           EPD.image_0(IMAGE_4_BITS);
+        } else if (idesired_state == 51) {
+          EPD.image_0(IMAGE_3_BITS);
         }
         
 
         current_state = idesired_state;
         //EEPROM
         EEPROM.write(eeprom_addr, current_state);
-  
+
+        Serial.println("power down panel.");
         EPD.end();   // power down the EPD panel
     }
   
