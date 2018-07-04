@@ -132,6 +132,22 @@ this->frame_data_repeat(image, EPD_normal);
 ```
 Next: need to try actually timing.
 
+- Learning about NDEF Messages ([source](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/nfc/NdefMessage.java)), and NDEF Records ([source](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/nfc/NdefRecord.java)
+```
+An NDEF Record contains typed data, such as MIME-type media, a URI, or a custom application payload. An NDEF Message is a container for one or more NDEF Records.
+ ```
+ ```
+ An NDEF Message contains one or more NDEF Records.
+ ```
+ ```
+ public static NdefRecord createMime(String mimeType, byte[] mimeData) {
+ Create a new NDEF Record containing MIME data. Use this method to encode MIME-typed data into an NDEF Record, such as "text/plain", or "image/jpeg".
+ ```
+ Relevant? 
+ ``` 
+ private static final int MAX_PAYLOAD_SIZE = 10 * (1 << 20);  // 10 MB payload limit
+ ```
+
 #### July 2 2018
 - Pro mini janks up my USB ports: too annoying to work with since I have to continually restart.
 - Uno works well, reads NFC fine.
