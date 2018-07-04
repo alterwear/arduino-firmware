@@ -16,6 +16,8 @@ Screenshot.
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
 
+
+
 #### Arduino Pro Mini
 1. The Arduino Pro Mini is programmed over FTDI (3.3V I think).
 
@@ -113,9 +115,48 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - [BADGEr code](https://github.com/wyolum/EPD)
 - [BADGEr v4 from Seeed Studio ($50)](https://www.seeedstudio.com/BADGEr_v4-p-1587.html)
 - [Instructions from MSR for making custom e-ink thing.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7508851)
+- [Semi-helpful review from Paul Schow](https://www.paulschow.com/2017/02/pervasive-displays-epd-extension-kit.html).
+- [Much more helpful review](https://embeddedcomputing.weebly.com/pervasive-displays-e-paper-epd-extension-kit-gen-2.html)
+
+To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
 ## Current Status
 
+#### July 5 2018
+**TODO**
+- read: https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/
+- App changes
+  - Upload to my phone
+  - Add ability to send more data (up to 10MB?)
+  - Try to send a simple pic.
+
+#### July 3 2018
+- Take out lines from lib code:
+```
+this->frame_fixed_repeat(0xaa, EPD_compensate); // changes nothing obvious, at least w/ 4 image switches.
+this->frame_fixed_repeat(0xaa, EPD_white); // changes nothing obvious, w/ 4 image switches.
+this->frame_data_repeat(image, EPD_inverse); // Didn't "do inverse of image", image seems darker (need to compare w/ orig video)
+this->frame_data_repeat(image, EPD_normal);
+```
+Next: need to try actually timing.
+
+- Learning about NDEF Messages ([source](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/nfc/NdefMessage.java)), and NDEF Records ([source](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/nfc/NdefRecord.java)
+```
+An NDEF Record contains typed data, such as MIME-type media, a URI, or a custom application payload. An NDEF Message is a container for one or more NDEF Records.
+ ```
+ ```
+ An NDEF Message contains one or more NDEF Records.
+ ```
+ ```
+ public static NdefRecord createMime(String mimeType, byte[] mimeData) {
+ Create a new NDEF Record containing MIME data. Use this method to encode MIME-typed data into an NDEF Record, such as "text/plain", or "image/jpeg".
+ ```
+ Relevant? 
+ ``` 
+ private static final int MAX_PAYLOAD_SIZE = 10 * (1 << 20);  // 10 MB payload limit
+ ```
+
+#### July 2 2018
 - Pro mini janks up my USB ports: too annoying to work with since I have to continually restart.
 - Uno works well, reads NFC fine.
 - How big are my current images? Does the code currently store all of them on the Uno? Where exactly? What's the capacity? What's the transfer time?
