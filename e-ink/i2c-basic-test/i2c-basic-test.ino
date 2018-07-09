@@ -14,22 +14,6 @@
 #define int_reg_addr 0x01      //first block of user memory
 
 byte rdata[17];
- 
-byte rdata_1;
-byte rdata_2;
-byte rdata_3;
-byte rdata_4;
-byte rdata_5;
-byte rdata_6;
-byte rdata_7;
-byte rdata_8;
-byte rdata_9;
-byte rdata_11;
-byte rdata_12;
-byte rdata_13;
-byte rdata_14;
-byte rdata_15;
-byte rdata_16;
 
 //EEPROM
 int eeprom_addr = 0;
@@ -74,31 +58,6 @@ void loop() {
         Serial.println(rdata[i]);
       }
     }
-    /*
-    rdata_1 = Wire.read();
-    rdata_2 = Wire.read();
-    rdata_3 = Wire.read();
-    rdata_4 = Wire.read();
-    rdata_5 = Wire.read();
-    rdata_6 = Wire.read();
-    rdata_7 = Wire.read();
-    rdata_8 = Wire.read();
-    rdata_9 = Wire.read();
-    desired_state = Wire.read();
-    rdata_11 = Wire.read();
-    rdata_12 = Wire.read();
-    rdata_13 = Wire.read();
-    rdata_14 = Wire.read();
-    rdata_15 = Wire.read();
-    rdata_16 = Wire.read();
-
-    Serial.print("rdata_1: ");
-    Serial.println(rdata_1, HEX);
-    Serial.print("rdata_2: ");
-    Serial.println(rdata_2, HEX);
-    Serial.print("rdata_2: ");
-    Serial.println(rdata_2, HEX);
-    */
   }
     Serial.println(desired_state, HEX);
     int idesired_state = (int) desired_state;
