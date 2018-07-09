@@ -31,16 +31,15 @@ byte rdata_16;
 
 //EEPROM
 int eeprom_addr = 0;
-int current_state; 
+int current_state = 0; 
 
 #include <Wire.h>
 
 void setup() {
-  Wire.begin();       // join i2c bus (address optional for master)
+  Wire.begin();       // join i2c bus (address arg optional for master)
   Serial.begin(9600);          // start serial communication at 9600bps
   Serial.println("Code: i2c-basic-test");
 
-  current_state = 0; // can we initialize it to this?
   current_state = EEPROM.read(eeprom_addr);
 }
 
