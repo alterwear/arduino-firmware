@@ -13,6 +13,8 @@
 #define SLAVE_ADDR 0x55
 #define int_reg_addr 0x01      //first block of user memory
 
+byte rdata[17];
+ 
 byte rdata_1;
 byte rdata_2;
 byte rdata_3;
@@ -58,7 +60,21 @@ void loop() {
   Wire.requestFrom(byte(SLAVE_ADDR),16);
 
   if (Wire.available()){
-    Serial.println("Wire Available");
+    Serial.println("Wire Available, reading now...");
+    
+    for (int i = 1; i <= 16; i++) {
+      rdata[i] = Wire.read();
+      Serial.print("i: ");
+      Serial.print(i);
+      if (i == 10) {
+        Serial.print(", desired_state: ");
+        Serial.println(rdata[i]);
+      } else {
+        Serial.print(", byte: ");
+        Serial.println(rdata[i]);
+      }
+    }
+    /*
     rdata_1 = Wire.read();
     rdata_2 = Wire.read();
     rdata_3 = Wire.read();
@@ -75,6 +91,14 @@ void loop() {
     rdata_14 = Wire.read();
     rdata_15 = Wire.read();
     rdata_16 = Wire.read();
+
+    Serial.print("rdata_1: ");
+    Serial.println(rdata_1, HEX);
+    Serial.print("rdata_2: ");
+    Serial.println(rdata_2, HEX);
+    Serial.print("rdata_2: ");
+    Serial.println(rdata_2, HEX);
+    */
   }
     Serial.println(desired_state, HEX);
     int idesired_state = (int) desired_state;
