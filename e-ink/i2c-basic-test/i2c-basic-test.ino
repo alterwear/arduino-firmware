@@ -45,7 +45,10 @@ void loop() {
 
   if (Wire.available()){
     Serial.println("Wire Available, reading now...");
-    
+
+    // Notes from Christie:
+    // you always have to read data in chunks of 16 or it'll fail, 
+    // the first 9 bytes are ntag metadata,
     for (int i = 1; i <= 16; i++) {
       rdata[i] = Wire.read();
       Serial.print("i: ");
@@ -90,21 +93,6 @@ void loop() {
     current_state = idesired_state;
     //EEPROM
     EEPROM.write(eeprom_addr, current_state);
-
-  
-  
-  // step 5: receive reading from sensor
-  /*
-  while(Wire.available())    // slave may send less than requested
-  { 
-    char c = Wire.read();    // receive a byte as character
-    Serial.print("char: ");
-    Serial.println(c);         // print the character
-
-    Serial.print("bits: ");
-    printBits(c);
-  }
-  */
 
   delay(500);                  // wait a bit since people have to read the output :)
 }
