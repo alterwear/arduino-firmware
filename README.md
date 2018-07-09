@@ -26,9 +26,6 @@ Screenshot.
 (specifically firmware -> paul_demo_200, which is an updated, simplified version of the same library w/ "excess" parts removed.)
 2. "Our" version of Paul's code: https://github.com/molecule/epapercard
 3. Paul Schow's blog: https://www.paulschow.com//2016/08/epaper-business-card.html?m=1
-
-### Image editing
-1. http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno
  
 ## Basic NFC Setup on Uno
 
@@ -49,7 +46,8 @@ Notes: I2C communicates over 2 lines (SDA and SCLK). These both need pull-up res
 
 ## NFC on Arduino Pro Mini
 Note: Somehow this pro mini 3.3v w/ FTDI cable really messes up my USB ports on my Mac (need to restart my computer to reset them).
-0. PWR and GND like normal, solder the two little extra pins (A4, A5) in the middle of the board next to A3. This is what connects to the SDL and SCLK of the NFC board).
+
+0. Connect PWR and GND like normal, solder the two little extra pins (A4, A5) in the middle of the board next to A3. This is what connects to the SDL and SCLK of the NFC board).
 1. Use eink_i2c.
 
 [1][Potentially slightly useful NFC tag docs.](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag/nfc-tag-click-manual-v100.pdf)
@@ -60,7 +58,7 @@ Note: Somehow this pro mini 3.3v w/ FTDI cable really messes up my USB ports on 
 (Relevant portion [here](https://www.dropbox.com/s/d4i99ricvakj35r/Screenshot%202018-06-27%2012.02.47.png?dl=0) )
 
 ## Making custom images
-[These instructions](http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno) were very helpful. 
+[These instructions from alexhadik.com](http://www.alexhadik.com/blog/2014/10/30/display-custom-e-ink-images-with-repaper-and-arduino-uno) were very helpful. 
 
 Dimensions:
 
@@ -122,12 +120,32 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### July 9 2018
+**TODO**
+- 
+
+**Notes**
+- Reading from the NFC works via Android. Basically, you capture the intent and automatically do a read whenever you write. Specifically, this line:
+
+```
+record.setText(new String(message.getRecords()[0].getPayload(), "UTF-8"));
+```
+
+Displays whatever was last written to the NFC tag. (That line is called just before I write, so the basic interaction with an NFC tag automatically reads it. (THere are probably ways to encrypt or hide stuff, but this is fine for now).
+- This app will also successfully read: https://github.com/codexpedia/android_nfc_read_write
+- **Q:** Where is it reading FROM?
+   - [This code from the codexpedia example](https://github.com/codexpedia/android_nfc_read_write/blob/master/app/src/main/java/com/example/peng/nfcreadwrite/MainActivity.java#L89) seems to imply it's automatically bundled in an "NdefRecord" that gets sent when an NFC tag is activated.
+   - [This article by Shane Tully](https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/) further confirms that you capture an intent when the tag is activated, and can immediately read and write.
+- **Q2:** What is the actual memory layout of the NFC, and how does that interact with I2C and NFC?
+
+
+
 #### July 5 2018
 **TODO**
-- read: https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/
+- ~~read: https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/~~
 - App changes
-  - Upload to my phone
-  - Add ability to send more data (up to 10MB?)
+  - ~~Upload to my phone~~
+  - ~~Add ability to send more data (up to 10MB?)~~ - At least can send a full sentence now. Need to try w bitmaps eventually.
   - Try to send a simple pic.
 
 #### July 3 2018
