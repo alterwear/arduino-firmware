@@ -133,6 +133,8 @@ record.setText(new String(message.getRecords()[0].getPayload(), "UTF-8"));
 
 Displays whatever was last written to the NFC tag. (That line is called just before I write, so the basic interaction with an NFC tag automatically reads it. (THere are probably ways to encrypt or hide stuff, but this is fine for now).
 - This app will also successfully read: https://github.com/codexpedia/android_nfc_read_write
+- eink/i2c-basic-test seems to be reading from memory somewhere. I need to read the docs to understand where, and would ideally like to confirm that it contains what I sent over "Sell your cleverness and buy bewilderment".
+
 - **Q:** Where is it reading FROM?
    - [This code from the codexpedia example](https://github.com/codexpedia/android_nfc_read_write/blob/master/app/src/main/java/com/example/peng/nfcreadwrite/MainActivity.java#L89) seems to imply it's automatically bundled in an "NdefRecord" that gets sent when an NFC tag is activated.
    - [This article by Shane Tully](https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/) further confirms that you capture an intent when the tag is activated, and can immediately read and write.
