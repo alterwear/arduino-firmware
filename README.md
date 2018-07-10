@@ -122,7 +122,9 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### July 9 2018
 **TODO**
-- 
+- try sending over a simple bitmap, and loading it from memory in Arduino code (as opposed to compiling it in).
+- figure out memory map: get good docs
+- figure out if I can use [GFX](https://learn.adafruit.com/adafruit-gfx-graphics-library) on the MSP430
 
 **Notes**
 - Reading from the NFC works via Android. Basically, you capture the intent and automatically do a read whenever you write. Specifically, this line:
@@ -140,6 +142,20 @@ Displays whatever was last written to the NFC tag. (That line is called just bef
    - [This article by Shane Tully](https://shanetully.com/2012/12/writing-custom-data-to-nfc-tags-with-android-example/) further confirms that you capture an intent when the tag is activated, and can immediately read and write.
 - **Q2:** What is the actual memory layout of the NFC, and how does that interact with I2C and NFC?
    - All links to docs I've found are giving [404 page not found errors](https://github.com/repaper/gratis/issues/78) :(
+  
+Printout from eink/i2c-basic-test (after loading "sell your cleverness and buy bewilderment":
+```
+i: 10, desired_state: 83
+i: 11, byte: 101              e
+i: 12, byte: 108              l
+i: 13, byte: 108              l
+i: 14, byte: 32               [space]
+i: 15, byte: 121              y
+i: 16, byte: 111              o
+
+```
+  - BOOM: Ok, so NFC and I2C are certainly reading from the same memory space, starting at address: ```#define int_reg_addr 0x01      //first block of user memory``` Next I need to try sending over a simple bitmap, and loading it from there in Arduino code.
+
 - **Q3:** What about partial update?
    - This seems to be all done in SW. See video demos [here](https://www.youtube.com/watch?v=enzUbiSWenQ) and [here.](https://github.com/repaper/gratis#fast-update-notes-july-2017)
    - [Rumor](https://github.com/repaper/gratis/issues/48) has it that Adafruit's GFX library also does it. (as well as [text](https://github.com/repaper/gratis/issues/46))
