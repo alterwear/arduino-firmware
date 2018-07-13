@@ -137,7 +137,11 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 		this->bytes_per_line = 200 / 8;
 		this->bytes_per_scan = 96 / 4;
   ```
-- There are 96 lines per display for 2.0. Each line has 200/8=25 bytes, so that's 25 * 96 = 2400 bytes just in the image part. So reading 1000 bytes might get me somewhere.
+- There are 96 lines per display for 2.0. Each line has 200/8=25 bytes, so that's 25 * 96 = 2400 bytes just in the image part. ~~So reading 1000 bytes might get me somewhere.~~ It didn't....the bits that I'm printing out dont' seem to match the bits I see in the cat_2_0.xbm file at all. I assume it's a printing issue....
+- This might be useful at some point: Display bitmap in Android: https://stackoverflow.com/questions/4929989/how-to-display-bitmap-image-in-android
+- I should get the teeniest xbm file, see what it looks like in bits, and see if I can send it over nfc.
+  - Useful: https://stackoverflow.com/questions/15941643/nfc-send-image-jpeg
+  - Useful: https://developer.android.com/training/beam-files/send-files
 
 #### July 9 2018
 **TODO**
