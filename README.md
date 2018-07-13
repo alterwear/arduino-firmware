@@ -120,6 +120,16 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 13 July 2018
+**TODO**
+- Bitmap via NFC: looks like I need to send the bits over...*what is getting sent over now?*. Added a new arduino file: read-img-from-nfc to start to see what the file looks like. Seems like I'll need to send it over in the format? Many questions abound here.
+- figure out if I can use [GFX](https://learn.adafruit.com/adafruit-gfx-graphics-library) on the MSP430
+- Look at partial update code from NXP: https://github.com/molecule/AlterWear/blob/master/e-ink/EPD%20extension%20board%20for%20partial%20update%20v1.0_beta.rar
+
+**Notes**
+- memory map: Still haven't found good docs, but experiments (and Christie) confirm NFC and I2C read from/to the same spot in memory (in other words I can write via NFC and read it via I2C). Haven't tried the reverse, but should be fine.
+- Android app: switched over to the example from codexpedia since it is sooo much simpler. Brought the "dialog box" way of updating an NFC tag because the UX is so much better. Frankenstein is pretty good. New code: https://github.com/molecule/android_nfc_read_write
+
 #### July 9 2018
 **TODO**
 - try sending over a simple bitmap, and loading it from memory in Arduino code (as opposed to compiling it in).
@@ -162,8 +172,6 @@ i: 16, byte: 111              o
         - More info about the GFX lib [here](https://learn.adafruit.com/adafruit-gfx-graphics-library)
 - **Q4:** Can I use GFX on the MSP430?
    - The GFX lib "require 2 complete frame-buffers to update the display from SRAM." [[src](https://learn.adafruit.com/repaper-eink-development-board/libraries-and-examples)]
- 
-
 
 
 #### July 5 2018
