@@ -129,6 +129,15 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 **Notes**
 - memory map: Still haven't found good docs, but experiments (and Christie) confirm NFC and I2C read from/to the same spot in memory (in other words I can write via NFC and read it via I2C). Haven't tried the reverse, but should be fine.
 - Android app: switched over to the example from codexpedia since it is sooo much simpler. Brought the "dialog box" way of updating an NFC tag because the UX is so much better. Frankenstein is pretty good. New code: https://github.com/molecule/android_nfc_read_write
+- Info about how the code goes through the images.
+```
+  case EPD_2_0: {
+  this->lines_per_display = 96;
+		this->dots_per_line = 200;
+		this->bytes_per_line = 200 / 8;
+		this->bytes_per_scan = 96 / 4;
+  ```
+- There are 96 lines per display for 2.0. Each line has 200/8=25 bytes, so that's 25 * 96 = 2400 bytes just in the image part. So reading 1000 bytes might get me somewhere.
 
 #### July 9 2018
 **TODO**
