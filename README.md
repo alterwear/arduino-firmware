@@ -120,15 +120,40 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 16 July 2018
+**TODO**
+- Look at the partial update code for etc from nxp.
+- 
+
+**Notes:**
+- Reading image over nfc: How about if I just send the image file exactly as is, and just change what the file points to in arduino code?
+
+
 #### 13 July 2018
 **TODO**
 - Bitmap via NFC: looks like I need to send the bits over...*what is getting sent over now?*. Added a new arduino file: read-img-from-nfc to start to see what the file looks like. Seems like I'll need to send it over in the format? Many questions abound here.
 - figure out if I can use [GFX](https://learn.adafruit.com/adafruit-gfx-graphics-library) on the MSP430
 - Look at partial update code from NXP: https://github.com/molecule/AlterWear/blob/master/e-ink/EPD%20extension%20board%20for%20partial%20update%20v1.0_beta.rar
+- ~~prettify/customize the app~~ (Renamed it, added launch icon) (will need more updating later but need to decide on interactions first).
 
 **Notes**
 - memory map: Still haven't found good docs, but experiments (and Christie) confirm NFC and I2C read from/to the same spot in memory (in other words I can write via NFC and read it via I2C). Haven't tried the reverse, but should be fine.
 - Android app: switched over to the example from codexpedia since it is sooo much simpler. Brought the "dialog box" way of updating an NFC tag because the UX is so much better. Frankenstein is pretty good. New code: https://github.com/molecule/android_nfc_read_write
+- Info about how the code goes through the images.
+```
+  case EPD_2_0: {
+  this->lines_per_display = 96;
+		this->dots_per_line = 200;
+		this->bytes_per_line = 200 / 8;
+		this->bytes_per_scan = 96 / 4;
+  ```
+- There are 96 lines per display for 2.0. Each line has 200/8=25 bytes, so that's 25 * 96 = 2400 bytes just in the image part. ~~So reading 1000 bytes might get me somewhere.~~ It didn't....the bits that I'm printing out dont' seem to match the bits I see in the cat_2_0.xbm file at all. I assume it's a printing issue....
+- This might be useful at some point: Display bitmap in Android: https://stackoverflow.com/questions/4929989/how-to-display-bitmap-image-in-android
+- I should get the teeniest xbm file, see what it looks like in bits, and see if I can send it over nfc.
+  - Useful: https://stackoverflow.com/questions/15941643/nfc-send-image-jpeg
+  - Useful: https://developer.android.com/training/beam-files/send-files
+- But the arduino code just references the name "IMAGE_X_FILE_BITS" - so reading the bits directly wouldn't be the right thing. There must be somehwere where they actually use the .xbm file format....**Q:** where is that?
+   - arduino printing out bits starting at ImAGE_1_BITS seems to be...gibberish?
 
 #### July 9 2018
 **TODO**
