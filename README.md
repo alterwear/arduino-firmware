@@ -127,6 +127,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 **Notes:**
 - Reading image over nfc: How about if I just send the image file exactly as is, and just change what the file points to in arduino code?
+  - Tried that, got this error message:  ```E/BrcmNfcNfa: Unable to write NDEF. Tag maxsize=820, request write size=15118 ```
+  - From the NXP NFC tag datasheet:
+      -  EEPROM is a non volatile memory that stores 1904 bytes user data (888 byte user data in case of the NTAG I2C 1k version).
+      - I'm guessing we have the 1k version?
+      - Sec. 8.3.9 says: "Pages 04h to E1h via the RF interface - Block 01h to 37h, plus the first 8 bytes of block 38h via the I2C interface are the user memory read/write areas for NTAG I2C 1k version."
+      - 
 
 
 #### 13 July 2018
