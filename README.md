@@ -122,8 +122,13 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### 16 July 2018
 **TODO**
-- Look at the partial update code for etc from nxp.
-- 
+- ~~Look at the partial update code for etc from nxp.~~ Will need to figure out how to use TI LaunchPad stuff before I can try that.
+- Check Adafruit forum post re: Arduino image handling questions:
+- Look into compressing .xbm? 
+  - https://stackoverflow.com/questions/8417034/how-to-make-bitmap-compress-without-change-the-bitmap-size
+  - https://android--code.blogspot.com/2015/09/android-how-to-compress-bitmap.html
+- Send MIME data format instead? (Look up android way to do this).
+- Send an .xbm of size Tag maxsize=820 bytes?
 
 **Notes:**
 - Reading image over nfc: How about if I just send the image file exactly as is, and just change what the file points to in arduino code?
@@ -132,7 +137,9 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
       -  EEPROM is a non volatile memory that stores 1904 bytes user data (888 byte user data in case of the NTAG I2C 1k version).
       - I'm guessing we have the 1k version?
       - Sec. 8.3.9 says: "Pages 04h to E1h via the RF interface - Block 01h to 37h, plus the first 8 bytes of block 38h via the I2C interface are the user memory read/write areas for NTAG I2C 1k version."
-      - 
+ - Trying MIME type data format?
+   - https://tools.ietf.org/html/rfc2045
+   - Multipurpose Internet Mail Extensions, or MIME, redefines the format of messages to allow for **(1)** textual message bodies in character sets other than US-ASCII, **(2) an extensible set of different formats for non-textual message bodies**,  **(3) multi-part message bodies**, and (4) textual header information in character sets other than US-ASCII.
 
 
 #### 13 July 2018
