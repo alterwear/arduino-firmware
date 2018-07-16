@@ -1,0 +1,81 @@
+---- previous_image_ptr Matches (80 in 23 files) ----
+EPD_drivers.h (EPD_drivers\src\FPL_drivers) line 151 : typedef uint8_t (*EPD_Display_from_Ram_handler)(uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+EPD_drivers.h (EPD_drivers\src\FPL_drivers) line 153 : typedef void (*EPD_Display_PU_from_Ram_handler)(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+EPD_interface.c (EPD_drivers\src) line 144 : uint8_t EPD_display_PU_from_pointer(uint8_t *previous_image_ptr,
+EPD_display_PU_from_pointer in EPD_interface.c (EPD_drivers\src) :         EPD_Driver_Handle->EPD_Display_PU_from_Ram(previous_image_ptr,new_image_ptr,PU_Time);
+EPD_interface.c (EPD_drivers\src) line 182 : uint8_t EPD_display_FT_from_pointer(uint8_t *previous_image_ptr,
+EPD_display_FT_from_pointer in EPD_interface.c (EPD_drivers\src) :         EPD_Driver_Handle->EPD_Display_PU_from_Ram(previous_image_ptr,new_image_ptr,0);
+EPD_interface.c (EPD_drivers\src) line 221 : uint8_t EPD_display_GU_from_pointer(uint8_t *previous_image_ptr,
+EPD_display_GU_from_pointer in EPD_interface.c (EPD_drivers\src) :         EPD_Driver_Handle->EPD_Display_from_Ram(previous_image_ptr,new_image_ptr);
+EPD_interface.h (EPD_drivers\src) line 42 : uint8_t EPD_display_GU_from_pointer(uint8_t *previous_image_ptr,uint8_t *new_image_ptr,OperationMode_t operationmode,bool IsCtrlPWOff);
+EPD_interface.h (EPD_drivers\src) line 44 : uint8_t EPD_display_PU_from_pointer(uint8_t *previous_image_ptr,	uint8_t *new_image_ptr,bool IsCtrlPWOff,uint16_t PU_Time);
+EPD_interface.h (EPD_drivers\src) line 46 : uint8_t EPD_display_FT_from_pointer(uint8_t *previous_image_ptr,uint8_t *new_image_ptr,bool IsCtrlPWOff);
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 544 :  * \param previous_image_ptr The pointer of memory that stores previous image
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 547 : uint8_t eTC_G1Mb_Display_from_Ram (uint8_t *previous_image_ptr,
+eTC_G1Mb_Display_from_Ram in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G1Mb_GU_Handle_19_26(previous_image_ptr,ADDRESS_NULL,Stage1);
+eTC_G1Mb_Display_from_Ram in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G1Mb_GU_Handle_19_26(previous_image_ptr,ADDRESS_NULL,Stage2);
+eTC_G1Mb_Display_from_Ram in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :         eTC_G1Mb_GU_Handle(previous_image_ptr,ADDRESS_NULL,Stage1);
+eTC_G1Mb_Display_from_Ram in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G1Mb_GU_Handle(previous_image_ptr,ADDRESS_NULL,Stage2);
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 606 : static void eTC_G1Mb_Handle_PU_19_26(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G1Mb_Handle_PU_19_26 in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 		r_previous_image_ptr=previous_image_ptr;
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 703 : static void eTC_G1Mb_Handle_PU(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G1Mb_Handle_PU in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 		r_previous_image_ptr=previous_image_ptr;
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 779 : void eTC_G1Mb_PU_Collection(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G1Mb_PU_Collection in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	 eTC_G1Mb_Handle_PU_19_26(previous_image_ptr,new_image_ptr,previous_image_address,new_image_address);
+eTC_G1Mb_PU_Collection in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	 eTC_G1Mb_Handle_PU(previous_image_ptr,new_image_ptr,previous_image_address,new_image_address);
+eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 803 : void eTC_G1Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+eTC_G1Mb_Display_PU_from_Ram in eTC_G1_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G1Mb_PU_Collection(previous_image_ptr,
+eTC_G1_Size_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 126 : uint8_t eTC_G1Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+eTC_G1_Size_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 130 : void eTC_G1Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+eTC_G2_Size_Aurora_Ma.c (EPD_drivers\src\FPL_drivers) line 683 :  * \param previous_image_ptr The pointer of memory that stores previous image
+eTC_G2_Size_Aurora_Ma.c (EPD_drivers\src\FPL_drivers) line 686 : uint8_t eTC_G2Ma_Display_from_Ram (uint8_t *previous_image_ptr,
+eTC_G2_Size_Aurora_Ma.h (EPD_drivers\src\FPL_drivers) line 138 : uint8_t eTC_G2Ma_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 527 : uint8_t eTC_G2Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr) {
+eTC_G2Mb_Display_from_Ram in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G2Mb_GU_Handle_19_26(previous_image_ptr,ADDRESS_NULL,Stage1);
+eTC_G2Mb_Display_from_Ram in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G2Mb_GU_Handle_19_26(previous_image_ptr,ADDRESS_NULL,Stage2);
+eTC_G2Mb_Display_from_Ram in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :         eTC_G2Mb_GU_Handle(previous_image_ptr,ADDRESS_NULL,Stage1);
+eTC_G2Mb_Display_from_Ram in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G2Mb_GU_Handle(previous_image_ptr,ADDRESS_NULL,Stage2);
+eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 579 : static void eTC_G2Mb_Handle_PU_19_26(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G2Mb_Handle_PU_19_26 in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 		r_previous_image_ptr=previous_image_ptr;
+eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 675 : static void eTC_G2Mb_Handle_PU(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G2Mb_Handle_PU in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 		r_previous_image_ptr=previous_image_ptr;
+eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 754 : void eTC_G2Mb_PU_Collection(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,
+eTC_G2Mb_PU_Collection in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G2Mb_Handle_PU_19_26(previous_image_ptr,new_image_ptr,previous_image_address,new_image_address);        
+eTC_G2Mb_PU_Collection in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	 eTC_G2Mb_Handle_PU(previous_image_ptr,new_image_ptr,previous_image_address,new_image_address);
+eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 781 : void eTC_G2Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+eTC_G2Mb_Display_PU_from_Ram in eTC_G2_Size_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     	eTC_G2Mb_PU_Collection(previous_image_ptr,
+eTC_G2_Size_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 111 : uint8_t eTC_G2Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+eTC_G2_Size_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 115 : void    eTC_G2Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+iTC_215_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 112 : uint8_t iTC_215Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_215Mb_Display_from_Ram in iTC_215_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_215_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 122 : void iTC_215Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+iTC_215Mb_Display_PU_from_Ram in iTC_215_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) :     iTC_Display_PU_from_Ram(previous_image_ptr, new_image_ptr,PU_Time);
+iTC_215_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 40 : uint8_t iTC_215Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_215_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 43 : void iTC_215Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+iTC_287_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 102 : uint8_t iTC_287Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_287Mb_Display_from_Ram in iTC_287_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 	return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_287_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 112 : void iTC_287Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+iTC_287Mb_Display_PU_from_Ram in iTC_287_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 	iTC_Display_PU_from_Ram(previous_image_ptr, new_image_ptr,PU_Time);
+iTC_287_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 38 : uint8_t iTC_287Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_287_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 41 : void iTC_287Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+iTC_287_Spectra.c (EPD_drivers\src\FPL_drivers) line 105 : uint8_t iTC_287Sp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_287Sp_Display_from_Ram in iTC_287_Spectra.c (EPD_drivers\src\FPL_drivers) : 	return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_287_Spectra.h (EPD_drivers\src\FPL_drivers) line 39 : uint8_t iTC_287Sp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_420_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 102 : uint8_t iTC_420Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_420Mb_Display_from_Ram in iTC_420_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 	return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_420_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) line 112 : void iTC_420Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+iTC_420Mb_Display_PU_from_Ram in iTC_420_Aurora_Mb.c (EPD_drivers\src\FPL_drivers) : 	iTC_Display_PU_from_Ram(previous_image_ptr, new_image_ptr,PU_Time);
+iTC_420_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 39 : uint8_t iTC_420Mb_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_420_Aurora_Mb.h (EPD_drivers\src\FPL_drivers) line 42 : void iTC_420Mb_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+iTC_420_Spectra.c (EPD_drivers\src\FPL_drivers) line 109 : uint8_t iTC_420Sp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_420Sp_Display_from_Ram in iTC_420_Spectra.c (EPD_drivers\src\FPL_drivers) : 	return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_420_Spectra.c (EPD_drivers\src\FPL_drivers) line 181 : uint8_t iTC_420Sp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_420_Spectra.h (EPD_drivers\src\FPL_drivers) line 39 : uint8_t iTC_420Sp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_Engine.c (EPD_drivers\src\FPL_drivers) line 453 : void iTC_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time)
+iTC_Display_PU_from_Ram in iTC_Engine.c (EPD_drivers\src\FPL_drivers) : 	PImageData=previous_image_ptr;
+iTC_Engine.c (EPD_drivers\src\FPL_drivers) line 602 : uint8_t iTC_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_Engine.h (EPD_drivers\src\FPL_drivers) line 185 : uint8_t iTC_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);
+iTC_Engine.h (EPD_drivers\src\FPL_drivers) line 189 : void iTC_Display_PU_from_Ram(uint8_t *previous_image_ptr, uint8_t *new_image_ptr,uint16_t PU_Time);
+iTC_UC8451c_Spectra.c (EPD_drivers\src\FPL_drivers) line 110 : uint8_t iTC_UC8451cSp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr)
+iTC_UC8451cSp_Display_from_Ram in iTC_UC8451c_Spectra.c (EPD_drivers\src\FPL_drivers) : 	return iTC_Display_from_Ram(previous_image_ptr,new_image_ptr);
+iTC_UC8451c_Spectra.h (EPD_drivers\src\FPL_drivers) line 39 : uint8_t iTC_UC8451cSp_Display_from_Ram (uint8_t *previous_image_ptr,uint8_t *new_image_ptr);

@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+symbolAutoCompleteHistory<seperator>org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser<seperator>Stellaris\ In-Circuit\ Debug\ Interface\\CORTEX_M4_0=0x20002000,0x0000779C,0x20000B08,0x8cc1,0x8cc41
+symbolAutoCompleteHistory<seperator>org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser<seperator>Texas\ Instruments\ XDS110\ USB\ Debug\ Probe\\CORTEX_M4_0=0x20000a24
+useAnnotationsPrefPage=true

@@ -1,0 +1,785 @@
+******************************************************************************
+                  TI ARM Linker PC v16.9.4                     
+******************************************************************************
+>> Linked Thu Nov 09 12:09:43 2017
+
+OUTPUT FILE NAME:   <CC3200 LaunchPad.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 20006fc9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SRAM_CODE             20004000   00019000  000054b0  00013b50  RW X
+  SRAM_DATA             2001d000   00023000  000010ac  00021f54  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+20004000    20004000    000054b8   000054b8    r-x
+  20004000    20004000    00000400   00000400    r-- .intvecs
+  20004400    20004400    0000339a   0000339a    r-x .text
+  2000779c    2000779c    00001ca6   00001ca6    r-- .const
+  20009448    20009448    00000070   00000070    r-- .cinit
+2001d000    2001d000    000008ac   00000000    rw-
+  2001d000    2001d000    00000800   00000000    rw- .sysmem
+  2001d800    2001d800    0000006c   00000000    rw- .data
+  2001d86c    2001d86c    00000040   00000000    rw- .bss
+2003f800    2003f800    00000800   00000000    rw-
+  2003f800    2003f800    00000800   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    20004000    00000400     
+                  20004000    00000400     startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    20004000    00000000     UNINITIALIZED
+
+.text      0    20004400    0000339a     
+                  20004400    00000de0     iTC_Engine.obj (.text)
+                  200051e0    00000534     EPD_interface.obj (.text)
+                  20005714    00000464     Board_HW_Driver.obj (.text)
+                  20005b78    000003d0     rtsv7M4_T_le_eabi.lib : memory.obj (.text)
+                  20005f48    00000324     EPD_Temperature_IIC.obj (.text)
+                  2000626c    00000134     driverlib.a : prcm.obj (.text:PRCMCC3200MCUInit)
+                  200063a0    000000fa     timer_if.obj (.text)
+                  2000649a    000000d0     driverlib.a : spi.obj (.text:SPITransfer32)
+                  2000656a    000000ce                 : spi.obj (.text:SPITransfer16)
+                  20006638    000000b8                 : spi.obj (.text:SPITransfer8)
+                  200066f0    000000ac     iTC_215_Aurora_Mb.obj (.text)
+                  2000679c    000000a8     driverlib.a : interrupt.obj (.text:IntDisable)
+                  20006844    000000a8                 : interrupt.obj (.text:IntEnable)
+                  200068ec    000000a0                 : spi.obj (.text:SPIConfigSetExpClk)
+                  2000698c    0000009c     rtsv7M4_T_le_eabi.lib : memcpy_t2.obj (.text)
+                  20006a28    00000094     driverlib.a : prcm.obj (.text:PRCMPeripheralClockGet)
+                  20006abc    00000088                 : pin.obj (.text:PinConfigSet)
+                  20006b44    00000088                 : spi.obj (.text:SPITransfer)
+                  20006bcc    0000007a     rtsv7M4_T_le_eabi.lib : memset_t2.obj (.text)
+                  20006c46    00000002     driverlib.a : interrupt.obj (.text:IntDefaultHandler)
+                  20006c48    00000070                 : timer.obj (.text:TimerIntRegister)
+                  20006cb8    00000070     rtsv7M4_T_le_eabi.lib : autoinit.obj (.text)
+                  20006d28    00000068     driverlib.a : timer.obj (.text:TimerIntUnregister)
+                  20006d90    00000068     rtsv7M4_T_le_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  20006df8    00000058     driverlib.a : prcm.obj (.text:PRCMPeripheralReset)
+                  20006e50    00000054     main_single_driver.obj (.text)
+                  20006ea4    00000054     rtsv7M4_T_le_eabi.lib : exit.obj (.text)
+                  20006ef8    0000004c                           : cpy_tbl.obj (.text)
+                  20006f44    00000044     driverlib.a : timer.obj (.text:TimerConfigure)
+                  20006f88    00000040                 : pin.obj (.text:PinModeSet)
+                  20006fc8    00000040     rtsv7M4_T_le_eabi.lib : boot.obj (.text)
+                  20007008    0000003c     driverlib.a : prcm.obj (.text:PRCMPeripheralClkEnable)
+                  20007044    00000036                 : gpio.obj (.text:GPIODirModeSet)
+                  2000707a    00000002     rtsv7M4_T_le_eabi.lib : mpu_init.obj (.text)
+                  2000707c    00000034     EPD_Temperature_IIC.obj (.text:getSDA)
+                  200070b0    00000030     driverlib.a : pin.obj (.text:PinTypeGPIO)
+                  200070e0    00000030     EPD_Temperature_IIC.obj (.text:TS_SCL_High)
+                  20007110    00000030     EPD_Temperature_IIC.obj (.text:TS_SDA_High)
+                  20007140    0000002c     driverlib.a : prcm.obj (.text:PRCMSysResetCauseGet)
+                  2000716c    0000002a                 : timer.obj (.text:TimerLoadSet)
+                  20007196    0000002a                 : timer.obj (.text:TimerPrescaleSet)
+                  200071c0    00000028                 : prcm.obj (.text:PRCMPeripheralClkDisable)
+                  200071e8    00000024                 : interrupt.obj (.text:IntUnregister)
+                  2000720c    00000024     EPD_Temperature_IIC.obj (.text:TS_SCL_Low)
+                  20007230    00000024     EPD_Temperature_IIC.obj (.text:TS_SDA_Low)
+                  20007254    00000022     driverlib.a : spi.obj (.text:SPIReset)
+                  20007276    00000020                 : gpio.obj (.text:GPIOPinWrite)
+                  20007296    00000002     rtsv7M4_T_le_eabi.lib : startup.obj (.text)
+                  20007298    00000020     driverlib.a : interrupt.obj (.text:IntRegister)
+                  200072b8    0000001e                 : timer.obj (.text:TimerDisable)
+                  200072d6    0000001e                 : timer.obj (.text:TimerEnable)
+                  200072f4    0000001e                 : timer.obj (.text:TimerIntStatus)
+                  20007312    00000002     --HOLE-- [fill = 0]
+                  20007314    0000001c     Board_HW_Driver.obj (.text:Config_BS1_Pin)
+                  20007330    0000001c     Board_HW_Driver.obj (.text:Config_EPD_DC_Pin)
+                  2000734c    0000001c     Board_HW_Driver.obj (.text:Config_EPD_border_Pin)
+                  20007368    0000001c     Board_HW_Driver.obj (.text:Config_EPD_cs_Pin)
+                  20007384    0000001c     Board_HW_Driver.obj (.text:Config_EPD_flash_cs_Pin)
+                  200073a0    0000001c     Board_HW_Driver.obj (.text:Config_EPD_panelon_Pin)
+                  200073bc    0000001c     Board_HW_Driver.obj (.text:Config_EPD_pwm_Pin)
+                  200073d8    0000001c     Board_HW_Driver.obj (.text:Config_EPD_rst_Pin)
+                  200073f4    0000001c     Board_HW_Driver.obj (.text:Config_LED1_Pin)
+                  20007410    0000001c     driverlib.a : timer.obj (.text:TimerValueGet)
+                  2000742c    0000001a     Board_HW_Driver.obj (.text:Config_Busy_Pin)
+                  20007446    0000001a     Board_HW_Driver.obj (.text:Config_EPD_discharge_Pin)
+                  20007460    0000001a     driverlib.a : pin.obj (.text:PinTypeSPI)
+                  2000747a    00000018     Board_HW_Driver.obj (.text:Config_EPD_DB1_Pin)
+                  20007492    00000018     Board_HW_Driver.obj (.text:Config_EPD_DB2_Pin)
+                  200074aa    00000018     Board_HW_Driver.obj (.text:EPD_IsBusy)
+                  200074c2    00000018     driverlib.a : gpio.obj (.text:GPIOPinRead)
+                  200074da    00000018                 : spi.obj (.text:SPICSDisable)
+                  200074f2    00000018                 : spi.obj (.text:SPICSEnable)
+                  2000750a    00000018                 : spi.obj (.text:SPIDisable)
+                  20007522    00000018                 : spi.obj (.text:SPIEnable)
+                  2000753a    00000018                 : timer.obj (.text:TimerIntDisable)
+                  20007552    00000018                 : timer.obj (.text:TimerIntEnable)
+                  2000756a    00000002     --HOLE-- [fill = 0]
+                  2000756c    00000018     rtsv7M4_T_le_eabi.lib : args_main.obj (.text)
+                  20007584    00000016     driverlib.a : prcm.obj (.text:PRCMHIBRegRead)
+                  2000759a    00000016                 : prcm.obj (.text:PRCMHIBRegWrite)
+                  200075b0    00000014     Board_HW_Driver.obj (.text:BS1_low)
+                  200075c4    00000014     driverlib.a : cpu.obj (.text:CPUcpsie)
+                  200075d8    00000014     Board_HW_Driver.obj (.text:EPD_DC_high)
+                  200075ec    00000014     Board_HW_Driver.obj (.text:EPD_DC_low)
+                  20007600    00000014     Board_HW_Driver.obj (.text:EPD_Vcc_turn_off)
+                  20007614    00000014     Board_HW_Driver.obj (.text:EPD_Vcc_turn_on)
+                  20007628    00000014     Board_HW_Driver.obj (.text:EPD_border_low)
+                  2000763c    00000014     Board_HW_Driver.obj (.text:EPD_cs_high)
+                  20007650    00000014     Board_HW_Driver.obj (.text:EPD_cs_low)
+                  20007664    00000014     Board_HW_Driver.obj (.text:EPD_flash_cs_high)
+                  20007678    00000014     Board_HW_Driver.obj (.text:EPD_pwm_high)
+                  2000768c    00000014     Board_HW_Driver.obj (.text:EPD_pwm_low)
+                  200076a0    00000014     Board_HW_Driver.obj (.text:EPD_rst_high)
+                  200076b4    00000014     Board_HW_Driver.obj (.text:EPD_rst_low)
+                  200076c8    00000014     driverlib.a : interrupt.obj (.text:IntVTableBaseSet)
+                  200076dc    00000014     Board_HW_Driver.obj (.text:SPICLK_low)
+                  200076f0    00000014     Board_HW_Driver.obj (.text:SPIMISO_low)
+                  20007704    00000014     Board_HW_Driver.obj (.text:SPIMOSI_low)
+                  20007718    00000014     rtsv7M4_T_le_eabi.lib : _lock.obj (.text)
+                  2000772c    00000012     driverlib.a : timer.obj (.text:TimerIntClear)
+                  2000773e    00000010     Board_HW_Driver.obj (.text:EPD_discharge_high)
+                  2000774e    00000010     Board_HW_Driver.obj (.text:EPD_discharge_low)
+                  2000775e    0000000e     rtsv7M4_T_le_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  2000776c    0000000e     startup_ccs.obj (.text)
+                  2000777a    0000000c     rtsv7M4_T_le_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  20007786    0000000a     driverlib.a : interrupt.obj (.text:IntMasterEnable)
+                  20007790    00000006                 : utils.obj (.text:UtilsDelay)
+                  20007796    00000004     rtsv7M4_T_le_eabi.lib : pre_init.obj (.text)
+
+.const     0    2000779c    00001ca6     
+                  2000779c    00000b60     Image_iTC_215_01.obj (.const:.string:Image_iTC_215_01)
+                  200082fc    00000b60     Image_iTC_215_02.obj (.const:.string:Image_iTC_215_02)
+                  20008e5c    00000181     iTC_215_Mb_LUT.obj (.const:.string:$P$T2)
+                  20008fdd    00000001     iTC_215_Mb_LUT.obj (.const:.string:$P$T3)
+                  20008fde    00000002     --HOLE-- [fill = 0]
+                  20008fe0    00000100     driverlib.a : pin.obj (.const:g_ulPinToPadMap)
+                  200090e0    000000a8                 : prcm.obj (.const:PRCM_PeriphRegsList)
+                  20009188    00000080                 : interrupt.obj (.const)
+                  20009208    00000050     iTC_215_Mb_LUT.obj (.const:.string:$P$T1)
+                  20009258    0000003d     iTC_215_Mb_LUT.obj (.const:.string:$P$T6)
+                  20009295    0000003a     iTC_215_Mb_LUT.obj (.const:.string:$P$T7)
+                  200092cf    00000032     iTC_215_Aurora_Mb.obj (.const:.string:$P$T2)
+                  20009301    00000003     --HOLE-- [fill = 0]
+                  20009304    00000028     EPD_interface.obj (.const:Driver_Handle_list)
+                  2000932c    00000024     iTC_215_Aurora_Mb.obj (.const:.string:$P$T1)
+                  20009350    00000019     iTC_215_Aurora_Mb.obj (.const:.string:$P$T0)
+                  20009369    00000019     iTC_215_Mb_LUT.obj (.const:.string:$P$T5)
+                  20009382    00000014     iTC_215_Mb_LUT.obj (.const:iTC_215Mb_LUT)
+                  20009396    00000014     iTC_215_Aurora_Mb.obj (.const:iTC_215Mb_OTP_LUT)
+                  200093aa    00000014     iTC_215_Mb_LUT.obj (.const:iTC_215Mb_PU_LUT)
+                  200093be    00000013     iTC_215_Aurora_Mb.obj (.const:.string:$P$T3)
+                  200093d1    00000013     iTC_215_Mb_LUT.obj (.const:.string:$P$T8)
+                  200093e4    00000010     iTC_Engine.obj (.const:.string:$P$T0$1)
+                  200093f4    00000010     iTC_Engine.obj (.const:.string:$P$T1$2)
+                  20009404    00000010     iTC_Engine.obj (.const:.string:$P$T2$3)
+                  20009414    00000010     iTC_Engine.obj (.const:.string:$P$T3$4)
+                  20009424    0000000a     iTC_215_Aurora_Mb.obj (.const:.string:$P$T4)
+                  2000942e    0000000a     iTC_215_Mb_LUT.obj (.const:.string:$P$T4)
+                  20009438    0000000a     iTC_215_Mb_LUT.obj (.const:.string:$P$T9)
+
+.cinit     0    20009448    00000070     
+                  20009448    00000049     (.cinit..data.load) [load image, compression = lzss]
+                  20009491    00000003     --HOLE-- [fill = 0]
+                  20009494    0000000c     (__TI_handler_table)
+                  200094a0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  200094a8    00000010     (__TI_cinit_table)
+
+.sysmem    0    2001d000    00000800     UNINITIALIZED
+                  2001d000    00000008     rtsv7M4_T_le_eabi.lib : memory.obj (.sysmem)
+                  2001d008    000007f8     --HOLE--
+
+.data      0    2001d800    0000006c     UNINITIALIZED
+                  2001d800    0000002c     iTC_Engine.obj (.data)
+                  2001d82c    00000019     iTC_215_Mb_LUT.obj (.data:$P$T0)
+                  2001d845    00000002     EPD_interface.obj (.data:$P$T0)
+                  2001d847    00000001     Board_HW_Driver.obj (.data)
+                  2001d848    0000000c     rtsv7M4_T_le_eabi.lib : exit.obj (.data:$O1$$)
+                  2001d854    0000000c                           : memory.obj (.data:$O1$$)
+                  2001d860    00000008                           : _lock.obj (.data:$O1$$)
+                  2001d868    00000004                           : stkdepth_vars.obj (.data)
+
+.bss       0    2001d86c    00000040     UNINITIALIZED
+                  2001d86c    00000018     (.common:IIC_IO)
+                  2001d884    00000015     iTC_Engine.obj (.bss)
+                  2001d899    00000003     --HOLE--
+                  2001d89c    0000000b     EPD_interface.obj (.bss)
+                  2001d8a7    00000001     --HOLE--
+                  2001d8a8    00000004     Board_HW_Driver.obj (.bss)
+
+.stack     0    2003f800    00000800     UNINITIALIZED
+                  2003f800    00000800     --HOLE--
+
+MODULE SUMMARY
+
+       Module                     code    ro data   rw data
+       ------                     ----    -------   -------
+    .\src\
+       startup_ccs.obj            14      1024      0      
+       main_single_driver.obj     84      0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     98      1024      0      
+                                                           
+    .\src\HW_drivers\
+       Board_HW_Driver.obj        1852    0         5      
+       EPD_Temperature_IIC.obj    1024    0         24     
+       timer_if.obj               250     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     3126    0         29     
+                                                           
+    .\src\Images\
+       Image_iTC_215_01.obj       0       2912      0      
+       Image_iTC_215_02.obj       0       2912      0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     0       5824      0      
+                                                           
+    .\src\PDI_displays_drivers\
+       EPD_interface.obj          1332    40        13     
+       iTC_215_Mb_LUT.obj         0       689       25     
+    +--+--------------------------+-------+---------+---------+
+       Total:                     1332    729       38     
+                                                           
+    .\src\PDI_displays_drivers\FPL_drivers\
+       iTC_Engine.obj             3552    64        65     
+       iTC_215_Aurora_Mb.obj      172     160       0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     3724    224       65     
+                                                           
+    ../src/driverlib.a
+       spi.obj                    1024    0         0      
+       prcm.obj                   732     168       0      
+       interrupt.obj              436     128       0      
+       timer.obj                  552     0         0      
+       pin.obj                    274     256       0      
+       gpio.obj                   110     0         0      
+       cpu.obj                    20      0         0      
+       utils.obj                  6       0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     3154    552       0      
+                                                           
+    C:\ti\ccsv7\tools\compiler\ti-cgt-arm_16.9.4.LTS\lib\rtsv7M4_T_le_eabi.lib
+       memory.obj                 976     0         12     
+       memcpy_t2.obj              156     0         0      
+       memset_t2.obj              122     0         0      
+       autoinit.obj               112     0         0      
+       copy_decompress_lzss.obj   104     0         0      
+       exit.obj                   84      0         12     
+       cpy_tbl.obj                76      0         0      
+       boot.obj                   64      0         0      
+       _lock.obj                  20      0         8      
+       args_main.obj              24      0         0      
+       copy_decompress_none.obj   14      0         0      
+       copy_zero_init.obj         12      0         0      
+       pre_init.obj               4       0         0      
+       stkdepth_vars.obj          0       0         4      
+       mpu_init.obj               2       0         0      
+       startup.obj                2       0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     1772    0         36     
+                                                           
+       Heap:                      0       0         2048   
+       Stack:                     0       0         2048   
+       Linker Generated:          0       109       0      
+    +--+--------------------------+-------+---------+---------+
+       Grand Total:               13206   8462      4264   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 200094a8 records: 2, size/record: 8, table size: 16
+	.data: load addr=20009448, load size=00000049 bytes, run addr=2001d800, run size=0000006c bytes, compression=lzss
+	.bss: load addr=200094a0, load size=00000008 bytes, run addr=2001d86c, run size=00000040 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 20009494 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+200075b1  BS1_low                        
+20006ea5  C$$EXIT                        
+200075c5  CPUcpsie                       
+20007315  Config_BS1_Pin                 
+2000742d  Config_Busy_Pin                
+2000747b  Config_EPD_DB1_Pin             
+20007493  Config_EPD_DB2_Pin             
+20007331  Config_EPD_DC_Pin              
+2000734d  Config_EPD_border_Pin          
+20007369  Config_EPD_cs_Pin              
+20007447  Config_EPD_discharge_Pin       
+20007385  Config_EPD_flash_cs_Pin        
+200073a1  Config_EPD_panelon_Pin         
+200073bd  Config_EPD_pwm_Pin             
+200073d9  Config_EPD_rst_Pin             
+200073f5  Config_LED1_Pin                
+20006177  DetectionTemperature           
+200075d9  EPD_DC_high                    
+200075ed  EPD_DC_low                     
+200059cf  EPD_Gx_spi_r                   
+20005a13  EPD_Gx_spi_rid                 
+20005a3d  EPD_Gx_spi_send                
+20005a99  EPD_Gx_spi_send_byte           
+200074ab  EPD_IsBusy                     
+200052e9  EPD_Power_off_Ex               
+20007601  EPD_Vcc_turn_off               
+20007615  EPD_Vcc_turn_on                
+20007629  EPD_border_low                 
+2000763d  EPD_cs_high                    
+20007651  EPD_cs_low                     
+2000577d  EPD_delay_ms                   
+2000773f  EPD_discharge_high             
+2000774f  EPD_discharge_low              
+200054ad  EPD_display_FT_from_pointer    
+20005639  EPD_display_GU_from_flash      
+20005579  EPD_display_GU_from_pointer    
+2000531b  EPD_display_PU_from_flash      
+200053dd  EPD_display_PU_from_pointer    
+20005b51  EPD_display_hardware_init      
+200051e1  EPD_display_init               
+20007665  EPD_flash_cs_high              
+20005af1  EPD_initialize_gpio            
+20007679  EPD_pwm_high                   
+2000768d  EPD_pwm_low                    
+200076a1  EPD_rst_high                   
+200076b5  EPD_rst_low                    
+200057d7  EPD_spi_attach                 
+2000583b  EPD_spi_detach                 
+200058b5  EPD_spi_read                   
+200058d3  EPD_spi_write                  
+20004b1b  Ex_RunEngine                   
+20007045  GPIODirModeSet                 
+200074c3  GPIOPinRead                    
+20007277  GPIOPinWrite                   
+2001d86c  IIC_IO                         
+2000779c  Image_iTC_215_01               
+200082fc  Image_iTC_215_02               
+2000679d  IntDisable                     
+20006845  IntEnable                      
+20007787  IntMasterEnable                
+20007299  IntRegister                    
+200071e9  IntUnregister                  
+200076c9  IntVTableBaseSet               
+2000626d  PRCMCC3200MCUInit              
+20007585  PRCMHIBRegRead                 
+2000759b  PRCMHIBRegWrite                
+200071c1  PRCMPeripheralClkDisable       
+20007009  PRCMPeripheralClkEnable        
+20006a29  PRCMPeripheralClockGet         
+20006df9  PRCMPeripheralReset            
+20007141  PRCMSysResetCauseGet           
+2000579d  PWM_run                        
+20006abd  PinConfigSet                   
+20006f89  PinModeSet                     
+200070b1  PinTypeGPIO                    
+20007461  PinTypeSPI                     
+2000776d  ResetISR                       
+20004b4f  RunEngine                      
+20005fc9  SCL_High                       
+20005fd5  SCL_Low                        
+20005f69  SDA_High                       
+20005f99  SDA_Low                        
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+200076dd  SPICLK_low                     
+200074db  SPICSDisable                   
+200074f3  SPICSEnable                    
+200068ed  SPIConfigSetExpClk             
+2000750b  SPIDisable                     
+20007523  SPIEnable                      
+200076f1  SPIMISO_low                    
+20007705  SPIMOSI_low                    
+20007255  SPIReset                       
+20006b45  SPITransfer                    
+20004b0b  SetPU_ImageDataHandle          
+200051f5  Set_AssignEPD_Drive            
+2000573f  SysTickIntHandler              
+20005737  Systick_Configuration          
+200070e1  TS_SCL_High                    
+2000720d  TS_SCL_Low                     
+20007111  TS_SDA_High                    
+20007231  TS_SDA_Low                     
+2000576b  TimerBaseIntHandler            
+20006f45  TimerConfigure                 
+200072b9  TimerDisable                   
+200072d7  TimerEnable                    
+2000772d  TimerIntClear                  
+2000753b  TimerIntDisable                
+20007553  TimerIntEnable                 
+20006c49  TimerIntRegister               
+200072f5  TimerIntStatus                 
+20006d29  TimerIntUnregister             
+2000716d  TimerLoadSet                   
+20007197  TimerPrescaleSet               
+20007411  TimerValueGet                  
+20006455  Timer_IF_DeInit                
+20006483  Timer_IF_GetCount              
+200063a1  Timer_IF_Init                  
+200063d3  Timer_IF_IntSetup              
+20006411  Timer_IF_InterruptClear        
+2000646f  Timer_IF_ReLoad                
+20006429  Timer_IF_Start                 
+20006445  Timer_IF_Stop                  
+20007791  UtilsDelay                     
+20040000  __STACK_END                    
+00000800  __STACK_SIZE                   
+00000800  __SYSMEM_SIZE                  
+200094a8  __TI_CINIT_Base                
+200094b8  __TI_CINIT_Limit               
+20009494  __TI_Handler_Table_Base        
+200094a0  __TI_Handler_Table_Limit       
+20006cb9  __TI_auto_init                 
+2001d848  __TI_cleanup_ptr               
+20006d91  __TI_decompress_lzss           
+2000775f  __TI_decompress_none           
+2001d84c  __TI_dtors_ptr                 
+2001d850  __TI_enable_exit_profile_output
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+20009448  __TI_static_base__             
+2000777b  __TI_zero_init                 
+20006bcd  __aeabi_memclr                 
+20006bcd  __aeabi_memclr4                
+20006bcd  __aeabi_memclr8                
+2000698d  __aeabi_memcpy                 
+2000698d  __aeabi_memcpy4                
+2000698d  __aeabi_memcpy8                
+20006bcf  __aeabi_memset                 
+20006bcf  __aeabi_memset4                
+20006bcf  __aeabi_memset8                
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+2000707b  __mpu_init                     
+2003f800  __stack                        
+2000756d  _args_main                     
+20006fc9  _c_int00                       
+2001d860  _lock                          
+20007727  _nop                           
+2000771f  _register_lock                 
+20007719  _register_unlock               
+2001d000  _sys_memory                    
+20007297  _system_post_cinit             
+20007797  _system_pre_init               
+2001d864  _unlock                        
+20006ea9  abort                          
+ffffffff  binit                          
+20005f19  calloc                         
+200058a3  check_flash_spi                
+20006ef9  copy_in                        
+20004469  decod_cmd                      
+2000579b  delay_btwn_CS_H_L              
+200057cd  epd_spi_init                   
+20006eb1  exit                           
+20005c63  free                           
+20004000  g_pfnVectors                   
+2000707d  getSDA                         
+200061c7  getTemperature                 
+2000612b  getTemperatureOne              
+20005765  get_EPD_time_tick              
+20005733  getnowtime                     
+20005fe1  i2c_Init                       
+200060cf  i2c_ReadAck                    
+200060f3  i2c_WriteAck                   
+20005f49  i2c_delay                      
+2000602d  i2c_in_BYTE                    
+20006083  i2c_out_BYTE                   
+20006103  i2c_start                      
+20006117  i2c_stop                       
+20006765  iTC_215Mb_Display_PU_From_Flash
+2000674d  iTC_215Mb_Display_PU_from_Ram  
+20006729  iTC_215Mb_Display_from_Ram     
+20006739  iTC_215Mb_Display_from_flash   
+200066f1  iTC_215Mb_IO_Config            
+20009382  iTC_215Mb_LUT                  
+20009396  iTC_215Mb_OTP_LUT              
+200093aa  iTC_215Mb_PU_LUT               
+20006719  iTC_215Mb_initialize_driver    
+20006787  iTC_215Mb_power_off            
+200066f9  iTC_215Mb_power_on             
+20004d4d  iTC_Display_PU_From_Flash      
+20004d15  iTC_Display_PU_from_Ram        
+20005097  iTC_Display_from_Ram           
+20005105  iTC_Display_from_flash         
+20004b91  iTC_Engine_init                
+20004f7d  iTC_IO_Config                  
+20004d9d  iTC_ReadLineData_Handle        
+20004eb1  iTC_ReadLineData_Handle_1bit   
+20004ed9  iTC_ReadLineData_Handle_2bit   
+20004bc9  iTC_ReadLineData_PU_Handle     
+2000502d  iTC_initialize_driver          
+2000516f  iTC_power_off                  
+20004fc5  iTC_power_on                   
+2000592f  iTC_spi_send                   
+200058e3  iTC_spi_sendReg                
+2000591f  iTC_spi_sendRegData            
+20005981  iTC_spi_send_array             
+20005715  initialize_EPD_timer           
+20006e51  main                           
+2001d868  main_func_sp                   
+20005bf9  malloc                         
+20005e2d  memalign                       
+2000698d  memcpy                         
+20006bd5  memset                         
+20005b79  minit                          
+20004401  readLUTData                    
+20005d25  realloc                        
+2001d847  spi_state                      
+20005745  start_EPD_timer                
+20005759  stop_EPD_timer                 
+20005ad5  system_init                    
+20005743  systick_Start                  
+20005741  systick_Stop                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000800  __STACK_SIZE                   
+00000800  __SYSMEM_SIZE                  
+20004000  g_pfnVectors                   
+20004401  readLUTData                    
+20004469  decod_cmd                      
+20004b0b  SetPU_ImageDataHandle          
+20004b1b  Ex_RunEngine                   
+20004b4f  RunEngine                      
+20004b91  iTC_Engine_init                
+20004bc9  iTC_ReadLineData_PU_Handle     
+20004d15  iTC_Display_PU_from_Ram        
+20004d4d  iTC_Display_PU_From_Flash      
+20004d9d  iTC_ReadLineData_Handle        
+20004eb1  iTC_ReadLineData_Handle_1bit   
+20004ed9  iTC_ReadLineData_Handle_2bit   
+20004f7d  iTC_IO_Config                  
+20004fc5  iTC_power_on                   
+2000502d  iTC_initialize_driver          
+20005097  iTC_Display_from_Ram           
+20005105  iTC_Display_from_flash         
+2000516f  iTC_power_off                  
+200051e1  EPD_display_init               
+200051f5  Set_AssignEPD_Drive            
+200052e9  EPD_Power_off_Ex               
+2000531b  EPD_display_PU_from_flash      
+200053dd  EPD_display_PU_from_pointer    
+200054ad  EPD_display_FT_from_pointer    
+20005579  EPD_display_GU_from_pointer    
+20005639  EPD_display_GU_from_flash      
+20005715  initialize_EPD_timer           
+20005733  getnowtime                     
+20005737  Systick_Configuration          
+2000573f  SysTickIntHandler              
+20005741  systick_Stop                   
+20005743  systick_Start                  
+20005745  start_EPD_timer                
+20005759  stop_EPD_timer                 
+20005765  get_EPD_time_tick              
+2000576b  TimerBaseIntHandler            
+2000577d  EPD_delay_ms                   
+2000579b  delay_btwn_CS_H_L              
+2000579d  PWM_run                        
+200057cd  epd_spi_init                   
+200057d7  EPD_spi_attach                 
+2000583b  EPD_spi_detach                 
+200058a3  check_flash_spi                
+200058b5  EPD_spi_read                   
+200058d3  EPD_spi_write                  
+200058e3  iTC_spi_sendReg                
+2000591f  iTC_spi_sendRegData            
+2000592f  iTC_spi_send                   
+20005981  iTC_spi_send_array             
+200059cf  EPD_Gx_spi_r                   
+20005a13  EPD_Gx_spi_rid                 
+20005a3d  EPD_Gx_spi_send                
+20005a99  EPD_Gx_spi_send_byte           
+20005ad5  system_init                    
+20005af1  EPD_initialize_gpio            
+20005b51  EPD_display_hardware_init      
+20005b79  minit                          
+20005bf9  malloc                         
+20005c63  free                           
+20005d25  realloc                        
+20005e2d  memalign                       
+20005f19  calloc                         
+20005f49  i2c_delay                      
+20005f69  SDA_High                       
+20005f99  SDA_Low                        
+20005fc9  SCL_High                       
+20005fd5  SCL_Low                        
+20005fe1  i2c_Init                       
+2000602d  i2c_in_BYTE                    
+20006083  i2c_out_BYTE                   
+200060cf  i2c_ReadAck                    
+200060f3  i2c_WriteAck                   
+20006103  i2c_start                      
+20006117  i2c_stop                       
+2000612b  getTemperatureOne              
+20006177  DetectionTemperature           
+200061c7  getTemperature                 
+2000626d  PRCMCC3200MCUInit              
+200063a1  Timer_IF_Init                  
+200063d3  Timer_IF_IntSetup              
+20006411  Timer_IF_InterruptClear        
+20006429  Timer_IF_Start                 
+20006445  Timer_IF_Stop                  
+20006455  Timer_IF_DeInit                
+2000646f  Timer_IF_ReLoad                
+20006483  Timer_IF_GetCount              
+200066f1  iTC_215Mb_IO_Config            
+200066f9  iTC_215Mb_power_on             
+20006719  iTC_215Mb_initialize_driver    
+20006729  iTC_215Mb_Display_from_Ram     
+20006739  iTC_215Mb_Display_from_flash   
+2000674d  iTC_215Mb_Display_PU_from_Ram  
+20006765  iTC_215Mb_Display_PU_From_Flash
+20006787  iTC_215Mb_power_off            
+2000679d  IntDisable                     
+20006845  IntEnable                      
+200068ed  SPIConfigSetExpClk             
+2000698d  __aeabi_memcpy                 
+2000698d  __aeabi_memcpy4                
+2000698d  __aeabi_memcpy8                
+2000698d  memcpy                         
+20006a29  PRCMPeripheralClockGet         
+20006abd  PinConfigSet                   
+20006b45  SPITransfer                    
+20006bcd  __aeabi_memclr                 
+20006bcd  __aeabi_memclr4                
+20006bcd  __aeabi_memclr8                
+20006bcf  __aeabi_memset                 
+20006bcf  __aeabi_memset4                
+20006bcf  __aeabi_memset8                
+20006bd5  memset                         
+20006c49  TimerIntRegister               
+20006cb9  __TI_auto_init                 
+20006d29  TimerIntUnregister             
+20006d91  __TI_decompress_lzss           
+20006df9  PRCMPeripheralReset            
+20006e51  main                           
+20006ea5  C$$EXIT                        
+20006ea9  abort                          
+20006eb1  exit                           
+20006ef9  copy_in                        
+20006f45  TimerConfigure                 
+20006f89  PinModeSet                     
+20006fc9  _c_int00                       
+20007009  PRCMPeripheralClkEnable        
+20007045  GPIODirModeSet                 
+2000707b  __mpu_init                     
+2000707d  getSDA                         
+200070b1  PinTypeGPIO                    
+200070e1  TS_SCL_High                    
+20007111  TS_SDA_High                    
+20007141  PRCMSysResetCauseGet           
+2000716d  TimerLoadSet                   
+20007197  TimerPrescaleSet               
+200071c1  PRCMPeripheralClkDisable       
+200071e9  IntUnregister                  
+2000720d  TS_SCL_Low                     
+20007231  TS_SDA_Low                     
+20007255  SPIReset                       
+20007277  GPIOPinWrite                   
+20007297  _system_post_cinit             
+20007299  IntRegister                    
+200072b9  TimerDisable                   
+200072d7  TimerEnable                    
+200072f5  TimerIntStatus                 
+20007315  Config_BS1_Pin                 
+20007331  Config_EPD_DC_Pin              
+2000734d  Config_EPD_border_Pin          
+20007369  Config_EPD_cs_Pin              
+20007385  Config_EPD_flash_cs_Pin        
+200073a1  Config_EPD_panelon_Pin         
+200073bd  Config_EPD_pwm_Pin             
+200073d9  Config_EPD_rst_Pin             
+200073f5  Config_LED1_Pin                
+20007411  TimerValueGet                  
+2000742d  Config_Busy_Pin                
+20007447  Config_EPD_discharge_Pin       
+20007461  PinTypeSPI                     
+2000747b  Config_EPD_DB1_Pin             
+20007493  Config_EPD_DB2_Pin             
+200074ab  EPD_IsBusy                     
+200074c3  GPIOPinRead                    
+200074db  SPICSDisable                   
+200074f3  SPICSEnable                    
+2000750b  SPIDisable                     
+20007523  SPIEnable                      
+2000753b  TimerIntDisable                
+20007553  TimerIntEnable                 
+2000756d  _args_main                     
+20007585  PRCMHIBRegRead                 
+2000759b  PRCMHIBRegWrite                
+200075b1  BS1_low                        
+200075c5  CPUcpsie                       
+200075d9  EPD_DC_high                    
+200075ed  EPD_DC_low                     
+20007601  EPD_Vcc_turn_off               
+20007615  EPD_Vcc_turn_on                
+20007629  EPD_border_low                 
+2000763d  EPD_cs_high                    
+20007651  EPD_cs_low                     
+20007665  EPD_flash_cs_high              
+20007679  EPD_pwm_high                   
+2000768d  EPD_pwm_low                    
+200076a1  EPD_rst_high                   
+200076b5  EPD_rst_low                    
+200076c9  IntVTableBaseSet               
+200076dd  SPICLK_low                     
+200076f1  SPIMISO_low                    
+20007705  SPIMOSI_low                    
+20007719  _register_unlock               
+2000771f  _register_lock                 
+20007727  _nop                           
+2000772d  TimerIntClear                  
+2000773f  EPD_discharge_high             
+2000774f  EPD_discharge_low              
+2000775f  __TI_decompress_none           
+2000776d  ResetISR                       
+2000777b  __TI_zero_init                 
+20007787  IntMasterEnable                
+20007791  UtilsDelay                     
+20007797  _system_pre_init               
+2000779c  Image_iTC_215_01               
+200082fc  Image_iTC_215_02               
+20009382  iTC_215Mb_LUT                  
+20009396  iTC_215Mb_OTP_LUT              
+200093aa  iTC_215Mb_PU_LUT               
+20009448  __TI_static_base__             
+20009494  __TI_Handler_Table_Base        
+200094a0  __TI_Handler_Table_Limit       
+200094a8  __TI_CINIT_Base                
+200094b8  __TI_CINIT_Limit               
+2001d000  _sys_memory                    
+2001d847  spi_state                      
+2001d848  __TI_cleanup_ptr               
+2001d84c  __TI_dtors_ptr                 
+2001d850  __TI_enable_exit_profile_output
+2001d860  _lock                          
+2001d864  _unlock                        
+2001d868  main_func_sp                   
+2001d86c  IIC_IO                         
+2003f800  __stack                        
+20040000  __STACK_END                    
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   SHT$$INIT_ARRAY$$Base          
+UNDEFED   SHT$$INIT_ARRAY$$Limit         
+
+[233 symbols]

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><PartNumber id=""><Core name="MSP430"><DebugProperties>&lt;?xml version="1.0" encoding="UTF-8" standalone="no" ?&gt;
+&lt;PropertyValues&gt;
+
+  &lt;property id="AutoRunToLabelOnRestart"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl0"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl1"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl2"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl3"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl4"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl5"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl6"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl7"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl8"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControl9"&gt;
+    &lt;curValue&gt;0&lt;/curValue&gt;
+  &lt;/property&gt;
+
+  &lt;property id="ModuleClockControlA"&gt;
+    &lt;curValue&gt;1&lt;/curValue&gt;
+  &lt;/property&gt;
+
+&lt;/PropertyValues&gt;
+</DebugProperties><FilePaths/></Core></PartNumber>

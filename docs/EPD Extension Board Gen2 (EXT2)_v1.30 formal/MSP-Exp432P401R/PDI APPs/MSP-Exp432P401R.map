@@ -1,0 +1,1047 @@
+******************************************************************************
+                  TI ARM Linker PC v16.9.4                     
+******************************************************************************
+>> Linked Thu Nov 09 11:55:47 2017
+
+OUTPUT FILE NAME:   <I:/PDI/Kit/EPD Extension Board GEN2/fw/V1_21/EPD Extension Board Gen2 (EXT2)_v1.21 formal/output/MSP-Exp432P401R.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000047c1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000074ea  00038b16  R  X
+  FLASH_OTP             00200000   00004000  00000000  00004000  R  X
+  SRAM                  20000000   00010000  00001431  0000ebcf  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000074f0   000074f0    r-x
+  00000000    00000000    00000144   00000144    r-- .intvecs
+  00000148    00000148    00004b38   00004b38    r-x .text
+  00004c80    00004c80    000027ae   000027ae    r-- .const
+  00007430    00007430    000000c0   000000c0    r-- .cinit
+20000000    20000000    00001235   00000000    rw-
+  20000000    20000000    000000e4   00000000    rw- .vtable
+  200000e4    200000e4    00000e90   00000000    rw- .bss
+  20000f78    20000f78    00000200   00000000    rw- .sysmem
+  20001178    20001178    000000bd   00000000    rw- .data
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000144     
+                  00000000    00000144     msp432_startup_ccs.obj (.intvecs)
+
+.text      0    00000148    00004b38     
+                  00000148    00001130     eTC_G2_Size_Aurora_Mb.obj (.text)
+                  00001278    00000a58     iTC_Engine.obj (.text)
+                  00001cd0    000009e8     eTC_G2_Size_Aurora_Ma.obj (.text)
+                  000026b8    000004c0     CommandHandle.obj (.text)
+                  00002b78    00000434     Board_HW_Driver.obj (.text)
+                  00002fac    000003d0     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  0000337c    00000004     msp432p4xx_driverlib.lib : spi.o (.text:EUSCI_A_SPI_transmitData)
+                  00003380    000003b4     EPD_interface.obj (.text)
+                  00003734    00000004     msp432p4xx_driverlib.lib : spi.o (.text:EUSCI_B_SPI_transmitData)
+                  00003738    000003a8     BootTask_Module.obj (.text)
+                  00003ae0    00000208     Data_Module.obj (.text)
+                  00003ce8    00000200     EPD_Temperature_IIC.obj (.text)
+                  00003ee8    000001b8     Mem_Flash.obj (.text)
+                  000040a0    000001a8     ringbuf.obj (.text)
+                  00004248    000001a0     Rtos.obj (.text)
+                  000043e8    00000160     UART_Driver.obj (.text)
+                  00004548    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  000045e4    00000088     msp432p4xx_driverlib.lib : spi.o (.text:SPI_initMaster)
+                  0000466c    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  000046e6    00000002                                   : mpu_init.obj (.text)
+                  000046e8    00000070                                   : autoinit.obj (.text)
+                  00004758    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  000047c0    00000054                                   : boot.obj (.text)
+                  00004814    00000054                                   : exit.obj (.text)
+                  00004868    0000004c                                   : cpy_tbl.obj (.text)
+                  000048b4    00000004                                   : pre_init.obj (.text)
+                  000048b8    0000004a     Flash_Mem_Map.obj (.text)
+                  00004902    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : startup.obj (.text)
+                  00004904    00000048     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsPeripheralModuleFunctionInputPin)
+                  0000494c    00000034                              : interrupt.o (.text:Interrupt_registerInterrupt)
+                  00004980    00000030                              : spi.o (.text:is_A_Module)
+                  000049b0    0000002c                              : gpio.o (.text:GPIO_setAsInputPin)
+                  000049dc    00000004     --HOLE-- [fill = 0]
+                  000049e0    00000026     main_PDI_APPs.obj (.text)
+                  00004a06    00000002     --HOLE-- [fill = 0]
+                  00004a08    00000024     msp432p4xx_driverlib.lib : cs.o (.text:CS_setDCOCenteredFrequency)
+                  00004a2c    00000024                              : gpio.o (.text:GPIO_setAsOutputPin)
+                  00004a50    00000022     msp432_startup_ccs.obj (.text)
+                  00004a72    00000020     msp432p4xx_driverlib.lib : spi.o (.text:SPI_getInterruptStatus)
+                  00004a92    00000020                              : spi.o (.text:SPI_transmitData)
+                  00004ab2    00000006                              : spi.o (.text:EUSCI_A_SPI_receiveData)
+                  00004ab8    0000001c     iTC_215_Aurora_Mb.obj (.text)
+                  00004ad4    00000004     --HOLE-- [fill = 0]
+                  00004ad8    0000001c     iTC_287_Aurora_Mb.obj (.text)
+                  00004af4    00000004     --HOLE-- [fill = 0]
+                  00004af8    0000001c     iTC_420_Aurora_Mb.obj (.text)
+                  00004b14    0000001a     msp432p4xx_driverlib.lib : spi.o (.text:SPI_disableModule)
+                  00004b2e    0000001a                              : spi.o (.text:SPI_enableModule)
+                  00004b48    0000001a                              : spi.o (.text:SPI_receiveData)
+                  00004b62    00000002     --HOLE-- [fill = 0]
+                  00004b64    00000018                              : gpio.o (.text:GPIO_getInputPinValue)
+                  00004b7c    00000018                              : gpio.o (.text:GPIO_setOutputLowOnPin)
+                  00004b94    00000018                              : wdt_a.o (.text:WDT_A_holdTimer)
+                  00004bac    00000004     --HOLE-- [fill = 0]
+                  00004bb0    00000018     iTC_287_Spectra.obj (.text)
+                  00004bc8    00000018     iTC_420_Spectra.obj (.text)
+                  00004be0    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00004bf8    00000014     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setOutputHighOnPin)
+                  00004c0c    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00004c20    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00004c2e    0000000c     msp432p4xx_driverlib.lib : spi.o (.text:EUSCI_A_SPI_disable)
+                  00004c3a    0000000c                              : spi.o (.text:EUSCI_A_SPI_enable)
+                  00004c46    0000000c                              : spi.o (.text:EUSCI_B_SPI_disable)
+                  00004c52    0000000c                              : spi.o (.text:EUSCI_B_SPI_enable)
+                  00004c5e    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00004c6a    00000008     msp432p4xx_driverlib.lib : spi.o (.text:EUSCI_A_SPI_getInterruptStatus)
+                  00004c72    00000008                              : spi.o (.text:EUSCI_B_SPI_getInterruptStatus)
+                  00004c7a    00000006                              : spi.o (.text:EUSCI_B_SPI_receiveData)
+
+.const     0    00004c80    000027ae     
+                  00004c80    00000b13     EPD_iTClib_MSP432.lib : iTC_420_Sp_LUT.obj (.const:.string:$P$T1)
+                  00005793    00000740                           : iTC_287_Sp_LUT.obj (.const:.string:$P$T1)
+                  00005ed3    00000567                           : iTC_420_Mb_LUT.obj (.const:.string:$P$T6)
+                  0000643a    00000231                           : iTC_287_Mb_LUT.obj (.const:.string:$P$T6)
+                  0000666b    00000181                           : iTC_215_Mb_LUT.obj (.const:.string:$P$T2)
+                  000067ec    00000118     EPD_interface.obj (.const:Driver_Handle_list)
+                  00006904    00000111     EPD_iTClib_MSP432.lib : iTC_420_Mb_LUT.obj (.const:.string:$P$T1)
+                  00006a15    0000010c                           : iTC_287_Mb_LUT.obj (.const:.string:$P$T1)
+                  00006b21    00000001     --HOLE-- [fill = 0]
+                  00006b22    0000006c     eTC_G2_Size_Aurora_Ma.obj (.const:eTC_G2Ma_RT_WT)
+                  00006b8e    00000064     eTC_G2_Size_Aurora_Ma.obj (.const:eTC_G2Ma_parameters)
+                  00006bf2    00000064     eTC_G2_Size_Aurora_Mb.obj (.const:eTC_G2Mb_parameters)
+                  00006c56    00000051     EPD_iTClib_MSP432.lib : iTC_420_Mb_LUT.obj (.const:.string)
+                  00006ca7    00000050                           : iTC_215_Mb_LUT.obj (.const:.string:$P$T1)
+                  00006cf7    00000001     --HOLE-- [fill = 0]
+                  00006cf8    00000050     eTC_G2_Size_Aurora_Mb.obj (.const:eTC_G2Mb_TF_table)
+                  00006d48    0000004e     EPD_iTClib_MSP432.lib : iTC_287_Mb_LUT.obj (.const:.string)
+                  00006d96    00000002     --HOLE-- [fill = 0]
+                  00006d98    0000004c     Data_Module.obj (.const:Command_Event)
+                  00006de4    00000041     EPD_iTClib_MSP432.lib : iTC_215_Mb_LUT.obj (.const:.string)
+                  00006e25    00000040     eTC_G2_Size_Aurora_Mb.obj (.const:eTC_G2Mb_data_lookuptable)
+                  00006e65    0000003f     EPD_iTClib_MSP432.lib : iTC_420_Sp_LUT.obj (.const:.string:$P$T2)
+                  00006ea4    0000003d                           : iTC_215_Mb_LUT.obj (.const:.string:$P$T6)
+                  00006ee1    0000003a                           : iTC_215_Mb_LUT.obj (.const:.string:$P$T7)
+                  00006f1b    00000037     iTC_287_Spectra.obj (.const:.string:$P$T2)
+                  00006f52    00000037     iTC_420_Spectra.obj (.const:.string:$P$T2)
+                  00006f89    00000032     iTC_215_Aurora_Mb.obj (.const:.string:$P$T2)
+                  00006fbb    00000031     EPD_iTClib_MSP432.lib : iTC_420_Sp_LUT.obj (.const:.string)
+                  00006fec    00000030                           : iTC_287_Sp_LUT.obj (.const:.string:$P$T2)
+                  0000701c    0000002b     iTC_420_Aurora_Mb.obj (.const:.string:$P$T2)
+                  00007047    0000002b     EPD_iTClib_MSP432.lib : iTC_420_Mb_LUT.obj (.const:.string:$P$T7)
+                  00007072    0000002b                           : iTC_287_Sp_LUT.obj (.const:.string)
+                  0000709d    00000028                           : iTC_215_Mb_LUT.obj (.const)
+                  000070c5    00000028                           : iTC_287_Mb_LUT.obj (.const)
+                  000070ed    00000028                           : iTC_420_Mb_LUT.obj (.const)
+                  00007115    00000024     iTC_215_Aurora_Mb.obj (.const:.string:$P$T1)
+                  00007139    00000024     EPD_iTClib_MSP432.lib : iTC_287_Mb_LUT.obj (.const:.string:$P$T7)
+                  0000715d    00000003     --HOLE-- [fill = 0]
+                  00007160    00000024     UART_Driver.obj (.const:uartConfig)
+                  00007184    00000023     iTC_287_Aurora_Mb.obj (.const:.string:$P$T2)
+                  000071a7    00000022     iTC_420_Aurora_Mb.obj (.const:.string:$P$T1)
+                  000071c9    00000022     iTC_420_Spectra.obj (.const:.string:$P$T1)
+                  000071eb    00000021     iTC_287_Aurora_Mb.obj (.const:.string:$P$T1)
+                  0000720c    0000001d     iTC_287_Spectra.obj (.const:.string:$P$T1)
+                  00007229    00000003     --HOLE-- [fill = 0]
+                  0000722c    0000001c     Board_HW_Driver.obj (.const:spiMasterConfig)
+                  00007248    00000019     iTC_215_Aurora_Mb.obj (.const:.string:$P$T0)
+                  00007261    00000019     iTC_420_Spectra.obj (.const:.string:$P$T0)
+                  0000727a    00000016     iTC_287_Aurora_Mb.obj (.const:.string:$P$T0)
+                  00007290    00000016     iTC_287_Spectra.obj (.const:.string:$P$T0)
+                  000072a6    00000016     iTC_420_Aurora_Mb.obj (.const:.string:$P$T0)
+                  000072bc    00000015     iTC_287_Aurora_Mb.obj (.const:.string:$P$T3)
+                  000072d1    00000015     iTC_287_Spectra.obj (.const:.string:$P$T3)
+                  000072e6    00000015     iTC_420_Spectra.obj (.const:.string:$P$T3)
+                  000072fb    00000014     EPD_iTClib_MSP432.lib : iTC_287_Sp_LUT.obj (.const)
+                  0000730f    00000014                           : iTC_420_Sp_LUT.obj (.const)
+                  00007323    00000014     iTC_215_Aurora_Mb.obj (.const:iTC_215Mb_OTP_LUT)
+                  00007337    00000014     iTC_287_Aurora_Mb.obj (.const:iTC_287Mb_OTP_LUT)
+                  0000734b    00000014     iTC_287_Spectra.obj (.const:iTC_287Sp_OTP_LUT)
+                  0000735f    00000014     iTC_420_Aurora_Mb.obj (.const:iTC_420Mb_OTP_LUT)
+                  00007373    00000014     iTC_420_Spectra.obj (.const:iTC_420Sp_OTP_LUT)
+                  00007387    00000013     iTC_215_Aurora_Mb.obj (.const:.string:$P$T3)
+                  0000739a    00000010     iTC_Engine.obj (.const:.string:$P$T0$1)
+                  000073aa    00000010     iTC_Engine.obj (.const:.string:$P$T1$2)
+                  000073ba    00000010     iTC_Engine.obj (.const:.string:$P$T2$3)
+                  000073ca    00000010     iTC_Engine.obj (.const:.string:$P$T3$4)
+                  000073da    0000000e     iTC_420_Aurora_Mb.obj (.const:.string:$P$T3)
+                  000073e8    0000000a     iTC_215_Aurora_Mb.obj (.const:.string:$P$T4)
+                  000073f2    0000000a     iTC_287_Aurora_Mb.obj (.const:.string:$P$T4)
+                  000073fc    0000000a     iTC_287_Spectra.obj (.const:.string:$P$T4)
+                  00007406    0000000a     iTC_420_Aurora_Mb.obj (.const:.string:$P$T4)
+                  00007410    0000000a     iTC_420_Spectra.obj (.const:.string:$P$T4)
+                  0000741a    00000008     eTC_G2_Size_Aurora_Mb.obj (.const:.string:eTC_G2Mb_scan_lookuptable)
+                  00007422    00000004     eTC_G2_Size_Aurora_Ma.obj (.const:.string:eTC_G2Ma_SCAN_TABLE)
+                  00007426    00000004     eTC_G2_Size_Aurora_Mb.obj (.const:.string:eTC_G2Mb_BORDER_TABLE)
+                  0000742a    00000004     eTC_G2_Size_Aurora_Mb.obj (.const:.string:eTC_G2Mb_SCAN_TABLE)
+
+.cinit     0    00007430    000000c0     
+                  00007430    00000087     (.cinit..data.load) [load image, compression = lzss]
+                  000074b7    00000001     --HOLE-- [fill = 0]
+                  000074b8    0000000c     (__TI_handler_table)
+                  000074c4    00000004     --HOLE-- [fill = 0]
+                  000074c8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000074d0    00000008     (.cinit..vtable.load) [load image, compression = zero_init]
+                  000074d8    00000018     (__TI_cinit_table)
+
+.vtable    0    20000000    000000e4     UNINITIALIZED
+                  20000000    000000e4     msp432p4xx_driverlib.lib : interrupt.o (.vtable)
+
+.bss       0    200000e4    00000e90     UNINITIALIZED
+                  200000e4    00000600     (.common:workTask)
+                  200006e4    00000340     Data_Module.obj (.bss:RecvPacket_Buffer)
+                  20000a24    00000200     UART_Driver.obj (.bss:Recv_Buffer)
+                  20000c24    00000100     UART_Driver.obj (.bss:transmit_Buffer)
+                  20000d24    00000080     eTC_G2_Size_Aurora_Ma.obj (.bss:COG_Line)
+                  20000da4    00000080     eTC_G2_Size_Aurora_Mb.obj (.bss:COG_Line)
+                  20000e24    00000034     Data_Module.obj (.bss:Metadata_Info)
+                  20000e58    0000002f     Data_Module.obj (.bss:Result_Packet)
+                  20000e87    00000001     --HOLE--
+                  20000e88    00000024     eTC_G2_Size_Aurora_Mb.obj (.bss)
+                  20000eac    00000020     eTC_G2_Size_Aurora_Ma.obj (.bss)
+                  20000ecc    00000015     iTC_Engine.obj (.bss)
+                  20000ee1    00000001     --HOLE--
+                  20000ee2    00000014     eTC_G2_Size_Aurora_Ma.obj (.bss:S_epd_AuroraMa)
+                  20000ef6    00000002     CommandHandle.obj (.bss)
+                  20000ef8    00000010     Data_Module.obj (.bss:RecvPacketbufObj)
+                  20000f08    00000010     UART_Driver.obj (.bss:recvbufObj)
+                  20000f18    00000010     UART_Driver.obj (.bss:transmitbufObj)
+                  20000f28    00000010     (.common:IIC_IO)
+                  20000f38    00000010     (.common:task_handle)
+                  20000f48    0000000c     BootTask_Module.obj (.bss)
+                  20000f54    0000000b     EPD_interface.obj (.bss)
+                  20000f5f    00000001     --HOLE--
+                  20000f60    00000008     Board_HW_Driver.obj (.bss)
+                  20000f68    00000004     (.common:Recv_CmdInfo)
+                  20000f6c    00000004     (.common:RunImage_Info)
+                  20000f70    00000004     (.common:perv_RunImage_Info)
+
+.sysmem    0    20000f78    00000200     UNINITIALIZED
+                  20000f78    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+                  20000f80    000001f8     --HOLE--
+
+.data      0    20001178    000000bd     UNINITIALIZED
+                  20001178    00000030     msp432p4xx_driverlib.lib : gpio.o (.data:GPIO_PORT_TO_BASE)
+                  200011a8    0000002c     iTC_Engine.obj (.data)
+                  200011d4    00000019     EPD_iTClib_MSP432.lib : iTC_215_Mb_LUT.obj (.data)
+                  200011ed    00000003     EPD_interface.obj (.data:$P$T4)
+                  200011f0    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  200011fc    0000000c                                   : memory.obj (.data:$O1$$)
+                  20001208    00000008                                   : _lock.obj (.data:$O1$$)
+                  20001210    00000006     EPD_interface.obj (.data:$P$T0)
+                  20001216    00000006     EPD_interface.obj (.data:$P$T1)
+                  2000121c    00000004     CommandHandle.obj (.data)
+                  20001220    00000004     eTC_G2_Size_Aurora_Mb.obj (.data)
+                  20001224    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : stkdepth_vars.obj (.data)
+                  20001228    00000003     EPD_interface.obj (.data:$P$T5)
+                  2000122b    00000002     EPD_interface.obj (.data:$P$T2)
+                  2000122d    00000002     EPD_interface.obj (.data:$P$T3)
+                  2000122f    00000002     EPD_interface.obj (.data:$P$T6)
+                  20001231    00000002     BootTask_Module.obj (.data)
+                  20001233    00000001     Board_HW_Driver.obj (.data)
+                  20001234    00000001     eTC_G2_Size_Aurora_Ma.obj (.data)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000200     --HOLE--
+
+MODULE SUMMARY
+
+       Module                      code    ro data   rw data
+       ------                      ----    -------   -------
+    .\
+       msp432_startup_ccs.obj      34      324       0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      34      324       0      
+                                                            
+    .\src\
+       main_PDI_APPs.obj           38      0         0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      38      0         0      
+                                                            
+    .\src\HW_drivers\
+       UART_Driver.obj             352     36        800    
+       Board_HW_Driver.obj         1076    28        9      
+       EPD_Temperature_IIC.obj     512     0         16     
+       Mem_Flash.obj               440     0         0      
+       ringbuf.obj                 424     0         0      
+       Flash_Mem_Map.obj           74      0         0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      2878    64        825    
+                                                            
+    .\src\PDI_apps_drivers\
+       Rtos.obj                    416     0         1552   
+       Data_Module.obj             520     76        951    
+       CommandHandle.obj           1216    0         6      
+       BootTask_Module.obj         936     0         22     
+    +--+---------------------------+-------+---------+---------+
+       Total:                      3088    76        2531   
+                                                            
+    .\src\PDI_displays_drivers\
+       EPD_interface.obj           948     280       35     
+    +--+---------------------------+-------+---------+---------+
+       Total:                      948     280       35     
+                                                            
+    .\src\PDI_displays_drivers\FPL_drivers\
+       eTC_G2_Size_Aurora_Mb.obj   4400    260       168    
+       eTC_G2_Size_Aurora_Ma.obj   2536    212       181    
+       iTC_Engine.obj              2648    64        65     
+       iTC_420_Spectra.obj         24      165       0      
+       iTC_215_Aurora_Mb.obj       28      160       0      
+       iTC_287_Spectra.obj         24      157       0      
+       iTC_420_Aurora_Mb.obj       28      143       0      
+       iTC_287_Aurora_Mb.obj       28      141       0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      9716    1302      414    
+                                                            
+    ../driverlib/msp432p4xx_driverlib.lib
+       spi.o                       410     0         0      
+       interrupt.o                 52      0         228    
+       gpio.o                      220     0         48     
+       cs.o                        36      0         0      
+       wdt_a.o                     24      0         0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      742     0         276    
+                                                            
+    C:\ti\ccsv7\tools\compiler\ti-cgt-arm_16.9.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memory.obj                  976     0         12     
+       memcpy_t2.obj               156     0         0      
+       memset_t2.obj               122     0         0      
+       autoinit.obj                112     0         0      
+       copy_decompress_lzss.obj    104     0         0      
+       exit.obj                    84      0         12     
+       boot.obj                    84      0         0      
+       cpy_tbl.obj                 76      0         0      
+       _lock.obj                   20      0         8      
+       args_main.obj               24      0         0      
+       copy_decompress_none.obj    14      0         0      
+       copy_zero_init.obj          12      0         0      
+       pre_init.obj                4       0         0      
+       stkdepth_vars.obj           0       0         4      
+       mpu_init.obj                2       0         0      
+       startup.obj                 2       0         0      
+    +--+---------------------------+-------+---------+---------+
+       Total:                      1792    0         36     
+                                                            
+    I:/PDI/Kit/EPD Extension Board GEN2/fw/V1_21/EPD Extension Board Gen2 (EXT2)_v1.21 formal/EPD_drivers/src/FPL_drivers/EPD_iTClib_MSP432.lib
+       iTC_420_Sp_LUT.obj          0       2967      0      
+       iTC_287_Sp_LUT.obj          0       1967      0      
+       iTC_420_Mb_LUT.obj          0       1820      0      
+       iTC_287_Mb_LUT.obj          0       983       0      
+       iTC_215_Mb_LUT.obj          0       689       25     
+    +--+---------------------------+-------+---------+---------+
+       Total:                      0       8426      25     
+                                                            
+       Heap:                       0       0         512    
+       Stack:                      0       0         512    
+       Linker Generated:           0       187       0      
+    +--+---------------------------+-------+---------+---------+
+       Grand Total:                19236   10659     5166   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000074d8 records: 3, size/record: 8, table size: 24
+	.data: load addr=00007430, load size=00000087 bytes, run addr=20001178, run size=000000bd bytes, compression=lzss
+	.bss: load addr=000074c8, load size=00000008 bytes, run addr=200000e4, run size=00000e90 bytes, compression=zero_init
+	.vtable: load addr=000074d0, load size=00000008 bytes, run addr=20000000, run size=000000e4 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000074b8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                      
+-------   ----                                      
+00003b59  AddPacketTask_Handle                      
+000038c1  BootTask_Module_init                      
+00004815  C$$EXIT                                   
+00004041  CMD_CE                                    
+00002b59  CMD_Debug_Feedback_Handle                 
+00004021  CMD_SE                                    
+00004a09  CS_setDCOCenteredFrequency                
+000037b9  CancelBootTask_Module                     
+00002b41  CheckMCU_Feedback_Handle                  
+00003b49  CheckRecvData                             
+00004519  ClearUartBuffer                           
+00004499  ConfigureUART                             
+00003ca1  Data_Module_init                          
+00003e69  DetectionTemperature                      
+00003851  DisplayImage                              
+00002aa9  EPDShow_Feedback_Handle                   
+00002f61  EPD_Gx_spi_r                              
+00002f39  EPD_Gx_spi_rid                            
+00002ee1  EPD_Gx_spi_send                           
+00002ea1  EPD_Gx_spi_send_byte                      
+00003429  EPD_Power_off_Ex                          
+00002e89  EPD_delay_ms                              
+00003689  EPD_display_FT_from_pointer               
+000035f9  EPD_display_GU_from_flash                 
+00003571  EPD_display_GU_from_pointer               
+000034d9  EPD_display_PU_from_flash                 
+00003449  EPD_display_PU_from_pointer               
+00002e61  EPD_display_hardware_init                 
+00003411  EPD_display_init                          
+00002de9  EPD_initialize_gpio                       
+00002d31  EPD_spi_attach                            
+00002da1  EPD_spi_detach                            
+00002c29  EPD_spi_read                              
+00002c51  EPD_spi_write                             
+00004c2f  EUSCI_A_SPI_disable                       
+00004c3b  EUSCI_A_SPI_enable                        
+00004c6b  EUSCI_A_SPI_getInterruptStatus            
+00004ab3  EUSCI_A_SPI_receiveData                   
+0000337d  EUSCI_A_SPI_transmitData                  
+00004c47  EUSCI_B_SPI_disable                       
+00004c53  EUSCI_B_SPI_enable                        
+00004c73  EUSCI_B_SPI_getInterruptStatus            
+00004c7b  EUSCI_B_SPI_receiveData                   
+00003735  EUSCI_B_SPI_transmitData                  
+00002a41  EraseBootInfo_Feedback_Handle             
+00002a19  EraseEntireFlash_Feedback_Handle          
+000029e1  EraseFlash_Feedback_Handle                
+00002981  EraseRunInfo_Feedback_Handle              
+00001c69  Ex_RunEngine                              
+00002979  FastShow_Feedback_Handle                  
+00003f09  Flash_cs_high                             
+00003ee9  Flash_cs_low                              
+00004b65  GPIO_getInputPinValue                     
+000049b1  GPIO_setAsInputPin                        
+00004a2d  GPIO_setAsOutputPin                       
+00004905  GPIO_setAsPeripheralModuleFunctionInputPin
+00004bf9  GPIO_setOutputHighOnPin                   
+00004b7d  GPIO_setOutputLowOnPin                    
+000048f9  GetBlockAddress                           
+000048e9  GetFunBootAddress                         
+000048d9  GetFunRunAddress                          
+000048c1  GetImageInfoAddress                       
+00003739  GetRunImageIndex                          
+000048b9  GetTemporaryAddress                       
+20000f28  IIC_IO                                    
+0000494d  Interrupt_registerInterrupt               
+00004091  IsFlashBusy                               
+00003811  LoadBootInfo                              
+000037c1  LoadRunInfo                               
+00002d69  PWM_run                                   
+00002951  PreRun_Feedback_Handle                    
+00003781  Previewer                                 
+00002901  ReadBootInfo_Feedback_Handle              
+000028b9  ReadData_Feedback_Handle                  
+00002879  ReadImageFileInfo_Feedback_Handle         
+00002829  ReadRunInfo_Feedback_Handle               
+00003b81  RecvDataEvent                             
+00002821  RecvVer_Feedback_Handle                   
+20000f68  Recv_CmdInfo                              
+00004a51  ResetISR                                  
+00004229  RingBufAdvanceRead                        
+000041f1  RingBufAdvanceWrite                       
+000041d1  RingBufContigFree                         
+000041c1  RingBufContigUsed                         
+000041b1  RingBufEmpty                              
+000041a9  RingBufFlush                              
+00004191  RingBufFree                               
+00004171  RingBufFull                               
+00004161  RingBufInit                               
+00004141  RingBufPeek                               
+00004121  RingBufRead                               
+00004109  RingBufReadOne                            
+00004101  RingBufSize                               
+000040e9  RingBufUsed                               
+000040c9  RingBufWrite                              
+000040b9  RingBufWriteOne                           
+000043d9  Rtos_Addtask                              
+00004391  Rtos_Event_Handle                         
+00004349  Rtos_Event_Handle_Cancel                  
+00004329  Rtos_Event_Handle_ClearAll                
+000042d9  Rtos_Event_Handle_Timer                   
+00004279  Rtos_Task                                 
+00004249  Rtos_init                                 
+00001a01  RunEngine                                 
+20000f6c  RunImage_Info                             
+00003c69  RunPacketTaskHandle                       
+00003d11  SCL_High                                  
+00003ce9  SCL_Low                                   
+00003d21  SDA_High                                  
+00003cf9  SDA_Low                                   
+UNDEFED   SHT$$INIT_ARRAY$$Base                     
+UNDEFED   SHT$$INIT_ARRAY$$Limit                    
+00004b15  SPI_disableModule                         
+00004b2f  SPI_enableModule                          
+00004a73  SPI_getInterruptStatus                    
+000045e5  SPI_initMaster                            
+00004b49  SPI_receiveData                           
+00004a93  SPI_transmitData                          
+00004441  SendOut                                   
+00003ae1  SendResult                                
+00003b39  SendResultOnly                            
+00003b19  SendResult_Datas                          
+00001c09  SetPU_ImageDataHandle                     
+00003381  Set_AssignEPD_Drive                       
+00002ba1  Systick_Configuration                     
+00004469  UartRecv                                  
+00004441  UartSend                                  
+00004431  Uart_PeekRecvDatas                        
+00004429  Uart_RecvAvail                            
+00004b95  WDT_A_holdTimer                           
+000027d1  WriteBootInfo_Feedback_Handle             
+00002791  WriteData_Feedback_Handle                 
+00002749  WriteImageData_Feedback_Handle            
+00002701  WriteImageFileInfo_Feedback_Handle        
+000026b9  WriteRunInfo_Feedback_Handle              
+20010000  __STACK_END                               
+00000200  __STACK_SIZE                              
+00000200  __SYSMEM_SIZE                             
+000074d8  __TI_CINIT_Base                           
+000074f0  __TI_CINIT_Limit                          
+000074b8  __TI_Handler_Table_Base                   
+000074c4  __TI_Handler_Table_Limit                  
+000046e9  __TI_auto_init                            
+200011f0  __TI_cleanup_ptr                          
+00004759  __TI_decompress_lzss                      
+00004c21  __TI_decompress_none                      
+200011f4  __TI_dtors_ptr                            
+200011f8  __TI_enable_exit_profile_output           
+ffffffff  __TI_pprof_out_hndl                       
+ffffffff  __TI_prof_data_size                       
+ffffffff  __TI_prof_data_start                      
+00000000  __TI_static_base__                        
+00004c5f  __TI_zero_init                            
+0000466d  __aeabi_memclr                            
+0000466d  __aeabi_memclr4                           
+0000466d  __aeabi_memclr8                           
+00004549  __aeabi_memcpy                            
+00004549  __aeabi_memcpy4                           
+00004549  __aeabi_memcpy8                           
+0000466f  __aeabi_memset                            
+0000466f  __aeabi_memset4                           
+0000466f  __aeabi_memset8                           
+ffffffff  __binit__                                 
+ffffffff  __c_args__                                
+000046e7  __mpu_init                                
+2000fe00  __stack                                   
+00004be1  _args_main                                
+000047c1  _c_int00                                  
+20001208  _lock                                     
+00004c1b  _nop                                      
+00004c13  _register_lock                            
+00004c0d  _register_unlock                          
+20000f78  _sys_memory                               
+00004903  _system_post_cinit                        
+000048b5  _system_pre_init                          
+2000120c  _unlock                                   
+00004819  abort                                     
+ffffffff  binit                                     
+0000334d  calloc                                    
+00002d51  check_flash_spi                           
+00004869  copy_in                                   
+000014a9  decod_cmd                                 
+00002d29  delay_btwn_CS_H_L                         
+00002339  eTC_G2Ma_BL_handle_Base                   
+00002199  eTC_G2Ma_BL_init                          
+000021d9  eTC_G2Ma_BL_nothing_line                  
+00002201  eTC_G2Ma_BL_read_line_data_handle         
+00002659  eTC_G2Ma_Display_from_Ram                 
+00002619  eTC_G2Ma_Display_from_flash               
+00001cd1  eTC_G2Ma_GetSizeIndex                     
+00002121  eTC_G2Ma_IO_Config                        
+00006b22  eTC_G2Ma_RT_WT                            
+00001f89  eTC_G2Ma_RegAssign_Select                 
+00007422  eTC_G2Ma_SCAN_TABLE                       
+00002001  eTC_G2Ma_initialize_driver                
+00001d99  eTC_G2Ma_nothing_frame                    
+00006b8e  eTC_G2Ma_parameters                       
+00001e69  eTC_G2Ma_power_off                        
+00001d39  eTC_G2Ma_power_on                         
+00007426  eTC_G2Mb_BORDER_TABLE                     
+00001229  eTC_G2Mb_Display_PU_From_Flash            
+00001211  eTC_G2Mb_Display_PU_from_Ram              
+00001189  eTC_G2Mb_Display_from_Ram                 
+00001111  eTC_G2Mb_Display_from_flash               
+00000149  eTC_G2Mb_GetSizeIndex                     
+00000bd1  eTC_G2Mb_IO_Config                        
+00000b71  eTC_G2Mb_PU_Collection                    
+20001222  eTC_G2Mb_PartialUpdate_StageTime          
+00000569  eTC_G2Mb_RegAssign_Select                 
+0000742a  eTC_G2Mb_SCAN_TABLE                       
+00006cf8  eTC_G2Mb_TF_table                         
+00000331  eTC_G2Mb_border_dummy_line                
+00000391  eTC_G2Mb_border_dummy_line_frame_19_26    
+00006e25  eTC_G2Mb_data_lookuptable                 
+000003f9  eTC_G2Mb_dummy_line                       
+00000609  eTC_G2Mb_initialize_driver                
+00000221  eTC_G2Mb_nothing_frame                    
+00000291  eTC_G2Mb_nothing_frame_19_26              
+00006bf2  eTC_G2Mb_parameters                       
+00000451  eTC_G2Mb_power_off                        
+000001c1  eTC_G2Mb_power_on                         
+0000741a  eTC_G2Mb_scan_lookuptable                 
+00002d01  epd_spi_init                              
+00004059  erase_flash                               
+000043e9  euscia0_isr                               
+00004821  exit                                      
+00003097  free                                      
+20000000  g_pfnRAMVectors                           
+00000000  g_pfnVectors                              
+00003ea9  getTemperature                            
+00003e29  getTemperatureOne                         
+00002cf1  get_EPD_time_tick                         
+00002ce9  getnowtime                                
+00003e11  i2c_Init                                  
+00003de9  i2c_ReadAck                               
+00003dd9  i2c_WriteAck                              
+00003dd1  i2c_delay                                 
+00003d99  i2c_in_BYTE                               
+00003d69  i2c_out_BYTE                              
+00003d51  i2c_start                                 
+00003d39  i2c_stop                                  
+00001c39  iTC_215Mb_Display_PU_From_Flash           
+00001c11  iTC_215Mb_Display_PU_from_Ram             
+00001bd9  iTC_215Mb_Display_from_Ram                
+00001ba9  iTC_215Mb_Display_from_flash              
+00001b29  iTC_215Mb_IO_Config                       
+0000709d  iTC_215Mb_LUT                             
+00007323  iTC_215Mb_OTP_LUT                         
+000070b1  iTC_215Mb_PU_LUT                          
+00001a79  iTC_215Mb_initialize_driver               
+00001a61  iTC_215Mb_power_off                       
+00004ab9  iTC_215Mb_power_on                        
+00001c39  iTC_287Mb_Display_PU_From_Flash           
+00001c11  iTC_287Mb_Display_PU_from_Ram             
+00001bd9  iTC_287Mb_Display_from_Ram                
+00001ba9  iTC_287Mb_Display_from_flash              
+00001b29  iTC_287Mb_IO_Config                       
+000070d9  iTC_287Mb_LUT                             
+00007337  iTC_287Mb_OTP_LUT                         
+000070c5  iTC_287Mb_PU_LUT                          
+00001a79  iTC_287Mb_initialize_driver               
+00001a61  iTC_287Mb_power_off                       
+00004ad9  iTC_287Mb_power_on                        
+00001bd9  iTC_287Sp_Display_from_Ram                
+00001ba9  iTC_287Sp_Display_from_flash              
+00001b29  iTC_287Sp_IO_Config                       
+000072fb  iTC_287Sp_LUT                             
+0000734b  iTC_287Sp_OTP_LUT                         
+00001a79  iTC_287Sp_initialize_driver               
+00001a61  iTC_287Sp_power_off                       
+00004bb1  iTC_287Sp_power_on                        
+00001c39  iTC_420Mb_Display_PU_From_Flash           
+00001c11  iTC_420Mb_Display_PU_from_Ram             
+00001bd9  iTC_420Mb_Display_from_Ram                
+00001ba9  iTC_420Mb_Display_from_flash              
+00001b29  iTC_420Mb_IO_Config                       
+00007101  iTC_420Mb_LUT                             
+0000735f  iTC_420Mb_OTP_LUT                         
+000070ed  iTC_420Mb_PU_LUT                          
+00001a79  iTC_420Mb_initialize_driver               
+00001a61  iTC_420Mb_power_off                       
+00004af9  iTC_420Mb_power_on                        
+00001bd9  iTC_420Sp_Display_from_Ram                
+00001ba9  iTC_420Sp_Display_from_flash              
+00001b29  iTC_420Sp_IO_Config                       
+0000730f  iTC_420Sp_LUT                             
+00007373  iTC_420Sp_OTP_LUT                         
+00001a79  iTC_420Sp_initialize_driver               
+00001a61  iTC_420Sp_power_off                       
+00004bc9  iTC_420Sp_power_on                        
+00001c39  iTC_Display_PU_From_Flash                 
+00001c11  iTC_Display_PU_from_Ram                   
+00001bd9  iTC_Display_from_Ram                      
+00001ba9  iTC_Display_from_flash                    
+00001461  iTC_Engine_init                           
+00001b29  iTC_IO_Config                             
+00001369  iTC_ReadLineData_Handle                   
+00001b21  iTC_ReadLineData_Handle_1bit              
+00001ab1  iTC_ReadLineData_Handle_2bit              
+00001279  iTC_ReadLineData_PU_Handle                
+00001a79  iTC_initialize_driver                     
+00001a61  iTC_power_off                             
+00001a29  iTC_power_on                              
+00002c59  iTC_spi_send                              
+00002cc1  iTC_spi_sendReg                           
+00002c51  iTC_spi_sendRegData                       
+00002ca1  iTC_spi_send_array                        
+00004019  is_flash_existed                          
+000049e1  main                                      
+20001224  main_func_sp                              
+0000302d  malloc                                    
+00003261  memalign                                  
+00004549  memcpy                                    
+00004675  memset                                    
+00002fad  minit                                     
+20000f70  perv_RunImage_Info                        
+00001421  readLUTData                               
+00004011  read_flash                                
+00004011  read_flash_handle                         
+00003159  realloc                                   
+0000722c  spiMasterConfig                           
+20001233  spi_state                                 
+00002c19  start_EPD_timer                           
+00002c11  stop_EPD_timer                            
+00002bd9  system_init                               
+00002ba1  systick_Start                             
+00002b89  systick_Stop                              
+00002b79  systick_isr                               
+20000f38  task_handle                               
+00007160  uartConfig                                
+200000e4  workTask                                  
+00003f99  write_flash                               
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                      
+-------   ----                                      
+00000000  __TI_static_base__                        
+00000000  g_pfnVectors                              
+00000149  eTC_G2Mb_GetSizeIndex                     
+000001c1  eTC_G2Mb_power_on                         
+00000200  __STACK_SIZE                              
+00000200  __SYSMEM_SIZE                             
+00000221  eTC_G2Mb_nothing_frame                    
+00000291  eTC_G2Mb_nothing_frame_19_26              
+00000331  eTC_G2Mb_border_dummy_line                
+00000391  eTC_G2Mb_border_dummy_line_frame_19_26    
+000003f9  eTC_G2Mb_dummy_line                       
+00000451  eTC_G2Mb_power_off                        
+00000569  eTC_G2Mb_RegAssign_Select                 
+00000609  eTC_G2Mb_initialize_driver                
+00000b71  eTC_G2Mb_PU_Collection                    
+00000bd1  eTC_G2Mb_IO_Config                        
+00001111  eTC_G2Mb_Display_from_flash               
+00001189  eTC_G2Mb_Display_from_Ram                 
+00001211  eTC_G2Mb_Display_PU_from_Ram              
+00001229  eTC_G2Mb_Display_PU_From_Flash            
+00001279  iTC_ReadLineData_PU_Handle                
+00001369  iTC_ReadLineData_Handle                   
+00001421  readLUTData                               
+00001461  iTC_Engine_init                           
+000014a9  decod_cmd                                 
+00001a01  RunEngine                                 
+00001a29  iTC_power_on                              
+00001a61  iTC_215Mb_power_off                       
+00001a61  iTC_287Mb_power_off                       
+00001a61  iTC_287Sp_power_off                       
+00001a61  iTC_420Mb_power_off                       
+00001a61  iTC_420Sp_power_off                       
+00001a61  iTC_power_off                             
+00001a79  iTC_215Mb_initialize_driver               
+00001a79  iTC_287Mb_initialize_driver               
+00001a79  iTC_287Sp_initialize_driver               
+00001a79  iTC_420Mb_initialize_driver               
+00001a79  iTC_420Sp_initialize_driver               
+00001a79  iTC_initialize_driver                     
+00001ab1  iTC_ReadLineData_Handle_2bit              
+00001b21  iTC_ReadLineData_Handle_1bit              
+00001b29  iTC_215Mb_IO_Config                       
+00001b29  iTC_287Mb_IO_Config                       
+00001b29  iTC_287Sp_IO_Config                       
+00001b29  iTC_420Mb_IO_Config                       
+00001b29  iTC_420Sp_IO_Config                       
+00001b29  iTC_IO_Config                             
+00001ba9  iTC_215Mb_Display_from_flash              
+00001ba9  iTC_287Mb_Display_from_flash              
+00001ba9  iTC_287Sp_Display_from_flash              
+00001ba9  iTC_420Mb_Display_from_flash              
+00001ba9  iTC_420Sp_Display_from_flash              
+00001ba9  iTC_Display_from_flash                    
+00001bd9  iTC_215Mb_Display_from_Ram                
+00001bd9  iTC_287Mb_Display_from_Ram                
+00001bd9  iTC_287Sp_Display_from_Ram                
+00001bd9  iTC_420Mb_Display_from_Ram                
+00001bd9  iTC_420Sp_Display_from_Ram                
+00001bd9  iTC_Display_from_Ram                      
+00001c09  SetPU_ImageDataHandle                     
+00001c11  iTC_215Mb_Display_PU_from_Ram             
+00001c11  iTC_287Mb_Display_PU_from_Ram             
+00001c11  iTC_420Mb_Display_PU_from_Ram             
+00001c11  iTC_Display_PU_from_Ram                   
+00001c39  iTC_215Mb_Display_PU_From_Flash           
+00001c39  iTC_287Mb_Display_PU_From_Flash           
+00001c39  iTC_420Mb_Display_PU_From_Flash           
+00001c39  iTC_Display_PU_From_Flash                 
+00001c69  Ex_RunEngine                              
+00001cd1  eTC_G2Ma_GetSizeIndex                     
+00001d39  eTC_G2Ma_power_on                         
+00001d99  eTC_G2Ma_nothing_frame                    
+00001e69  eTC_G2Ma_power_off                        
+00001f89  eTC_G2Ma_RegAssign_Select                 
+00002001  eTC_G2Ma_initialize_driver                
+00002121  eTC_G2Ma_IO_Config                        
+00002199  eTC_G2Ma_BL_init                          
+000021d9  eTC_G2Ma_BL_nothing_line                  
+00002201  eTC_G2Ma_BL_read_line_data_handle         
+00002339  eTC_G2Ma_BL_handle_Base                   
+00002619  eTC_G2Ma_Display_from_flash               
+00002659  eTC_G2Ma_Display_from_Ram                 
+000026b9  WriteRunInfo_Feedback_Handle              
+00002701  WriteImageFileInfo_Feedback_Handle        
+00002749  WriteImageData_Feedback_Handle            
+00002791  WriteData_Feedback_Handle                 
+000027d1  WriteBootInfo_Feedback_Handle             
+00002821  RecvVer_Feedback_Handle                   
+00002829  ReadRunInfo_Feedback_Handle               
+00002879  ReadImageFileInfo_Feedback_Handle         
+000028b9  ReadData_Feedback_Handle                  
+00002901  ReadBootInfo_Feedback_Handle              
+00002951  PreRun_Feedback_Handle                    
+00002979  FastShow_Feedback_Handle                  
+00002981  EraseRunInfo_Feedback_Handle              
+000029e1  EraseFlash_Feedback_Handle                
+00002a19  EraseEntireFlash_Feedback_Handle          
+00002a41  EraseBootInfo_Feedback_Handle             
+00002aa9  EPDShow_Feedback_Handle                   
+00002b41  CheckMCU_Feedback_Handle                  
+00002b59  CMD_Debug_Feedback_Handle                 
+00002b79  systick_isr                               
+00002b89  systick_Stop                              
+00002ba1  Systick_Configuration                     
+00002ba1  systick_Start                             
+00002bd9  system_init                               
+00002c11  stop_EPD_timer                            
+00002c19  start_EPD_timer                           
+00002c29  EPD_spi_read                              
+00002c51  EPD_spi_write                             
+00002c51  iTC_spi_sendRegData                       
+00002c59  iTC_spi_send                              
+00002ca1  iTC_spi_send_array                        
+00002cc1  iTC_spi_sendReg                           
+00002ce9  getnowtime                                
+00002cf1  get_EPD_time_tick                         
+00002d01  epd_spi_init                              
+00002d29  delay_btwn_CS_H_L                         
+00002d31  EPD_spi_attach                            
+00002d51  check_flash_spi                           
+00002d69  PWM_run                                   
+00002da1  EPD_spi_detach                            
+00002de9  EPD_initialize_gpio                       
+00002e61  EPD_display_hardware_init                 
+00002e89  EPD_delay_ms                              
+00002ea1  EPD_Gx_spi_send_byte                      
+00002ee1  EPD_Gx_spi_send                           
+00002f39  EPD_Gx_spi_rid                            
+00002f61  EPD_Gx_spi_r                              
+00002fad  minit                                     
+0000302d  malloc                                    
+00003097  free                                      
+00003159  realloc                                   
+00003261  memalign                                  
+0000334d  calloc                                    
+0000337d  EUSCI_A_SPI_transmitData                  
+00003381  Set_AssignEPD_Drive                       
+00003411  EPD_display_init                          
+00003429  EPD_Power_off_Ex                          
+00003449  EPD_display_PU_from_pointer               
+000034d9  EPD_display_PU_from_flash                 
+00003571  EPD_display_GU_from_pointer               
+000035f9  EPD_display_GU_from_flash                 
+00003689  EPD_display_FT_from_pointer               
+00003735  EUSCI_B_SPI_transmitData                  
+00003739  GetRunImageIndex                          
+00003781  Previewer                                 
+000037b9  CancelBootTask_Module                     
+000037c1  LoadRunInfo                               
+00003811  LoadBootInfo                              
+00003851  DisplayImage                              
+000038c1  BootTask_Module_init                      
+00003ae1  SendResult                                
+00003b19  SendResult_Datas                          
+00003b39  SendResultOnly                            
+00003b49  CheckRecvData                             
+00003b59  AddPacketTask_Handle                      
+00003b81  RecvDataEvent                             
+00003c69  RunPacketTaskHandle                       
+00003ca1  Data_Module_init                          
+00003ce9  SCL_Low                                   
+00003cf9  SDA_Low                                   
+00003d11  SCL_High                                  
+00003d21  SDA_High                                  
+00003d39  i2c_stop                                  
+00003d51  i2c_start                                 
+00003d69  i2c_out_BYTE                              
+00003d99  i2c_in_BYTE                               
+00003dd1  i2c_delay                                 
+00003dd9  i2c_WriteAck                              
+00003de9  i2c_ReadAck                               
+00003e11  i2c_Init                                  
+00003e29  getTemperatureOne                         
+00003e69  DetectionTemperature                      
+00003ea9  getTemperature                            
+00003ee9  Flash_cs_low                              
+00003f09  Flash_cs_high                             
+00003f99  write_flash                               
+00004011  read_flash                                
+00004011  read_flash_handle                         
+00004019  is_flash_existed                          
+00004021  CMD_SE                                    
+00004041  CMD_CE                                    
+00004059  erase_flash                               
+00004091  IsFlashBusy                               
+000040b9  RingBufWriteOne                           
+000040c9  RingBufWrite                              
+000040e9  RingBufUsed                               
+00004101  RingBufSize                               
+00004109  RingBufReadOne                            
+00004121  RingBufRead                               
+00004141  RingBufPeek                               
+00004161  RingBufInit                               
+00004171  RingBufFull                               
+00004191  RingBufFree                               
+000041a9  RingBufFlush                              
+000041b1  RingBufEmpty                              
+000041c1  RingBufContigUsed                         
+000041d1  RingBufContigFree                         
+000041f1  RingBufAdvanceWrite                       
+00004229  RingBufAdvanceRead                        
+00004249  Rtos_init                                 
+00004279  Rtos_Task                                 
+000042d9  Rtos_Event_Handle_Timer                   
+00004329  Rtos_Event_Handle_ClearAll                
+00004349  Rtos_Event_Handle_Cancel                  
+00004391  Rtos_Event_Handle                         
+000043d9  Rtos_Addtask                              
+000043e9  euscia0_isr                               
+00004429  Uart_RecvAvail                            
+00004431  Uart_PeekRecvDatas                        
+00004441  SendOut                                   
+00004441  UartSend                                  
+00004469  UartRecv                                  
+00004499  ConfigureUART                             
+00004519  ClearUartBuffer                           
+00004549  __aeabi_memcpy                            
+00004549  __aeabi_memcpy4                           
+00004549  __aeabi_memcpy8                           
+00004549  memcpy                                    
+000045e5  SPI_initMaster                            
+0000466d  __aeabi_memclr                            
+0000466d  __aeabi_memclr4                           
+0000466d  __aeabi_memclr8                           
+0000466f  __aeabi_memset                            
+0000466f  __aeabi_memset4                           
+0000466f  __aeabi_memset8                           
+00004675  memset                                    
+000046e7  __mpu_init                                
+000046e9  __TI_auto_init                            
+00004759  __TI_decompress_lzss                      
+000047c1  _c_int00                                  
+00004815  C$$EXIT                                   
+00004819  abort                                     
+00004821  exit                                      
+00004869  copy_in                                   
+000048b5  _system_pre_init                          
+000048b9  GetTemporaryAddress                       
+000048c1  GetImageInfoAddress                       
+000048d9  GetFunRunAddress                          
+000048e9  GetFunBootAddress                         
+000048f9  GetBlockAddress                           
+00004903  _system_post_cinit                        
+00004905  GPIO_setAsPeripheralModuleFunctionInputPin
+0000494d  Interrupt_registerInterrupt               
+000049b1  GPIO_setAsInputPin                        
+000049e1  main                                      
+00004a09  CS_setDCOCenteredFrequency                
+00004a2d  GPIO_setAsOutputPin                       
+00004a51  ResetISR                                  
+00004a73  SPI_getInterruptStatus                    
+00004a93  SPI_transmitData                          
+00004ab3  EUSCI_A_SPI_receiveData                   
+00004ab9  iTC_215Mb_power_on                        
+00004ad9  iTC_287Mb_power_on                        
+00004af9  iTC_420Mb_power_on                        
+00004b15  SPI_disableModule                         
+00004b2f  SPI_enableModule                          
+00004b49  SPI_receiveData                           
+00004b65  GPIO_getInputPinValue                     
+00004b7d  GPIO_setOutputLowOnPin                    
+00004b95  WDT_A_holdTimer                           
+00004bb1  iTC_287Sp_power_on                        
+00004bc9  iTC_420Sp_power_on                        
+00004be1  _args_main                                
+00004bf9  GPIO_setOutputHighOnPin                   
+00004c0d  _register_unlock                          
+00004c13  _register_lock                            
+00004c1b  _nop                                      
+00004c21  __TI_decompress_none                      
+00004c2f  EUSCI_A_SPI_disable                       
+00004c3b  EUSCI_A_SPI_enable                        
+00004c47  EUSCI_B_SPI_disable                       
+00004c53  EUSCI_B_SPI_enable                        
+00004c5f  __TI_zero_init                            
+00004c6b  EUSCI_A_SPI_getInterruptStatus            
+00004c73  EUSCI_B_SPI_getInterruptStatus            
+00004c7b  EUSCI_B_SPI_receiveData                   
+00006b22  eTC_G2Ma_RT_WT                            
+00006b8e  eTC_G2Ma_parameters                       
+00006bf2  eTC_G2Mb_parameters                       
+00006cf8  eTC_G2Mb_TF_table                         
+00006e25  eTC_G2Mb_data_lookuptable                 
+0000709d  iTC_215Mb_LUT                             
+000070b1  iTC_215Mb_PU_LUT                          
+000070c5  iTC_287Mb_PU_LUT                          
+000070d9  iTC_287Mb_LUT                             
+000070ed  iTC_420Mb_PU_LUT                          
+00007101  iTC_420Mb_LUT                             
+00007160  uartConfig                                
+0000722c  spiMasterConfig                           
+000072fb  iTC_287Sp_LUT                             
+0000730f  iTC_420Sp_LUT                             
+00007323  iTC_215Mb_OTP_LUT                         
+00007337  iTC_287Mb_OTP_LUT                         
+0000734b  iTC_287Sp_OTP_LUT                         
+0000735f  iTC_420Mb_OTP_LUT                         
+00007373  iTC_420Sp_OTP_LUT                         
+0000741a  eTC_G2Mb_scan_lookuptable                 
+00007422  eTC_G2Ma_SCAN_TABLE                       
+00007426  eTC_G2Mb_BORDER_TABLE                     
+0000742a  eTC_G2Mb_SCAN_TABLE                       
+000074b8  __TI_Handler_Table_Base                   
+000074c4  __TI_Handler_Table_Limit                  
+000074d8  __TI_CINIT_Base                           
+000074f0  __TI_CINIT_Limit                          
+20000000  g_pfnRAMVectors                           
+200000e4  workTask                                  
+20000f28  IIC_IO                                    
+20000f38  task_handle                               
+20000f68  Recv_CmdInfo                              
+20000f6c  RunImage_Info                             
+20000f70  perv_RunImage_Info                        
+20000f78  _sys_memory                               
+200011f0  __TI_cleanup_ptr                          
+200011f4  __TI_dtors_ptr                            
+200011f8  __TI_enable_exit_profile_output           
+20001208  _lock                                     
+2000120c  _unlock                                   
+20001222  eTC_G2Mb_PartialUpdate_StageTime          
+20001224  main_func_sp                              
+20001233  spi_state                                 
+2000fe00  __stack                                   
+20010000  __STACK_END                               
+ffffffff  __TI_pprof_out_hndl                       
+ffffffff  __TI_prof_data_size                       
+ffffffff  __TI_prof_data_start                      
+ffffffff  __binit__                                 
+ffffffff  __c_args__                                
+ffffffff  binit                                     
+UNDEFED   SHT$$INIT_ARRAY$$Base                     
+UNDEFED   SHT$$INIT_ARRAY$$Limit                    
+
+[332 symbols]

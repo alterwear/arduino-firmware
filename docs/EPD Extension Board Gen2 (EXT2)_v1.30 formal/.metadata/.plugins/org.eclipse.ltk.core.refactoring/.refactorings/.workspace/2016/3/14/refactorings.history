@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;EK-TM4C123GXL/EPD_Grlib&apos;" deleteContents="false" description="Delete resource &apos;EK-TM4C123GXL/EPD_Grlib&apos;" element1="/EK-TM4C123GXL/EPD_Grlib" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1459326507572"/>
+</session>

@@ -1,0 +1,41 @@
+
+**** Build of configuration Debug for project uart_loopback_48mhz_brclk ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../msp432_startup_ccs.c'
+'Invoking: MSP432 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/ti/ccsv6/ccs_base/arm/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/include" --include_path="C:/ti/ccsv6/ccs_base/arm/include/" --include_path="C:/ti/ccsv6/ccs_base/arm/include/CMSIS" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/include/" --include_path="F:/PDI/Kit/EPD Extension Board GEN2/fw/EPD Extension Board Gen2 (EXT2) full/uart_loopback_48mhz_brclk" --include_path="C:/ti/msp430/MSPWare_2_40_00_37/driverlib/driverlib/MSP432P4xx/" --advice:power=all -g --gcc --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs --diag_wrap=off --display_error_number --diag_warning=225 --preproc_with_compile --preproc_dependency="msp432_startup_ccs.pp"  "../msp432_startup_ccs.c"
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 76: warning #48-D: incompatible redefinition of macro "P1MAP" (declared at line 1286 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 77: warning #48-D: incompatible redefinition of macro "P2MAP" (declared at line 1287 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 78: warning #48-D: incompatible redefinition of macro "P3MAP" (declared at line 1288 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 79: warning #48-D: incompatible redefinition of macro "P4MAP" (declared at line 1289 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 80: warning #48-D: incompatible redefinition of macro "P5MAP" (declared at line 1290 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 81: warning #48-D: incompatible redefinition of macro "P6MAP" (declared at line 1291 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 82: warning #48-D: incompatible redefinition of macro "P7MAP" (declared at line 1292 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"../msp432_startup_ccs.c", line 198: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../msp432_startup_ccs.c", line 215: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../msp432_startup_ccs.c", line 232: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+'Finished building: ../msp432_startup_ccs.c'
+' '
+'Building file: ../uart_loopback_48mhz_brclk.c'
+'Invoking: MSP432 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/ti/ccsv6/ccs_base/arm/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/include" --include_path="C:/ti/ccsv6/ccs_base/arm/include/" --include_path="C:/ti/ccsv6/ccs_base/arm/include/CMSIS" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.7/include/" --include_path="F:/PDI/Kit/EPD Extension Board GEN2/fw/EPD Extension Board Gen2 (EXT2) full/uart_loopback_48mhz_brclk" --include_path="C:/ti/msp430/MSPWare_2_40_00_37/driverlib/driverlib/MSP432P4xx/" --advice:power=all -g --gcc --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs --diag_wrap=off --display_error_number --diag_warning=225 --preproc_with_compile --preproc_dependency="uart_loopback_48mhz_brclk.pp"  "../uart_loopback_48mhz_brclk.c"
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 76: warning #48-D: incompatible redefinition of macro "P1MAP" (declared at line 1286 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 77: warning #48-D: incompatible redefinition of macro "P2MAP" (declared at line 1287 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 78: warning #48-D: incompatible redefinition of macro "P3MAP" (declared at line 1288 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 79: warning #48-D: incompatible redefinition of macro "P4MAP" (declared at line 1289 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 80: warning #48-D: incompatible redefinition of macro "P5MAP" (declared at line 1290 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 81: warning #48-D: incompatible redefinition of macro "P6MAP" (declared at line 1291 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"C:\ti\msp430\MSPWare_2_40_00_37\driverlib\driverlib\MSP432P4xx\pmap.h", line 82: warning #48-D: incompatible redefinition of macro "P7MAP" (declared at line 1292 of "C:\ti\ccsv6\ccs_base\arm\include\msp432p401r.h")
+"../uart_loopback_48mhz_brclk.c", line 103: error #20: identifier "DCORSEL_5" is undefined
+"../uart_loopback_48mhz_brclk.c", line 106: error #20: identifier "EUSCI_A0_MODULE" is undefined
+"../uart_loopback_48mhz_brclk.c", line 113: error #20: identifier "INT_EUSCIA0" is undefined
+"../uart_loopback_48mhz_brclk.c", line 128: error #20: identifier "EUSCI_A0_MODULE" is undefined
+"../uart_loopback_48mhz_brclk.c", line 139: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+4 errors detected in the compilation of "../uart_loopback_48mhz_brclk.c".
+
+>> Compilation failure
+gmake: *** [uart_loopback_48mhz_brclk.obj] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****

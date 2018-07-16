@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;EK-TM4C123GXL/src/PDI_displays_drivers/FPL_drivers/iTC_403_Aurora_Mb.c&apos;" deleteContents="false" description="Delete resource &apos;EK-TM4C123GXL/src/PDI_displays_drivers/FPL_drivers/iTC_403_Aurora_Mb.c&apos;" element1="/EK-TM4C123GXL/src/PDI_displays_drivers/FPL_drivers/iTC_403_Aurora_Mb.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1462496897921"/>
+</session>

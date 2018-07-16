@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="408" key="DIALOG_Y_ORIGIN"/>
+		<item value="729" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="iCMD_Image" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="iCMD_Image"/>
+			<item value="CM_Monochrome"/>
+			<item value="iCMD_SetTemper"/>
+			<item value="Config_EPD_cs_Pin"/>
+			<item value="isDebug"/>
+			<item value="epd_spi_init"/>
+			<item value="Set_AssignEPD_Drive"/>
+			<item value="ImageType"/>
+		</list>
+		<list key="replacehistory">
+			<item value="iTC_GU_LUT"/>
+			<item value="Obj"/>
+			<item value="iCMD_iTC_SPI_Cr_TP"/>
+			<item value="iTC_420Sp"/>
+			<item value="Spectra"/>
+			<item value="iTC_spi_send"/>
+			<item value="iTC_spi_send_array"/>
+			<item value="EPD_display_GU_from_pointer"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="269" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft JhengHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft JhengHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="302" key="DIALOG_Y_ORIGIN"/>
+		<item value="669" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

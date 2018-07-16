@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<deviceVariant value="com.ti.ccstudio.deviceModel.TMS470.GenericCortexM4Device"/>
+	<deviceFamily value="TMS470"/>
+	<deviceEndianness value="be32"/>
+	<codegenToolVersion value="5.0.4"/>
+	<isElfFormat value="true"/>
+	<rts value="libc.a"/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate,"/>
+	<isTargetManual value="false"/>
+	<connection value="common/targetdb/connections/Stellaris_ICDI_Connection.xml"/>
+	<origin value="F:/PDI/Kit/EPD extension board/EPD Extension Board v2.02 for CC3200 LaunchPad/CC3200 LaunchPad"/>
+</projectOptions>

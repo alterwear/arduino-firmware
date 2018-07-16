@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<deviceVariant value="Cortex M.TM4C1232C3PM"/>
+	<deviceFamily value="TMS470"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="5.2.5"/>
+	<isElfFormat value="true"/>
+	<connection value="common/targetdb/connections/Stellaris_ICDI_Connection.xml"/>
+	<linkerCommandFile value="tm4c1232c3pm.cmd"/>
+	<rts value="libc.a"/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectWithMainTemplate,"/>
+	<isTargetManual value="false"/>
+	<origin value="F:/PDI/partner/ITRI/V02/ITRI_EPD_v0.26/ITRI_iTC_270_E4/ITRI_EPD_Board"/>
+</projectOptions>

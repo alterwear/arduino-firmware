@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<deviceVariant value="MSP432P401R"/>
+	<deviceFamily value="MSP432"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="5.2.4"/>
+	<isElfFormat value="true"/>
+	<linkerCommandFile value="driverlib_empty_project_ccs.cmd"/>
+	<rts value="libc.a"/>
+	<createSlaveProjects value=""/>
+	<ignoreDefaultDeviceSettings value="true"/>
+	<templateProperties value="id=empty_project.projectspec.driverlib_empty_project,"/>
+	<connection value="common/targetdb/connections/TIXDS110_Connection.xml"/>
+	<isTargetManual value="false"/>
+	<origin value="F:/PDI/Repaper Board/EPD EXTENSION BOARD GEN2/fw/EPD EXTENSION BOARD GEN2/MSP_Exp432P401R"/>
+</projectOptions>

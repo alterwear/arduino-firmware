@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;EK-TM4C123GXL/src/Graphics Library&apos; to &apos;Graphics_Library&apos;" description="Rename resource &apos;Graphics Library&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Graphics Library" name="Graphics_Library" stamp="1459325479190" updateReferences="true"/>
+</session>
