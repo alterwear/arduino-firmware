@@ -32,7 +32,7 @@
 #include <EEPROM.h>
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1 cat
+#define IMAGE_1 trip_start
 #define IMAGE_2 text_image
 #define IMAGE_3 saturn
 #define IMAGE_4 venus
@@ -224,8 +224,20 @@ void setup() {
 // executable to view bits: https://superuser.com/questions/463906/how-to-see-all-the-bits-of-a-file
 // also potentially useful thread! https://stackoverflow.com/questions/30198324/i-have-trouble-building-codes-for-frequency-table-in-huffman-compression/30200096?noredirect=1#comment48507449_30200096
   Serial.println("trying to see the image bits....");
-  for (int i = 0; i < 100; i++){
-    Serial.println(IMAGE_1_BITS[i], BIN);
+
+  Serial.print("image_1_bits DEC: ");
+  Serial.println((byte)IMAGE_1_BITS);
+  Serial.print("image_1_bits HEX: ");
+  Serial.println((byte)IMAGE_1_BITS, HEX);
+  Serial.print("image_1_bits BIN: ");
+  Serial.println((byte)IMAGE_1_BITS, BIN);
+  for (int i = 0; i < 1000; i++){
+    Serial.print("0x");
+    Serial.print(IMAGE_1_BITS[i], HEX);
+    Serial.print(", ");
+    if (i%12 == 0) {
+      Serial.println();
+    }
   }
 }
 
