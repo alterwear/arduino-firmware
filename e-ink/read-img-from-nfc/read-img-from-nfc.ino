@@ -9,6 +9,52 @@
 // EEPROM
 #include <EEPROM.h>
 
+// required libraries
+#include <SPI.h>
+#include <EPD_FLASH.h>
+#include <EPD_V231_G2.h>
+#define SCREEN_SIZE 200
+#include <EPD_PANELS.h>
+#include <S5813A.h>
+#include <EPD_PINOUT.h>
+
+// Add Images library to compiler path
+#include <Images.h>  // this is just an empty file
+
+#define IMAGE_1 trip_start
+
+// pre-processor convert to string
+#define MAKE_STRING1(X) #X
+#define MAKE_STRING(X) MAKE_STRING1(X)
+// other pre-processor magic
+// token joining and computing the string for #include
+#define ID(X) X
+#define MAKE_NAME1(X,Y) ID(X##Y)
+#define MAKE_NAME(X,Y) MAKE_NAME1(X,Y)
+#define MAKE_JOIN(X,Y) MAKE_STRING(MAKE_NAME(X,Y))
+// calculate the include name and variable names
+#define IMAGE_1_FILE MAKE_JOIN(IMAGE_1,EPD_IMAGE_FILE_SUFFIX)
+#define IMAGE_1_BITS MAKE_NAME(IMAGE_1,EPD_IMAGE_NAME_SUFFIX)
+// images
+PROGMEM const
+#define unsigned
+#define char uint8_t
+#include IMAGE_1_FILE
+#undef char
+#undef unsigned
+
+// define the E-Ink display
+EPD_Class EPD(EPD_SIZE,
+        Pin_PANEL_ON,
+        Pin_BORDER,
+        Pin_DISCHARGE,
+#if EPD_PWM_REQUIRED
+        Pin_PWM,
+#endif
+        Pin_RESET,
+        Pin_BUSY,
+        Pin_EPD_CS);
+
 //i2c
 #define SLAVE_ADDR 0x55
 #define int_reg_addr 0x01      //first block of user memory
@@ -84,6 +130,7 @@ void loop() {
     }
     if (idesired_state == 49){
       Serial.println("idesired_state is 49");
+      EPD.image_0(IMAGE_1_BITS);
     } else if (idesired_state == 48){
       Serial.println("idesired_state is 48");
     } else if (idesired_state = 50){
