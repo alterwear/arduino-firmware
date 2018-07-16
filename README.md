@@ -120,12 +120,21 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 16 July 2018
+**TODO**
+- Look at the partial update code for etc from nxp.
+- 
+
+**Notes:**
+- Reading image over nfc: How about if I just send the image file exactly as is, and just change what the file points to in arduino code?
+
+
 #### 13 July 2018
 **TODO**
 - Bitmap via NFC: looks like I need to send the bits over...*what is getting sent over now?*. Added a new arduino file: read-img-from-nfc to start to see what the file looks like. Seems like I'll need to send it over in the format? Many questions abound here.
 - figure out if I can use [GFX](https://learn.adafruit.com/adafruit-gfx-graphics-library) on the MSP430
 - Look at partial update code from NXP: https://github.com/molecule/AlterWear/blob/master/e-ink/EPD%20extension%20board%20for%20partial%20update%20v1.0_beta.rar
-- prettify/customize the app
+- ~~prettify/customize the app~~ (Renamed it, added launch icon) (will need more updating later but need to decide on interactions first).
 
 **Notes**
 - memory map: Still haven't found good docs, but experiments (and Christie) confirm NFC and I2C read from/to the same spot in memory (in other words I can write via NFC and read it via I2C). Haven't tried the reverse, but should be fine.
