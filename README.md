@@ -123,7 +123,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 #### 16 July 2018
 **TODO**
 - ~~Look at the partial update code for etc from nxp.~~ Will need to figure out how to use TI LaunchPad stuff before I can try that.
-- Check Adafruit forum post re: Arduino image handling questions:
+- Check Adafruit forum post re: Arduino image handling questions: https://forums.adafruit.com/viewtopic.php?f=19&t=138304
 - Look into compressing .xbm? 
   - https://stackoverflow.com/questions/8417034/how-to-make-bitmap-compress-without-change-the-bitmap-size
   - https://android--code.blogspot.com/2015/09/android-how-to-compress-bitmap.html
