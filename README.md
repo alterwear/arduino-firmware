@@ -120,6 +120,97 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 23 July 2018
+**TODO**
+- 
+- 
+
+**Notes**
+- For EPD 2_0: ``` this->bytes_per_scan = 96 / 4; ```
+- Overall flow is this:
+Image_0 in EPD_V231_G2.h passes the byte pointer to the image (presumably):
+```
+// assuming a clear (white) screen output an image (PROGMEM data)
+	void image_0(PROGMEM const uint8_t *image) {
+		this->frame_fixed_repeat(0xaa, EPD_compensate);
+		this->frame_fixed_repeat(0xaa, EPD_white);
+		this->frame_data_repeat(image, EPD_inverse);
+		this->frame_data_repeat(image, EPD_normal);
+	}
+```
+To frame_fixed_repeat in EPD_V231_G2.cpp, where it's called "Fixed_value":
+```
+void EPD_Class::frame_fixed_repeat(uint8_t fixed_value, EPD_stage stage) {
+```
+Which actually just calls this:
+```
+// One frame of data is the number of lines * rows. For example:
+// The 1.44” frame of data is 96 lines * 128 dots.
+// The 2” frame of data is 96 lines * 200 dots.
+// The 2.7” frame of data is 176 lines * 264 dots.
+
+// the image is arranged by line which matches the display size
+// so smallest would have 96 * 32 bytes
+
+void EPD_Class::frame_data(PROGMEM const uint8_t *image, EPD_stage stage){
+	for (uint8_t line = 0; line < this->lines_per_display ; ++line) {
+		this->line(line, &image[line * this->bytes_per_line], 0, true, stage);
+	}
+}
+```
+
+That bit of code loops the number of lines in the display. The code that reads in lines looks like this:
+```
+// output one line of scan and data bytes to the display
+void EPD_Class::line(uint16_t line, const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
+```
+Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zeroe, read_progmem is true, not sure what stage is.
+```
+..........
+if (this->middle_scan) { // true for EPD_1_44 and 2_0, false for EPD_1_9 and 2_6.
+    // data bytes
+    //Serial.println("odd pixels in middle scan...");
+    this->odd_pixels(data, fixed_value, read_progmem, stage);
+
+    // scan line
+    for (uint16_t b = this->bytes_per_scan; b > 0; --b) { // bytes_per_scan = 96/4 = 24
+	uint8_t n = 0x00;
+	if (line / 4 == b - 1) {                         // 
+		n = 0x03 << (2 * (line & 0x03));
+	}
+	SPI_put(n);
+    }
+.....
+```
+Note that data is the pointer to the image, fixed_val is zero, and line is just the line # of the current line we're looking at. I THINK SPI_put just basically does a new line or flushes the buffer or something. So the part of the code that actually matters is odd_pixels:
+
+```
+// pixels on display are numbered from 1 so odd is actually bits 0,2,4,...
+void EPD_Class::odd_pixels(const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
+```
+data is the pointer to the image, fixed_value is 0, read_progmem is true, stage is ?
+```
+...
+for (uint16_t b = this->bytes_per_line; b > 0; --b) { // loops over all the bytes in a line.
+...
+// AVR has multiple memory spaces
+uint8_t pixels;
+if (read_progmem) {                                       // this is true, so the image is stored in progmem??
+    pixels = pgm_read_byte_near(data + b- 1) & 0x55;
+} else {
+    pixels = data[b - 1] & 0x55;                          
+}
+...
+```
+Later there's a switch statement and the part that uploads the image is:
+```
+case EPD_normal:       // B -> B, W -> W (New Image)
+    pixels = 0xaa | pixels;
+    break;
+```
+
+
+
 #### 16 July 2018
 **TODO**
 - ~~Look at the partial update code for etc from nxp.~~ Will need to figure out how to use TI LaunchPad stuff before I can try that.
