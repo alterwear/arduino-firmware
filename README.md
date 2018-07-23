@@ -122,8 +122,17 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### 23 July 2018
 **TODO**
-- 
-- 
+- Consider adding more external memory: Could buy [this from Sparkfun](https://www.sparkfun.com/products/525) to increase size of EEPROM to 32kB (3200 Byte) of non volatile memory. Library to manage external memory: http://forum.arduino.cc/index.php?topic=502117.0
+- Look at encoding / compression schemes:
+    - http://shodhganga.inflibnet.ac.in/bitstream/10603/201087/8/08_chapter%201.pdf
+    - http://flif.info/publications.html
+    - https://maximumcompression.com/data/bmp.php
+    - http://xooyoozoo.github.io/yolo-octo-bugfixes/#zoo-bird-head*1:3&bpg=t&jpg=t
+    - https://bellard.org/bpg/
+    - https://bellard.org/bpg/bpg_spec.txt
+    - https://homepages.cae.wisc.edu/~ece533/project/f06/aguilera_rpt.pdf
+    - https://arxiv.org/pdf/1211.4591.pdf
+    - https://arxiv.org/pdf/1112.2261.pdf
 
 **Notes**
 - For EPD 2_0: ``` this->bytes_per_scan = 96 / 4; ```
@@ -230,24 +239,24 @@ Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte use
 | RAM | ? | 512 Bytes | ? |
 | Memory | ? | 2000 Bytes | ? |
 
-Mega 2560, which has 256K of program memory, instead of 32K (and 8K of SRAM memory instead of 2K).
 
 [More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
-The flash memory can be programmed via the Spy-Bi-Wire/JTAG port or in-system by the CPU. The CPU can
+
+- The flash memory can be programmed via the Spy-Bi-Wire/JTAG port or in-system by the CPU. The CPU can
 perform single-byte and single-word writes to the flash memory. Features of the flash memory include:
-• Flash memory has n (**what is n?**) segments of main memory and four segments of information memory (A to D) of
+- Flash memory has n (**what is n?**) segments of main memory and four segments of information memory (A to D) of
 64 bytes each. Each segment in main memory is 512 bytes in size.
-• Segments 0 to n may be erased in one step, or each segment may be individually erased.
-• Segments A to D can be erased individually or as a group with segments 0 to n. Segments A to D are also
+- Segments 0 to n may be erased in one step, or each segment may be individually erased.
+- Segments A to D can be erased individually or as a group with segments 0 to n. Segments A to D are also
 called information memory.
-• Segment A contains calibration data. After reset segment A is protected against programming and erasing. It
+- Segment A contains calibration data. After reset segment A is protected against programming and erasing. It
 can be unlocked but care should be taken not to erase this segment if the device-specific calibration data is
 required.
 
 Note the cat_2_0 image is 15,094 bytes (16 KB on disk). So it's burned into flash, then loaded line by line into SRAM and sent to the epaper display.
 
 Could send it over in SRAM-sized chunks, let's assume best-case and can use the entire SRAM:
-15,094 / 2028 = 7.44 chunks.
+15,094 / 2028 = 7.44 chunks. Could buy [this from Sparkfun](https://www.sparkfun.com/products/525) to increase size of EEPROM to 32kB (3200 Byte) of non volatile memory. Library to manage external memory: http://forum.arduino.cc/index.php?topic=502117.0
 
 Writing that to the EPD sounds reallllly complicated tho...
 
@@ -273,6 +282,7 @@ optimal binary Huffman code is a difficult task.
 Store a bunch of "image primitives" that you can reference when constructing a new image. As long as the instructions to reconstruct an image from the primitives are smaller than the image themselves would be, this would actually save you some space.
 
 **Other memory and compression alg notes**
+
 - The arduino is a Harvard architecture in which the instructions and data are in separate memory spaces.  It cannot execute an instruction stored in the RAM.  So you can't read a compiled sketch from an SD card into RAM and then start executing it. [src](https://forum.arduino.cc/index.php?topic=126230.0)
 - Bitlash: http://bitlash.net/bitlash-users-guide.pdf
     - BITLASH INTERPRETER
