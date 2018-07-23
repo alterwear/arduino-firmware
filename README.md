@@ -222,13 +222,15 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
-| Info | ATMega328p | MSP430 **G2553** IPW20R |
-|:--- | :---|:---|
-Flash | 32 kBytes (1 kByte used for bootloader) | 16KB |
-| SRAM | 2048 bytes| ? |
-| EEPROM | 1024 bytes | ? |
-| RAM | ? | 512Bytes |
-| Memory | ? | 2kB |
+| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega |
+|:--- | :---|:---|:---}
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |
+| SRAM | 2048 Bytes| ? | 8000 Bytes |
+| EEPROM | 1024 Bytes | ? | 4000 Bytes |
+| RAM | ? | 512 Bytes | ? |
+| Memory | ? | 2000 Bytes | ? |
+
+Mega 2560, which has 256K of program memory, instead of 32K (and 8K of SRAM memory instead of 2K).
 
 [More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
 The flash memory can be programmed via the Spy-Bi-Wire/JTAG port or in-system by the CPU. The CPU can
@@ -270,6 +272,16 @@ optimal binary Huffman code is a difficult task.
 **Weird idea:**
 Store a bunch of "image primitives" that you can reference when constructing a new image. As long as the instructions to reconstruct an image from the primitives are smaller than the image themselves would be, this would actually save you some space.
 
+**Other memory and compression alg notes**
+- The arduino is a Harvard architecture in which the instructions and data are in separate memory spaces.  It cannot execute an instruction stored in the RAM.  So you can't read a compiled sketch from an SD card into RAM and then start executing it. [src](https://forum.arduino.cc/index.php?topic=126230.0)
+- Bitlash: http://bitlash.net/bitlash-users-guide.pdf
+    - BITLASH INTERPRETER
+        1. Runs in under 16kB on the AVR '328
+        2. Parses Bitlash code on the fly from RAM, PROGMEM, EEPROM, or SD card
+        3. Executes commands live from the command line and runs background tasks
+    - Bitlash 2.0 (http://bitlash.net) can run script from SD card.  Your application can be as big as you like. The sample sketch that does this can be found here: https://github.com/billroy/bitlash/blob/master/examples/bitlashsd/bitlashsd.pde
+    - 
+    
 #### 16 July 2018
 **TODO**
 - ~~Look at the partial update code for etc from nxp.~~ Will need to figure out how to use TI LaunchPad stuff before I can try that.
