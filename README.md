@@ -202,6 +202,12 @@ if (read_progmem) {                                       // this is true, so th
 }
 ...
 ```
+Info about progmem: Flash (program) memory (can store data here instead of SRAM).
+I COULD HAVE REALIZED THIS FROM THE FACT THAT the image byte always is labeled PROGMEM LOL.
+From [Arduino docs](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/): 
+- "While PROGMEM could be used on a single variable, it is really only worth the fuss if you have a larger block of data that needs to be stored, which is usually easiest in an array.
+- "Using PROGMEM is also a two-step procedure. After getting the data into Flash memory, it requires special methods (functions), also defined in the pgmspace.h library, to read the data from program memory back into SRAM, so we can do something useful with it." This is the "pgm_read_byte_near" method above.
+
 Later there's a switch statement and the part that uploads the image is:
 ```
 case EPD_normal:       // B -> B, W -> W (New Image)
@@ -209,7 +215,20 @@ case EPD_normal:       // B -> B, W -> W (New Image)
     break;
 ```
 
+[More info](http://playground.arduino.cc/Learning/Memory) about different Arduino memory spaces:
+- Flash memory (program space), is where the Arduino sketch is stored.
+- SRAM (static random access memory) is where the sketch creates and manipulates variables when it runs.
+- EEPROM is memory space that programmers can use to store long-term information.
+- Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
+- Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
+| Info | ATMega328p |
+|:--- | :---|
+Flash (1 kByte used for bootloader) | 32 kBytes |
+| SRAM | 2048 bytes| 
+| EEPROM | 1024 bytes |
+
+Note the cat_2_0 image is 15,094 bytes (16 KB on disk). So it's burned into flash, then loaded line by line into SRAM and sent to the epaper display.
 
 #### 16 July 2018
 **TODO**
