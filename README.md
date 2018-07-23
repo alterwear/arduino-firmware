@@ -223,7 +223,7 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
 | Info | ATMega328p | MSP430 **G2553** IPW20R | Mega |
-|:--- | :---|:---|:---}
+|:--- | :---|:---|:---|
 Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |
 | SRAM | 2048 Bytes| ? | 8000 Bytes |
 | EEPROM | 1024 Bytes | ? | 4000 Bytes |
