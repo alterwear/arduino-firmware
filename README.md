@@ -222,13 +222,53 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
-| Info | ATMega328p |
-|:--- | :---|
-Flash (1 kByte used for bootloader) | 32 kBytes |
-| SRAM | 2048 bytes| 
-| EEPROM | 1024 bytes |
+| Info | ATMega328p | MSP430 **G2553** IPW20R |
+|:--- | :---|:---|
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB |
+| SRAM | 2048 bytes| ? |
+| EEPROM | 1024 bytes | ? |
+| RAM | ? | 512Bytes |
+| Memory | ? | 2kB |
+
+[More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
+The flash memory can be programmed via the Spy-Bi-Wire/JTAG port or in-system by the CPU. The CPU can
+perform single-byte and single-word writes to the flash memory. Features of the flash memory include:
+• Flash memory has n (**what is n?**) segments of main memory and four segments of information memory (A to D) of
+64 bytes each. Each segment in main memory is 512 bytes in size.
+• Segments 0 to n may be erased in one step, or each segment may be individually erased.
+• Segments A to D can be erased individually or as a group with segments 0 to n. Segments A to D are also
+called information memory.
+• Segment A contains calibration data. After reset segment A is protected against programming and erasing. It
+can be unlocked but care should be taken not to erase this segment if the device-specific calibration data is
+required.
 
 Note the cat_2_0 image is 15,094 bytes (16 KB on disk). So it's burned into flash, then loaded line by line into SRAM and sent to the epaper display.
+
+Could send it over in SRAM-sized chunks, let's assume best-case and can use the entire SRAM:
+15,094 / 2028 = 7.44 chunks.
+
+Writing that to the EPD sounds reallllly complicated tho...
+
+**Image compression information**
+- The four different approaches[3],[5] to compression are 
+    - Statistical Compression, 
+    - Spatial compression, 
+    - Quantizing compression, 
+    - Fractal compression. 
+    - [src](https://arxiv.org/pdf/1112.2261.pdf)
+- Run-length encoding (RLE) is a very simple form of data compression in which runs of data (that
+is, sequences in which the same data value occurs in many consecutive data elements) are stored
+as a single data value and count, rather than as the original run. This is most useful on data that
+contains many such runs: for example, simple graphic images[8] such as icons, line drawings, and
+animations.
+- Huffman coding removes coding redundancy. Huffman’s procedure creates the
+optimal code for a set of symbols and probabilities subject to the constraint that the symbols be
+coded one at a time. After the code has been created, coding and/or decoding is accomplished in
+the simple look-up table . When large number of symbols is to be coded, the construction of the
+optimal binary Huffman code is a difficult task.
+
+**Weird idea:**
+Store a bunch of "image primitives" that you can reference when constructing a new image. As long as the instructions to reconstruct an image from the primitives are smaller than the image themselves would be, this would actually save you some space.
 
 #### 16 July 2018
 **TODO**
