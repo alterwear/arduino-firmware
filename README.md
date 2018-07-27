@@ -11,7 +11,7 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
-### Software
+### Arduino Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
@@ -89,7 +89,7 @@ That is, the #define and char array declaration are named the same as your file 
 7. Add your new xbm file to Arduino/libraries/Images
 8. That should work.
 
-# Breakout board notes
+## Breakout board notes
 
 How to find the COG #:
 - official page: http://www.pervasivedisplays.com/products/label_info
@@ -106,6 +106,9 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - Compatible with: 20+-pin e-ink displays (connector is straight).
 - Goals: Get it working (library code freezes and we don't know why), recreate and build our own.
 
+## TI CCStudio 
+- Download from here: http://processors.wiki.ti.com/index.php/Download_CCS
+- 
 
 ## Other notes
 - Technical support email: 	techsupport@pervasivedisplays.com
