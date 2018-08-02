@@ -123,6 +123,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 2 Aug 2018
+
+**Notes**
+1. From the rev3 user manual (in docs), [you have to use the CCStudio for some displays. You also need to change a setting (haven't figured that out yet)](https://imgur.com/a/5C6jD5s) Still haven't been able to verify what type of display we have.
+2. 
+
 #### 23 July 2018
 **TODO**
 - Consider adding more external memory: Could buy [this from Sparkfun](https://www.sparkfun.com/products/525) to increase size of EEPROM to 32kB (3200 Byte) of non volatile memory. Library to manage external memory: http://forum.arduino.cc/index.php?topic=502117.0
