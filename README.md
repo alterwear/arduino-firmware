@@ -116,7 +116,7 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 ## TI CCStudio 
 - Download from here: http://processors.wiki.ti.com/index.php/Download_CCS
-- 
+- Phenomenal set of tutorials: http://mspsci.blogspot.com/2010/07/tutorial-05-loading-program.html
 
 ## Other notes
 - Technical support email: 	techsupport@pervasivedisplays.com
