@@ -11,6 +11,14 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
+**label info**
+
+|Name|Digit#|2|3|4-6|7|8|9-11|extras|
+|---|---|---|---|---|---|---|---|---|
+|rhonda (cracked)|C|E|G|020|A|S|012|28X0497|
+|phuong|V|E|2|200|C|S|021|02573P000462|
+
+
 ### Arduino Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
