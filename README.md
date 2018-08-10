@@ -11,7 +11,15 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
-### Software
+**label info**
+
+|Name|Digit#|2|3|4-6|7|8|9-11|extras|
+|---|---|---|---|---|---|---|---|---|
+|rhonda (cracked)|C|E|G|020|A|S|012|28X0497|
+|phuong|V|E|2|200|C|S|021|02573P000462|
+
+
+### Arduino Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
@@ -89,7 +97,7 @@ That is, the #define and char array declaration are named the same as your file 
 7. Add your new xbm file to Arduino/libraries/Images
 8. That should work.
 
-# Breakout board notes
+## Breakout board notes
 
 How to find the COG #:
 - official page: http://www.pervasivedisplays.com/products/label_info
@@ -106,6 +114,11 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - Compatible with: 20+-pin e-ink displays (connector is straight).
 - Goals: Get it working (library code freezes and we don't know why), recreate and build our own.
 
+## TI CCStudio 
+- Download from here: http://processors.wiki.ti.com/index.php/Download_CCS
+- Phenomenal set of tutorials: http://mspsci.blogspot.com/2010/07/tutorial-05-loading-program.html
+- More tutorial links: https://43oh.com/2010/08/10-beginner-msp430-tutorials-and-counting/
+- One more: http://processors.wiki.ti.com/images/f/f7/LaunchPadSimpleProject.pdf
 
 ## Other notes
 - Technical support email: 	techsupport@pervasivedisplays.com
@@ -120,6 +133,184 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 2 Aug 2018
+
+**Notes**
+1. From the rev3 user manual (in docs), [you have to use the CCStudio for some displays. You also need to change a setting (haven't figured that out yet)](https://imgur.com/a/5C6jD5s) Still haven't been able to verify what type of display we have.
+2. 
+
+#### 23 July 2018
+**TODO**
+- Consider adding more external memory: Could buy [this from Sparkfun](https://www.sparkfun.com/products/525) to increase size of EEPROM to 32kB (3200 Byte) of non volatile memory. Library to manage external memory: http://forum.arduino.cc/index.php?topic=502117.0
+- Look at encoding / compression schemes:
+    - http://shodhganga.inflibnet.ac.in/bitstream/10603/201087/8/08_chapter%201.pdf
+    - http://flif.info/publications.html
+    - https://maximumcompression.com/data/bmp.php
+    - http://xooyoozoo.github.io/yolo-octo-bugfixes/#zoo-bird-head*1:3&bpg=t&jpg=t
+    - https://bellard.org/bpg/
+    - https://bellard.org/bpg/bpg_spec.txt
+    - https://homepages.cae.wisc.edu/~ece533/project/f06/aguilera_rpt.pdf
+    - https://arxiv.org/pdf/1211.4591.pdf
+    - https://arxiv.org/pdf/1112.2261.pdf
+
+**Notes**
+- For EPD 2_0: ``` this->bytes_per_scan = 96 / 4; ```
+- Overall flow is this:
+Image_0 in EPD_V231_G2.h passes the byte pointer to the image (presumably):
+```
+// assuming a clear (white) screen output an image (PROGMEM data)
+	void image_0(PROGMEM const uint8_t *image) {
+		this->frame_fixed_repeat(0xaa, EPD_compensate);
+		this->frame_fixed_repeat(0xaa, EPD_white);
+		this->frame_data_repeat(image, EPD_inverse);
+		this->frame_data_repeat(image, EPD_normal);
+	}
+```
+To frame_fixed_repeat in EPD_V231_G2.cpp, where it's called "Fixed_value":
+```
+void EPD_Class::frame_fixed_repeat(uint8_t fixed_value, EPD_stage stage) {
+```
+Which actually just calls this:
+```
+// One frame of data is the number of lines * rows. For example:
+// The 1.44” frame of data is 96 lines * 128 dots.
+// The 2” frame of data is 96 lines * 200 dots.
+// The 2.7” frame of data is 176 lines * 264 dots.
+
+// the image is arranged by line which matches the display size
+// so smallest would have 96 * 32 bytes
+
+void EPD_Class::frame_data(PROGMEM const uint8_t *image, EPD_stage stage){
+	for (uint8_t line = 0; line < this->lines_per_display ; ++line) {
+		this->line(line, &image[line * this->bytes_per_line], 0, true, stage);
+	}
+}
+```
+
+That bit of code loops the number of lines in the display. The code that reads in lines looks like this:
+```
+// output one line of scan and data bytes to the display
+void EPD_Class::line(uint16_t line, const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
+```
+Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zeroe, read_progmem is true, not sure what stage is.
+```
+..........
+if (this->middle_scan) { // true for EPD_1_44 and 2_0, false for EPD_1_9 and 2_6.
+    // data bytes
+    //Serial.println("odd pixels in middle scan...");
+    this->odd_pixels(data, fixed_value, read_progmem, stage);
+
+    // scan line
+    for (uint16_t b = this->bytes_per_scan; b > 0; --b) { // bytes_per_scan = 96/4 = 24
+	uint8_t n = 0x00;
+	if (line / 4 == b - 1) {                         // 
+		n = 0x03 << (2 * (line & 0x03));
+	}
+	SPI_put(n);
+    }
+.....
+```
+Note that data is the pointer to the image, fixed_val is zero, and line is just the line # of the current line we're looking at. I THINK SPI_put just basically does a new line or flushes the buffer or something. So the part of the code that actually matters is odd_pixels:
+
+```
+// pixels on display are numbered from 1 so odd is actually bits 0,2,4,...
+void EPD_Class::odd_pixels(const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
+```
+data is the pointer to the image, fixed_value is 0, read_progmem is true, stage is ?
+```
+...
+for (uint16_t b = this->bytes_per_line; b > 0; --b) { // loops over all the bytes in a line.
+...
+// AVR has multiple memory spaces
+uint8_t pixels;
+if (read_progmem) {                                       // this is true, so the image is stored in progmem??
+    pixels = pgm_read_byte_near(data + b- 1) & 0x55;
+} else {
+    pixels = data[b - 1] & 0x55;                          
+}
+...
+```
+Info about progmem: Flash (program) memory (can store data here instead of SRAM).
+I COULD HAVE REALIZED THIS FROM THE FACT THAT the image byte always is labeled PROGMEM LOL.
+From [Arduino docs](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/): 
+- "While PROGMEM could be used on a single variable, it is really only worth the fuss if you have a larger block of data that needs to be stored, which is usually easiest in an array.
+- "Using PROGMEM is also a two-step procedure. After getting the data into Flash memory, it requires special methods (functions), also defined in the pgmspace.h library, to read the data from program memory back into SRAM, so we can do something useful with it." This is the "pgm_read_byte_near" method above.
+
+Later there's a switch statement and the part that uploads the image is:
+```
+case EPD_normal:       // B -> B, W -> W (New Image)
+    pixels = 0xaa | pixels;
+    break;
+```
+
+[More info](http://playground.arduino.cc/Learning/Memory) about different Arduino memory spaces:
+- Flash memory (program space), is where the Arduino sketch is stored.
+- SRAM (static random access memory) is where the sketch creates and manipulates variables when it runs.
+- EEPROM is memory space that programmers can use to store long-term information.
+- Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
+- Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
+
+| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega |
+|:--- | :---|:---|:---|
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |
+| SRAM | 2048 Bytes| ? | 8000 Bytes |
+| EEPROM | 1024 Bytes | ? | 4000 Bytes |
+| RAM | ? | 512 Bytes | ? |
+| Memory | ? | 2000 Bytes | ? |
+
+
+[More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
+
+- The flash memory can be programmed via the Spy-Bi-Wire/JTAG port or in-system by the CPU. The CPU can
+perform single-byte and single-word writes to the flash memory. Features of the flash memory include:
+- Flash memory has n (**what is n?**) segments of main memory and four segments of information memory (A to D) of
+64 bytes each. Each segment in main memory is 512 bytes in size.
+- Segments 0 to n may be erased in one step, or each segment may be individually erased.
+- Segments A to D can be erased individually or as a group with segments 0 to n. Segments A to D are also
+called information memory.
+- Segment A contains calibration data. After reset segment A is protected against programming and erasing. It
+can be unlocked but care should be taken not to erase this segment if the device-specific calibration data is
+required.
+
+Note the cat_2_0 image is 15,094 bytes (16 KB on disk). So it's burned into flash, then loaded line by line into SRAM and sent to the epaper display.
+
+Could send it over in SRAM-sized chunks, let's assume best-case and can use the entire SRAM:
+15,094 / 2028 = 7.44 chunks. Could buy [this from Sparkfun](https://www.sparkfun.com/products/525) to increase size of EEPROM to 32kB (3200 Byte) of non volatile memory. Library to manage external memory: http://forum.arduino.cc/index.php?topic=502117.0
+
+Writing that to the EPD sounds reallllly complicated tho...
+
+**Image compression information**
+- The four different approaches[3],[5] to compression are 
+    - Statistical Compression, 
+    - Spatial compression, 
+    - Quantizing compression, 
+    - Fractal compression. 
+    - [src](https://arxiv.org/pdf/1112.2261.pdf)
+- Run-length encoding (RLE) is a very simple form of data compression in which runs of data (that
+is, sequences in which the same data value occurs in many consecutive data elements) are stored
+as a single data value and count, rather than as the original run. This is most useful on data that
+contains many such runs: for example, simple graphic images[8] such as icons, line drawings, and
+animations.
+- Huffman coding removes coding redundancy. Huffman’s procedure creates the
+optimal code for a set of symbols and probabilities subject to the constraint that the symbols be
+coded one at a time. After the code has been created, coding and/or decoding is accomplished in
+the simple look-up table . When large number of symbols is to be coded, the construction of the
+optimal binary Huffman code is a difficult task.
+
+**Weird idea:**
+Store a bunch of "image primitives" that you can reference when constructing a new image. As long as the instructions to reconstruct an image from the primitives are smaller than the image themselves would be, this would actually save you some space.
+
+**Other memory and compression alg notes**
+
+- The arduino is a Harvard architecture in which the instructions and data are in separate memory spaces.  It cannot execute an instruction stored in the RAM.  So you can't read a compiled sketch from an SD card into RAM and then start executing it. [src](https://forum.arduino.cc/index.php?topic=126230.0)
+- Bitlash: http://bitlash.net/bitlash-users-guide.pdf
+    - BITLASH INTERPRETER
+        1. Runs in under 16kB on the AVR '328
+        2. Parses Bitlash code on the fly from RAM, PROGMEM, EEPROM, or SD card
+        3. Executes commands live from the command line and runs background tasks
+    - Bitlash 2.0 (http://bitlash.net) can run script from SD card.  Your application can be as big as you like. The sample sketch that does this can be found here: https://github.com/billroy/bitlash/blob/master/examples/bitlashsd/bitlashsd.pde
+    - 
+    
 #### 16 July 2018
 **TODO**
 - ~~Look at the partial update code for etc from nxp.~~ Will need to figure out how to use TI LaunchPad stuff before I can try that.
