@@ -32,12 +32,10 @@
 #include <EEPROM.h>
 
 // select two images from:  text_image text-hello cat aphrodite venus saturn
-#define IMAGE_1 trip_start
-/*
+#define IMAGE_1 cat
 #define IMAGE_2 text_image
 #define IMAGE_3 saturn
 #define IMAGE_4 venus
-*/
 
 //i2c
 #define SLAVE_ADDR 0x55
@@ -68,14 +66,12 @@
 // calculate the include name and variable names
 #define IMAGE_1_FILE MAKE_JOIN(IMAGE_1,EPD_IMAGE_FILE_SUFFIX)
 #define IMAGE_1_BITS MAKE_NAME(IMAGE_1,EPD_IMAGE_NAME_SUFFIX)
-/*
 #define IMAGE_2_FILE MAKE_JOIN(IMAGE_2,EPD_IMAGE_FILE_SUFFIX)
 #define IMAGE_2_BITS MAKE_NAME(IMAGE_2,EPD_IMAGE_NAME_SUFFIX)
 #define IMAGE_3_FILE MAKE_JOIN(IMAGE_3,EPD_IMAGE_FILE_SUFFIX)
 #define IMAGE_3_BITS MAKE_NAME(IMAGE_3,EPD_IMAGE_NAME_SUFFIX)
 #define IMAGE_4_FILE MAKE_JOIN(IMAGE_4,EPD_IMAGE_FILE_SUFFIX)
 #define IMAGE_4_BITS MAKE_NAME(IMAGE_4,EPD_IMAGE_NAME_SUFFIX)
-*/
 
 // Add Images library to compiler path
 #include <Images.h>  // this is just an empty file
@@ -87,7 +83,6 @@ PROGMEM const
 #include IMAGE_1_FILE
 #undef char
 #undef unsigned
-/*
 
 PROGMEM const
 #define unsigned
@@ -109,7 +104,6 @@ PROGMEM const
 #include IMAGE_4_FILE
 #undef char
 #undef unsigned
-*/
 
 
 
@@ -238,9 +232,7 @@ void setup() {
   Serial.print("image_1_bits BIN: ");
   Serial.println((byte)IMAGE_1_BITS, BIN);
   Serial.print("image_1_file DEC: ");
-  Serial.println(IMAGE_1_FILE);
-  Serial.print("image_1_bits, not casted: ");
-  Serial.println(IMAGE_1_BITS);
+  Serial.println(IMAGE_1_FILE);              // idea: try this from the EPD lib code.
   for (int i = 0; i < 1000; i++){
     Serial.print("0x");
     Serial.print(IMAGE_1_BITS[i], HEX);
