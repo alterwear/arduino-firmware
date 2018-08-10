@@ -133,11 +133,17 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 10 Aug 2018
+**TODOO**
+1. App is acting weird: won't dismiss the pop-up after tagging. Need to debug.
+2. Arduino Uno needs more power than NFC can provide - need to test changing pic on large eink display w/ an AtTiny85? Christie should have a circuit on her desk.
+3. Then need to test whether you can send an entire image over....I'm not sure we ever looked at this! Everything is a lie.
+4. Build break-out board for SparkFun external EEPROM memory.
+
 #### 2 Aug 2018
 
 **Notes**
 1. From the rev3 user manual (in docs), [you have to use the CCStudio for some displays. You also need to change a setting (haven't figured that out yet)](https://imgur.com/a/5C6jD5s) Still haven't been able to verify what type of display we have.
-2. 
 
 #### 23 July 2018
 **TODO**
@@ -192,7 +198,7 @@ That bit of code loops the number of lines in the display. The code that reads i
 // output one line of scan and data bytes to the display
 void EPD_Class::line(uint16_t line, const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
 ```
-Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zeroe, read_progmem is true, not sure what stage is.
+Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zero, read_progmem is true, not sure what stage is.
 ```
 ..........
 if (this->middle_scan) { // true for EPD_1_44 and 2_0, false for EPD_1_9 and 2_6.
