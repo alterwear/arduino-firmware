@@ -13,17 +13,24 @@ Screenshot.
 
 **label info**
 
-|Name|Digit#|2|3|4-6|7|8|9-11|extras|
+|Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
 |---|---|---|---|---|---|---|---|---|
-|rhonda (cracked)|C|E|G|020|A|S|012|28X0497|
-|phuong|V|E|2|200|C|S|021|02573P000462|
+|rhonda (cracked)|C|E|G|020|A|S|012 (G1, eTC)|28X0497|
+|phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|
+|felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
+|ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
+
+FPL Material "C" = Aurora Mb (V231)
+
+if digit#10=1, G1 (eTC)
+if digit#10=2, G2 (eTC)
+if digit#10=5, 6, 8 or 9 is iTC
 
 
 ### Arduino Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
-
 
 
 #### Arduino Pro Mini
