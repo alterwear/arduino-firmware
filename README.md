@@ -20,11 +20,11 @@ Screenshot.
 |felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
 |ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
 
-FPL Material "C" = Aurora Mb (V231)
+FPL Material "C" = Aurora Mb (V231), and:
 
-if digit#10=1, G1 (eTC)
-if digit#10=2, G2 (eTC)
-if digit#10=5, 6, 8 or 9 is iTC
+- if digit#10=1, G1 (eTC)
+- if digit#10=2, G2 (eTC)
+- if digit#10=5, 6, 8 or 9 is iTC
 
 
 ### Arduino Software
