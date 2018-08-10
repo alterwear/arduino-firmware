@@ -135,7 +135,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### 10 Aug 2018
 **TODOO**
-1. App is acting weird: won't dismiss the pop-up after tagging. Need to debug.
+1. ~~App is acting weird: won't dismiss the pop-up after tagging. Need to debug.~~ Done.
 2. Arduino Uno needs more power than NFC can provide - need to test changing pic on large eink display w/ an AtTiny85? Christie should have a circuit on her desk.
 3. Then need to test whether you can send an entire image over....I'm not sure we ever looked at this! Everything is a lie.
 4. Build break-out board for SparkFun external EEPROM memory.
