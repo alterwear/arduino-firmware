@@ -223,6 +223,7 @@ void setup() {
 
 // executable to view bits: https://superuser.com/questions/463906/how-to-see-all-the-bits-of-a-file
 // also potentially useful thread! https://stackoverflow.com/questions/30198324/i-have-trouble-building-codes-for-frequency-table-in-huffman-compression/30200096?noredirect=1#comment48507449_30200096
+  /*
   Serial.println("trying to see the image bits....");
 
   Serial.print("image_1_bits DEC: ");
@@ -241,6 +242,7 @@ void setup() {
       Serial.println();
     }
   }
+  */
 }
 
 static int state = 0;
