@@ -110,7 +110,6 @@ How to find the COG #:
 - official page: http://www.pervasivedisplays.com/products/label_info
 - semi-helpful Adafruit forum thread: https://forums.adafruit.com/viewtopic.php?f=19&t=56535&start=15
 
-
 EPD breakout board (green):
 - Compatible with: 40+pin e-ink display (connector is zig-zag).
 - Goals: Recreate it on the breadboard, then simplify if possible, then create an SMD version.
@@ -126,6 +125,13 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - Phenomenal set of tutorials: http://mspsci.blogspot.com/2010/07/tutorial-05-loading-program.html
 - More tutorial links: https://43oh.com/2010/08/10-beginner-msp430-tutorials-and-counting/
 - One more: http://processors.wiki.ti.com/images/f/f7/LaunchPadSimpleProject.pdf
+
+## Compare w/ Paperino
+
+|Spec | Paperino | EPD|
+|---|---|---|
+|# pins| [11](https://robpo.github.io/Paperino/) | [14](https://learn.adafruit.com/repaper-eink-development-board/wiring-the-uno-and-leonardo)
+| Power | [4.5 mA (mean current for typical image update)](https://www.crowdsupply.com/robert-poser/paperino) | [6mA 2.7V 2.4 sec](http://www.hybrid-ecologies.org/uploads/project/paper/24/18_CHI_AlterWear.pdf)|
 
 ## Other notes
 - Technical support email: 	techsupport@pervasivedisplays.com
