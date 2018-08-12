@@ -146,6 +146,23 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 12 Aug 2018
+**TODO**
+1. Test 2, 3, 4 below w/ NFC.
+2. Commit to constructing eink in purse based on what works.
+3. Add rest of eink displays to info chart so I know what the heck I'm working with.
+
+**Notes**
+1. Helpful Arduino pinouts for transferring circuits to other microcontrollers: https://github.com/damellis/attiny/blob/master/variants/tiny8/pins_arduino.h
+2. Successfully powered eink display from ATTiny84 w/ battery connected. (left NFC phone at home so couldn't test it).
+3. Built a circuit w/ teeny nail eink display attached to Pro Trinket. Works w/ usb power: haven't tested w/ NFC connection.
+4. Built incomplete circuit w/ EPD breakout + Pro Trinket w/ edited lines in EPD_pinout.h (below). Need to test w/ eink display connected, and with NFC power: 
+
+``` 
+const int Pin_PANEL_ON = 2; // originally 2, moved to 10 to try to get things working on Pro Trinket
+const int Pin_BUSY = 15; // originally 7, moved to 15 to try and get things working on Pro Trinket 
+``` 
+
 #### 10 Aug 2018
 **TODOO**
 1. ~~App is acting weird: won't dismiss the pop-up after tagging. Need to debug.~~ Done.
