@@ -148,13 +148,21 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### 12 Aug 2018
 **TODO**
-1. Test 2, 3, 4 below w/ NFC.
+1. Test 2, ~~3~~ (doesn't power the Pro Trinket 5V which [requires at least 5v](https://learn.adafruit.com/introducing-pro-trinket/pinouts) to power on), 4 below w/ NFC.
 2. Commit to constructing eink in purse based on what works.
+5. HOW MUCH POWER does the NT3H1101 NFC generate? (Pin7 is VOUT so that's what to measure if it's not in the [datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H1101_1201.pdf).
+  - At room temperature, NTAG I2C could provide typically **5 mA at 2 V on the VOUT pin** with an NFC Phone.
+  - A significant capacitor is needed to guarantee operation during RF communication. The total capacitor between VOUT and GND shall be in the range of 150nF to 200 nF. NOTE: According to the [NFC Tag2Click schematic](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag-2/nfc-tag-2-click-schematic-v101-a.pdf) ([image here](https://www.dropbox.com/s/pm0wea8qz3n9nnq/Screenshot%202018-08-12%2018.39.11.png?dl=0)), this capacitor exists on the board we have.
+  - If NTAG I2C also powers the I2C bus, then VCC must be connected to VOUT, and pull-up resistors on the SCL and SDA pins must be sized to control SCL and SDA sink current when those lines are pulled low by NTAG I2C or the I2C host. NOTE: I am not sure I see these in the [schematic image](https://www.dropbox.com/s/pm0wea8qz3n9nnq/Screenshot%202018-08-12%2018.39.11.png?dl=0).
+  - If NTAG I2C also powers the Field Detect bus, then the pull-up resistor on the Field Detect line must be sized to control the sink current into the Field Detect pin when NTAG I2C pulls it low
+  - The NFC reader device communicating with NTAG I2C shall apply polling cycles including an RF Field Off condition of at least 5.1 ms as defined in NFC Forum Activity specification (see Ref. 4, chapter 6).
+  - Note that increasing the output current on the Vout decreases the RF communication range.
 3. Add rest of eink displays to info chart so I know what the heck I'm working with.
+4. Build break-out board for SparkFun external EEPROM memory.
 
 **Notes**
 1. Helpful Arduino pinouts for transferring circuits to other microcontrollers: https://github.com/damellis/attiny/blob/master/variants/tiny8/pins_arduino.h
-2. Successfully powered eink display from ATTiny84 w/ battery connected. (left NFC phone at home so couldn't test it).
+2. Successfully powered eink display from ATTiny85 w/ battery connected. (left NFC phone at home so couldn't test it).
 3. Built a circuit w/ teeny nail eink display attached to Pro Trinket. Works w/ usb power: haven't tested w/ NFC connection.
 4. Built incomplete circuit w/ EPD breakout + Pro Trinket w/ edited lines in EPD_pinout.h (below). Need to test w/ eink display connected, and with NFC power: 
 
@@ -162,11 +170,15 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 const int Pin_PANEL_ON = 2; // originally 2, moved to 10 to try to get things working on Pro Trinket
 const int Pin_BUSY = 15; // originally 7, moved to 15 to try and get things working on Pro Trinket 
 ``` 
+5. Why didn't it power the Pro Trinket? Was it the breadboard?
+  - Attiny85: Operating Voltage: 2.7 - 5.5V for ATtiny25/45/85;  Power Consumption Active Mode: 1 MHz, 1.8V: 300 µA;
+  - Atmega328p: Operating Voltage: 1.8 - 5.5V; Power Consumption at 1MHz, 1.8V, 25degC, Active Mode: 0.2mA
+  - Note: Pro Trinket 5v needs 5V minimum to turn on. Should test w/ Pro Trinket 3.3v, and ideally an actual bare Atmega328p chip.
 
 #### 10 Aug 2018
 **TODOO**
 1. ~~App is acting weird: won't dismiss the pop-up after tagging. Need to debug.~~ Done.
-2. Arduino Uno needs more power than NFC can provide - need to test changing pic on large eink display w/ an AtTiny85? Christie should have a circuit on her desk.
+2. ~~Arduino Uno needs more power than NFC can provide - need to test changing pic on large eink display w/ an AtTiny85? Christie should have a circuit on her desk.~~
 3. Then need to test whether you can send an entire image over....I'm not sure we ever looked at this! Everything is a lie.
 4. Build break-out board for SparkFun external EEPROM memory.
 
