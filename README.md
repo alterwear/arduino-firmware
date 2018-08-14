@@ -161,6 +161,9 @@ Longer-term:
 3. Look at new NFC chip options for something w/ more memory.
 4. Build EEPROM break-out.
 5. Add rest of eink displays to info chart so I know what the heck I'm working with.
+6. Compare w/ Paperino.
+7. Get MSP430 running.
+8. Try "partial update".
 
 #### 12 Aug 2018
 **TODO**
