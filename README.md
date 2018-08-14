@@ -154,6 +154,16 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## Current Status
 
 #### 13 Aug 2018
+**Questions**
+1. High contrast
+2. Color options.
+3. Lower power 
+  a. bigger displays!
+4. Faster update + partial
+5. More sizes / resolution
+6. No glass / flexible
+7. Store image on eink directly.
+
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
   - No idea....it is the same Atmega328 chip we've been using, and the [datasheet](https://store.arduino.cc/usa/arduino-pro-mini) says it runs at 3.3v. I don't understand how it's working at all.
@@ -173,7 +183,6 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 6. Fix hole in purse.
 7. [etc vs itc](http://www.pervasivedisplays.com/products/eTC_vs_iTC).
   - etc: waveform comes from microcontroller, itc: waveform comes from driver IC (in both cases you send the image bits over).
-  - 
 8. Partial update:
   - V2 (V230+G2, also called Aurora Ma) IC **CANNOT run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
   - V231 (also called Aurora Mb) and embedded G2 IC. **CAN run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
