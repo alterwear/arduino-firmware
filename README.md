@@ -15,10 +15,13 @@ Screenshot.
 
 |Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
 |---|---|---|---|---|---|---|---|---|
-|rhonda (cracked)|C|E|G|020|A|S|012 (G1, eTC)|28X0497|
+|rhonda (cracked)|C|E|G|020 (G2?)|A|S|012 (G1, eTC)|28X0497|
 |phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|
 |felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
 |ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
+|purse|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
+|spongebob|L|E|1|190|C|S|021 (G2, eTC) |01466D0T32|
+|fei hung|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|
 
 FPL Material "C" = Aurora Mb (V231), and:
 
