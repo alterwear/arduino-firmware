@@ -166,6 +166,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   - But this could work w/ delayed updating, and tricks w/ image techniques, plus if you just leave your phone in your purse.
   - Could you "send over the bits, and then only turn the display on once everything's there?
 3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
+  - Weirder: old version of the app w example code from NXP works fine w/ all of them!
 4. Measure timing of updating eink display.
 5. Confirm 'faster' version of eink updating just removes certain update things.
   - Sort of. See notes below on partial update.
