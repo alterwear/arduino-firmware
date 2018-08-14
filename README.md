@@ -158,8 +158,16 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   - etc: waveform comes from microcontroller, itc: waveform comes from driver IC (in both cases you send the image bits over).
   - 
 8. Partial update:
-  - V2 (V230+G2, also called Aurora Ma) IC CANNOT run partial update? ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
-  - V231 (also called Aurora Mb) and embedded G2 IC. CAN run partial update? ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - V2 (V230+G2, also called Aurora Ma) IC **CANNOT run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - V231 (also called Aurora Mb) and embedded G2 IC. **CAN run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - If pixel is the same color, send the "nothing" byte, otherwise send the new pixel value.
+  - Skips the inverse color steps (possibly degrades display). Also keeps the display on (so uses more power, but doesn't need to spend time powering on or off).
+  - "stage time" (1.44" and 2" takes 480ms, 2.7" takes 630ms) (reducign this increases ghosting but speeds things up). (**what is stage time?**).
+  - Even w max refresh rate of 2 Hz, the delay in the partial update is on the order of several 100 msec.
+  - PDI releases the code upon request (I have it). [Youtube demo](https://www.youtube.com/watch?v=enzUbiSWenQ). [Another video shows update rate of 400ms and 100ms, w extensive ghosting.](https://www.youtube.com/watch?v=ArHd-TPkpxg)
+9. Buffering:
+  - Image bits are stored on PROGMEM of Arduino.
+  - EPD library reads bits directly off PROGMEM, gets read via pgm_read_byte_near 
 
 Longer-term:
 1. Figure out how epapercard pinouts map from MSP430 to Arduino.
@@ -323,13 +331,14 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
-| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega | AtTiny85|
-|:--- | :---|:---|:---|:---|
-Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |8000 bytes|
-| SRAM | 2048 Bytes| ? | 8000 Bytes | 256 bytes |
-| EEPROM | 1024 Bytes | ? | 4000 Bytes | 512 bytes |
-| RAM | ? | 512 Bytes | ? | - |
-| Memory | ? | 2000 Bytes | ? | - |
+| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega | AtTiny85| [MSP430**F5529**](http://www.ti.com/lit/ug/slau533d/slau533d.pdf) | 
+|:--- | :---|:---|:---|:---|:---|
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |8000 bytes|128Kbytes|
+| SRAM | 2048 Bytes| ? | 8000 Bytes | 256 bytes | 8000 bytes |
+| EEPROM | 1024 Bytes | ? | 4000 Bytes | 512 bytes | ? |
+| RAM | ? | 512 Bytes | ? | - | - |
+| Memory | ? | 2000 Bytes | ? | - | - |
+| Power | ? | ? | ? | ? | 1.8-V to 3.6-V operation |
 
 
 [More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
