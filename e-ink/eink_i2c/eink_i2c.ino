@@ -20,7 +20,7 @@
 #include <SPI.h>
 #include <EPD_FLASH.h>
 #include <EPD_V231_G2.h>
-#define SCREEN_SIZE 200
+#define SCREEN_SIZE 144
 #include <EPD_PANELS.h>
 #include <S5813A.h>
 #include <EPD_PINOUT.h>
@@ -329,16 +329,20 @@ void loop() {
           }
         
           EPD.setFactor(temperature); // adjust for current temperature  
-      
+
+        // #define IMAGE_1 cat
+        // #define IMAGE_2 text_image
+        // #define IMAGE_3 saturn
+        // #define IMAGE_4 venus
         if (idesired_state == 49){
-            EPD.image_0(IMAGE_1_BITS);
+            EPD.image_0(IMAGE_2_BITS);
         } else if (idesired_state == 48){
             EPD.image_0(IMAGE_1_BITS);
         } else if (idesired_state == 50){ // is this meant to set idesired_state to 50? Typo?
           Serial.println("Inside possible typo if block");
-          EPD.image_0(IMAGE_1_BITS);
+          EPD.image_0(IMAGE_3_BITS);
         } else if (idesired_state == 51) {
-          EPD.image_0(IMAGE_1_BITS);
+          EPD.image_0(IMAGE_4_BITS);
         }
         
 
