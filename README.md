@@ -154,7 +154,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## Current Status
 
 #### 13 Aug 2018
-**Questions**
+**Questions for eink folks**
 1. High contrast
 2. Color options.
 3. Lower power 
@@ -163,6 +163,43 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 5. More sizes / resolution
 6. No glass / flexible
 7. Store image on eink directly.
+
+**Notes from meeting with eink**
+1. Overview of all of our research projects.
+2. All-body compatible (communication, programming, privacy, security, aesthetic/fashionable, etc.)
+3. "Appeal to everyone equally but no one deeply."
+4. Exploring "cosmetics" as "a new vertical."
+5. Small range NFC (1-3 meters).
+6. 5 volt samples from the lab (not available w distribution).
+7. Moving to 3.5 and on to 2 volt.
+8. Question is: why lower voltage?
+9. "Our interest is the creative mind you and your teams may be able to contribute."
+10. [idea: design touchable eink display?]
+11."exploratory is like a scout"
+12. align expectations first.
+  a. access to products/materials (more flexible, lower voltage, colors, sizes, programming, etc.
+  b. gift (financial support, materials).
+  c. Advance notice of publication stuff.
+  e. eink: non-proprietary limits us to applications. next 10-15 years future of the company, but it's all NDA. 
+  f. Dress not a new concept. Tie, or belt would be not totally new, but a new way of using epaper.
+  g. actually new: new use model, new digital lifestyle, 
+  h. data channel that resulted in emojis, text messages, etc.
+  i. wishtlist from cosmetic companies: perfect makeup. epaper eyeshadow/eyebrow?
+  j. no one has been introduced to the idea that "things that you wear on your body change".
+  k. small space resutls in worse performance: not enough "white" to provide contrast.
+  l. nail printer.
+  m. wear a smart nail, packaging also has epaper, could be linked. Ex: show your skin allergies on the packaging. Minority Report cereal box advertisements.
+  n. [what do we want from the world where everything is dynamic?]
+  o. weavable eink film only (very new, NDA etc.). Smart fiber!!!!
+  p. details of relationship
+    a. We contribute ideas, they do the prototyping. (Then we're consultants: a different relationship).
+    b. JDA - paid financial sponsor.
+    c. Consultancy (also involves NDA)
+    d. Publication of application is ok: press release would fit w their goals. 
+    e. Partnership w Citris - broader connection to University folks.
+    f. Fake prototype w/o actual technology (but if we have a sponsored agreement, need to have some kind of agreement).
+    g. If they pay, they need an "agreement" (collaboration, consulting, development) (and any agreement has NDA terms and IP terms).
+  q. We're interested in prototypes in this landscape (wearables, body-based, IoT / wireless, smart packaging).
 
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
