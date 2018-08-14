@@ -153,7 +153,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
   - No idea....it is the same Atmega328 chip we've been using, and the [datasheet](https://store.arduino.cc/usa/arduino-pro-mini) says it runs at 3.3v. I don't understand how it's working at all.
-2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 800 bytes takes 1480 ms, 1 byte takes 62 msec.
+2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 
+  - 800 bytes takes 1480 ms, 1 byte takes 62 msec.
+  - So to send over all of a 15KB file in 800 byte chuncks (~19 chunks) would be 1480ms x 19 = 28120ms = 28 seconds.
+  - Need NFC w/ bigger memory!
+  - But this could work w/ delayed updating, and tricks w/ image techniques, plus if you just leave your phone in your purse.
+  - Could you "send over the bits, and then only turn the display on once everything's there?
 3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
 4. Measure timing of updating eink display.
 5. Confirm 'faster' version of eink updating just removes certain update things.
