@@ -149,11 +149,17 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 #### 13 Aug 2018
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
-2. Edit app to measure timing of sending data to NFC.
+2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 800 bytes takes 1480 ms, 1 byte takes 62 msec.
 3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
 4. Measure timing of updating eink display.
 5. Confirm 'faster' version of eink updating just removes certain update things.
 6. Fix hole in purse.
+7. [etc vs itc](http://www.pervasivedisplays.com/products/eTC_vs_iTC).
+  - etc: waveform comes from microcontroller, itc: waveform comes from driver IC (in both cases you send the image bits over).
+  - 
+8. Partial update:
+  - V2 (V230+G2, also called Aurora Ma) IC CANNOT run partial update? ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - V231 (also called Aurora Mb) and embedded G2 IC. CAN run partial update? ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
 
 Longer-term:
 1. Figure out how epapercard pinouts map from MSP430 to Arduino.
