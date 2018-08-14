@@ -159,6 +159,8 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   - No idea....it is the same Atmega328 chip we've been using, and the [datasheet](https://store.arduino.cc/usa/arduino-pro-mini) says it runs at 3.3v. I don't understand how it's working at all.
 2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 
   - 800 bytes takes 1480 ms, 1 byte takes 62 msec.
+  - 4 single byte messages takes 109ms.
+  - 4 800-byte messages errors out w/ I/O exception.
   - So to send over all of a 15KB file in 800 byte chuncks (~19 chunks) would be 1480ms x 19 = 28120ms = 28 seconds.
   - Need NFC w/ bigger memory!
   - But this could work w/ delayed updating, and tricks w/ image techniques, plus if you just leave your phone in your purse.
