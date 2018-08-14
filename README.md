@@ -13,17 +13,24 @@ Screenshot.
 
 **label info**
 
-|Name|Digit#|2|3|4-6|7|8|9-11|extras|
+|Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
 |---|---|---|---|---|---|---|---|---|
-|rhonda (cracked)|C|E|G|020|A|S|012|28X0497|
-|phuong|V|E|2|200|C|S|021|02573P000462|
+|rhonda (cracked)|C|E|G|020|A|S|012 (G1, eTC)|28X0497|
+|phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|
+|felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
+|ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
+
+FPL Material "C" = Aurora Mb (V231), and:
+
+- if digit#10=1, G1 (eTC)
+- if digit#10=2, G2 (eTC)
+- if digit#10=5, 6, 8 or 9 is iTC
 
 
 ### Arduino Software
 #### Default (Arduino UNO and GRATIS library)
 1. Download the Arduino library from Adafruit's [tutorial on how to use the e-ink display board](https://learn.adafruit.com/repaper-eink-development-board/overview) we have.
 2. Once you've installed the library, the library code we want is EPD_V230_G2 --> demo_200 (should work out of the box).
-
 
 
 #### Arduino Pro Mini
@@ -103,7 +110,6 @@ How to find the COG #:
 - official page: http://www.pervasivedisplays.com/products/label_info
 - semi-helpful Adafruit forum thread: https://forums.adafruit.com/viewtopic.php?f=19&t=56535&start=15
 
-
 EPD breakout board (green):
 - Compatible with: 40+pin e-ink display (connector is zig-zag).
 - Goals: Recreate it on the breadboard, then simplify if possible, then create an SMD version.
@@ -120,6 +126,13 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 - More tutorial links: https://43oh.com/2010/08/10-beginner-msp430-tutorials-and-counting/
 - One more: http://processors.wiki.ti.com/images/f/f7/LaunchPadSimpleProject.pdf
 
+## Compare w/ Paperino
+
+|Spec | Paperino | EPD|
+|---|---|---|
+|# pins| [11](https://robpo.github.io/Paperino/) | [14](https://learn.adafruit.com/repaper-eink-development-board/wiring-the-uno-and-leonardo)
+| Power | [4.5 mA (mean current for typical image update)](https://www.crowdsupply.com/robert-poser/paperino) | [6mA 2.7V 2.4 sec](http://www.hybrid-ecologies.org/uploads/project/paper/24/18_CHI_AlterWear.pdf)|
+
 ## Other notes
 - Technical support email: 	techsupport@pervasivedisplays.com
 - [Old badger link.](https://web.archive.org/web/20170802044828/http://wyolum.com/projects/badger/)
@@ -133,11 +146,62 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 13 Aug 2018
+**TODO**
+1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
+2. Edit app to measure timing of sending data to NFC.
+3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
+4. Measure timing of updating eink display.
+5. Confirm 'faster' version of eink updating just removes certain update things.
+6. Fix hole in purse.
+
+Longer-term:
+1. Figure out how epapercard pinouts map from MSP430 to Arduino.
+2. Edit Eagle file to work w/ Arduino.
+3. Look at new NFC chip options for something w/ more memory.
+4. Build EEPROM break-out.
+5. Add rest of eink displays to info chart so I know what the heck I'm working with.
+
+#### 12 Aug 2018
+**TODO**
+1. ~~Test~~ nevermind: powering from NFC doesn't work on Trinket boards...I don't really get why the Arduino Pro Mini is so special....need to figure that out). 2, ~~3~~ (doesn't power the Pro Trinket 5V which [requires at least 5v](https://learn.adafruit.com/introducing-pro-trinket/pinouts) to power on), 4 below w/ NFC.
+2. Commit to constructing eink in purse based on what works.
+5. HOW MUCH POWER does the NT3H1101 NFC generate? (Pin7 is VOUT so that's what to measure if it's not in the [datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H1101_1201.pdf).
+  - At room temperature, NTAG I2C could provide typically **5 mA at 2 V on the VOUT pin** with an NFC Phone.
+  - A significant capacitor is needed to guarantee operation during RF communication. The total capacitor between VOUT and GND shall be in the range of 150nF to 200 nF. NOTE: According to the [NFC Tag2Click schematic](https://download.mikroe.com/documents/add-on-boards/click/nfc-tag-2/nfc-tag-2-click-schematic-v101-a.pdf) ([image here](https://www.dropbox.com/s/pm0wea8qz3n9nnq/Screenshot%202018-08-12%2018.39.11.png?dl=0)), this capacitor exists on the board we have.
+  - If NTAG I2C also powers the I2C bus, then VCC must be connected to VOUT, and pull-up resistors on the SCL and SDA pins must be sized to control SCL and SDA sink current when those lines are pulled low by NTAG I2C or the I2C host. NOTE: I am not sure I see these in the [schematic image](https://www.dropbox.com/s/pm0wea8qz3n9nnq/Screenshot%202018-08-12%2018.39.11.png?dl=0).
+  - If NTAG I2C also powers the Field Detect bus, then the pull-up resistor on the Field Detect line must be sized to control the sink current into the Field Detect pin when NTAG I2C pulls it low
+  - The NFC reader device communicating with NTAG I2C shall apply polling cycles including an RF Field Off condition of at least 5.1 ms as defined in NFC Forum Activity specification (see Ref. 4, chapter 6).
+  - Note that increasing the output current on the Vout decreases the RF communication range.
+3. Add rest of eink displays to info chart so I know what the heck I'm working with.
+4. Build break-out board for SparkFun external EEPROM memory.
+
+**Notes**
+1. Helpful Arduino pinouts for transferring circuits to other microcontrollers: https://github.com/damellis/attiny/blob/master/variants/tiny8/pins_arduino.h
+2. Successfully powered eink display from ATTiny85 w/ battery connected. (left NFC phone at home so couldn't test it).
+3. Built a circuit w/ teeny nail eink display attached to Pro Trinket. Works w/ usb power: haven't tested w/ NFC connection.
+4. Built incomplete circuit w/ EPD breakout + Pro Trinket w/ edited lines in EPD_pinout.h (below). Need to test w/ eink display connected, and with NFC power: 
+
+``` 
+const int Pin_PANEL_ON = 2; // originally 2, moved to 10 to try to get things working on Pro Trinket
+const int Pin_BUSY = 15; // originally 7, moved to 15 to try and get things working on Pro Trinket 
+``` 
+5. Why didn't it power the Pro Trinket? Was it the breadboard?
+  - Attiny85: Operating Voltage: 2.7 - 5.5V for ATtiny25/45/85;  Power Consumption Active Mode: 1 MHz, 1.8V: 300 µA;
+  - Atmega328p: Operating Voltage: 1.8 - 5.5V; Power Consumption at 1MHz, 1.8V, 25degC, Active Mode: 0.2mA
+  - Note: Pro Trinket 5v needs 5V minimum to turn on. Should test w/ Pro Trinket 3.3v, and ideally an actual bare Atmega328p chip.
+
+#### 10 Aug 2018
+**TODOO**
+1. ~~App is acting weird: won't dismiss the pop-up after tagging. Need to debug.~~ Done.
+2. ~~Arduino Uno needs more power than NFC can provide - need to test changing pic on large eink display w/ an AtTiny85? Christie should have a circuit on her desk.~~
+3. Then need to test whether you can send an entire image over....I'm not sure we ever looked at this! Everything is a lie.
+4. Build break-out board for SparkFun external EEPROM memory.
+
 #### 2 Aug 2018
 
 **Notes**
 1. From the rev3 user manual (in docs), [you have to use the CCStudio for some displays. You also need to change a setting (haven't figured that out yet)](https://imgur.com/a/5C6jD5s) Still haven't been able to verify what type of display we have.
-2. 
 
 #### 23 July 2018
 **TODO**
@@ -192,7 +256,7 @@ That bit of code loops the number of lines in the display. The code that reads i
 // output one line of scan and data bytes to the display
 void EPD_Class::line(uint16_t line, const uint8_t *data, uint8_t fixed_value, bool read_progmem, EPD_stage stage) {
 ```
-Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zeroe, read_progmem is true, not sure what stage is.
+Note that line is the line #, data is a pointer to the image, indexed in based on the line number, fixed_value is zero, read_progmem is true, not sure what stage is.
 ```
 ..........
 if (this->middle_scan) { // true for EPD_1_44 and 2_0, false for EPD_1_9 and 2_6.
@@ -250,13 +314,13 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
-| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega |
-|:--- | :---|:---|:---|
-Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |
-| SRAM | 2048 Bytes| ? | 8000 Bytes |
-| EEPROM | 1024 Bytes | ? | 4000 Bytes |
-| RAM | ? | 512 Bytes | ? |
-| Memory | ? | 2000 Bytes | ? |
+| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega | AtTiny85|
+|:--- | :---|:---|:---|:---|
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |8000 bytes|
+| SRAM | 2048 Bytes| ? | 8000 Bytes | 256 bytes |
+| EEPROM | 1024 Bytes | ? | 4000 Bytes | 512 bytes |
+| RAM | ? | 512 Bytes | ? | - |
+| Memory | ? | 2000 Bytes | ? | - |
 
 
 [More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
