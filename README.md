@@ -146,9 +146,25 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 13 Aug 2018
+**TODO**
+1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
+2. Edit app to measure timing of sending data to NFC.
+3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
+4. Measure timing of updating eink display.
+5. Confirm 'faster' version of eink updating just removes certain update things.
+6. Fix hole in purse.
+
+Longer-term:
+1. Figure out how epapercard pinouts map from MSP430 to Arduino.
+2. Edit Eagle file to work w/ Arduino.
+3. Look at new NFC chip options for something w/ more memory.
+4. Build EEPROM break-out.
+5. Add rest of eink displays to info chart so I know what the heck I'm working with.
+
 #### 12 Aug 2018
 **TODO**
-1. Test 2, ~~3~~ (doesn't power the Pro Trinket 5V which [requires at least 5v](https://learn.adafruit.com/introducing-pro-trinket/pinouts) to power on), 4 below w/ NFC.
+1. ~~Test~~ nevermind: powering from NFC doesn't work on Trinket boards...I don't really get why the Arduino Pro Mini is so special....need to figure that out). 2, ~~3~~ (doesn't power the Pro Trinket 5V which [requires at least 5v](https://learn.adafruit.com/introducing-pro-trinket/pinouts) to power on), 4 below w/ NFC.
 2. Commit to constructing eink in purse based on what works.
 5. HOW MUCH POWER does the NT3H1101 NFC generate? (Pin7 is VOUT so that's what to measure if it's not in the [datasheet](https://www.nxp.com/docs/en/data-sheet/NT3H1101_1201.pdf).
   - At room temperature, NTAG I2C could provide typically **5 mA at 2 V on the VOUT pin** with an NFC Phone.
