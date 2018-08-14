@@ -152,10 +152,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 #### 13 Aug 2018
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
+  - No idea....it is the same Atmega328 chip we've been using, and the [datasheet](https://store.arduino.cc/usa/arduino-pro-mini) says it runs at 3.3v. I don't understand how it's working at all.
 2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 800 bytes takes 1480 ms, 1 byte takes 62 msec.
 3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
 4. Measure timing of updating eink display.
 5. Confirm 'faster' version of eink updating just removes certain update things.
+  - Sort of. See notes below on partial update.
 6. Fix hole in purse.
 7. [etc vs itc](http://www.pervasivedisplays.com/products/eTC_vs_iTC).
   - etc: waveform comes from microcontroller, itc: waveform comes from driver IC (in both cases you send the image bits over).
