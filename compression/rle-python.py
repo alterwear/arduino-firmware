@@ -17,6 +17,7 @@ print(imgfile.format, imgfile.size, imgfile.mode)
 # after the values of line zero, and so on.
 imgdata = imgfile.getdata()
 
+# https://github.com/python-pillow/Pillow/blob/5e1a528eb25fdaa5d2761ce7f13c1bb4d97cc1eb/selftest.py
 print("len of imgdata: " + str(len(imgdata)))
 
 #for (int i = 0; i < )
