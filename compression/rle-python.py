@@ -4,5 +4,6 @@ from PIL import Image
 imgfile = Image.open("trip_start_1_44.xbm")
 
 print imgfile
+print(imgfile.format, imgfile.size, imgfile.mode)
 
 #imgfile.show(); # opens preview w/ the image. Appears to be inverted colors.
