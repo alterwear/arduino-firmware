@@ -151,7 +151,26 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## Long-term wishlist TODO
+1. Test epapercard stuff
+  a. Get MSP430 running.
+  a. Figure out how epapercard pinouts map from MSP430 to Arduino.
+  c. Update arduino code for epapercard test.
+  b. Edit Eagle file to work w/ Arduino.
+3. NFC updates
+  a. Look at new NFC chip options for something w/ more memory.
+4. Build EEPROM break-out.
+5. ~~Add rest of eink displays to info chart so I know what the heck I'm working with.~~
+6. Compare w/ Paperino.
+8. Try "partial update".
+9. Image updates
+  a. Fix line in trip_ images - make smooth.
+
 ## Current Status
+
+#### 15 Aug 2018
+**Notes**
+1. Getting RLE running in python.
 
 #### 13 Aug 2018
 **Questions for eink folks**
@@ -231,16 +250,6 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 9. Buffering:
   - Image bits are stored on PROGMEM of Arduino.
   - EPD library reads bits directly off PROGMEM, gets read via pgm_read_byte_near 
-
-Longer-term:
-1. Figure out how epapercard pinouts map from MSP430 to Arduino.
-2. Edit Eagle file to work w/ Arduino.
-3. Look at new NFC chip options for something w/ more memory.
-4. Build EEPROM break-out.
-5. Add rest of eink displays to info chart so I know what the heck I'm working with.
-6. Compare w/ Paperino.
-7. Get MSP430 running.
-8. Try "partial update".
 
 #### 12 Aug 2018
 **TODO**
