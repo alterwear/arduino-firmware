@@ -1,6 +1,10 @@
 # AlterWear
 ## Basic E-Ink Setup
 
+- NT3H1101 NFC chip
+- Arduino Pro Mini (Atmega328)
+- eink_i2c code
+
 ### Hardware
 **Correct datasheet, we think**
 - The working one is [here, which has been discontinued.](http://www.pervasivedisplays.com/kits/ext_kit). The datasheet is "EPD Extension board_Schematic_Gerber_v05". The files are available at that link, but also uploaded to this repo.
@@ -15,10 +19,13 @@ Screenshot.
 
 |Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
 |---|---|---|---|---|---|---|---|---|
-|rhonda (cracked)|C|E|G|020|A|S|012 (G1, eTC)|28X0497|
+|rhonda (cracked)|C|E|G|020 (G2?)|A|S|012 (G1, eTC)|28X0497|
 |phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|
 |felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
 |ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
+|purse|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
+|spongebob|L|E|1|190|C|S|021 (G2, eTC) |01466D0T32|
+|fei hung|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|
 
 FPL Material "C" = Aurora Mb (V231), and:
 
@@ -147,13 +154,83 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## Current Status
 
 #### 13 Aug 2018
+**Questions for eink folks**
+1. High contrast
+2. Color options.
+3. Lower power 
+  a. bigger displays!
+4. Faster update + partial
+5. More sizes / resolution
+6. No glass / flexible
+7. Store image on eink directly.
+
+**Notes from meeting with eink**
+1. Overview of all of our research projects.
+2. All-body compatible (communication, programming, privacy, security, aesthetic/fashionable, etc.)
+3. "Appeal to everyone equally but no one deeply."
+4. Exploring "cosmetics" as "a new vertical."
+5. Small range NFC (1-3 meters).
+6. 5 volt samples from the lab (not available w distribution).
+7. Moving to 3.5 and on to 2 volt.
+8. Question is: why lower voltage?
+9. "Our interest is the creative mind you and your teams may be able to contribute."
+10. [idea: design touchable eink display?]
+11."exploratory is like a scout"
+12. align expectations first.
+  a. access to products/materials (more flexible, lower voltage, colors, sizes, programming, etc.
+  b. gift (financial support, materials).
+  c. Advance notice of publication stuff.
+  e. eink: non-proprietary limits us to applications. next 10-15 years future of the company, but it's all NDA. 
+  f. Dress not a new concept. Tie, or belt would be not totally new, but a new way of using epaper.
+  g. actually new: new use model, new digital lifestyle, 
+  h. data channel that resulted in emojis, text messages, etc.
+  i. wishtlist from cosmetic companies: perfect makeup. epaper eyeshadow/eyebrow?
+  j. no one has been introduced to the idea that "things that you wear on your body change".
+  k. small space resutls in worse performance: not enough "white" to provide contrast.
+  l. nail printer.
+  m. wear a smart nail, packaging also has epaper, could be linked. Ex: show your skin allergies on the packaging. Minority Report cereal box advertisements.
+  n. [what do we want from the world where everything is dynamic?]
+  o. weavable eink film only (very new, NDA etc.). Smart fiber!!!!
+  p. details of relationship
+    a. We contribute ideas, they do the prototyping. (Then we're consultants: a different relationship).
+    b. JDA - paid financial sponsor.
+    c. Consultancy (also involves NDA)
+    d. Publication of application is ok: press release would fit w their goals. 
+    e. Partnership w Citris - broader connection to University folks.
+    f. Fake prototype w/o actual technology (but if we have a sponsored agreement, need to have some kind of agreement).
+    g. If they pay, they need an "agreement" (collaboration, consulting, development) (and any agreement has NDA terms and IP terms).
+  q. We're interested in prototypes in this landscape (wearables, body-based, IoT / wireless, smart packaging).
+
 **TODO**
 1. Figure out why the Arduino Pro Mini is so special/can be powered w/ such low power.
-2. Edit app to measure timing of sending data to NFC.
+  - No idea....it is the same Atmega328 chip we've been using, and the [datasheet](https://store.arduino.cc/usa/arduino-pro-mini) says it runs at 3.3v. I don't understand how it's working at all.
+2. ~~Edit app to measure timing of sending 800 bytes to NFC.~~ 
+  - 800 bytes takes 1480 ms, 1 byte takes 62 msec.
+  - 4 single byte messages takes 109ms.
+  - 4 800-byte messages errors out w/ I/O exception.
+  - So to send over all of a 15KB file in 800 byte chuncks (~19 chunks) would be 1480ms x 19 = 28120ms = 28 seconds.
+  - Need NFC w/ bigger memory!
+  - But this could work w/ delayed updating, and tricks w/ image techniques, plus if you just leave your phone in your purse.
+  - Could you "send over the bits, and then only turn the display on once everything's there?
 3. Figure out why app will only talk to the round NFC Tag2Clicks, not the rectangular ones. 
+  - Weirder: old version of the app w example code from NXP works fine w/ all of them!
 4. Measure timing of updating eink display.
 5. Confirm 'faster' version of eink updating just removes certain update things.
+  - Sort of. See notes below on partial update.
 6. Fix hole in purse.
+7. [etc vs itc](http://www.pervasivedisplays.com/products/eTC_vs_iTC).
+  - etc: waveform comes from microcontroller, itc: waveform comes from driver IC (in both cases you send the image bits over).
+8. Partial update:
+  - V2 (V230+G2, also called Aurora Ma) IC **CANNOT run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - V231 (also called Aurora Mb) and embedded G2 IC. **CAN run partial update?** ([src: github issue 19](https://github.com/repaper/gratis/issues/19))
+  - If pixel is the same color, send the "nothing" byte, otherwise send the new pixel value.
+  - Skips the inverse color steps (possibly degrades display). Also keeps the display on (so uses more power, but doesn't need to spend time powering on or off).
+  - "stage time" (1.44" and 2" takes 480ms, 2.7" takes 630ms) (reducign this increases ghosting but speeds things up). (**what is stage time?**).
+  - Even w max refresh rate of 2 Hz, the delay in the partial update is on the order of several 100 msec.
+  - PDI releases the code upon request (I have it). [Youtube demo](https://www.youtube.com/watch?v=enzUbiSWenQ). [Another video shows update rate of 400ms and 100ms, w extensive ghosting.](https://www.youtube.com/watch?v=ArHd-TPkpxg)
+9. Buffering:
+  - Image bits are stored on PROGMEM of Arduino.
+  - EPD library reads bits directly off PROGMEM, gets read via pgm_read_byte_near 
 
 Longer-term:
 1. Figure out how epapercard pinouts map from MSP430 to Arduino.
@@ -161,6 +238,9 @@ Longer-term:
 3. Look at new NFC chip options for something w/ more memory.
 4. Build EEPROM break-out.
 5. Add rest of eink displays to info chart so I know what the heck I'm working with.
+6. Compare w/ Paperino.
+7. Get MSP430 running.
+8. Try "partial update".
 
 #### 12 Aug 2018
 **TODO**
@@ -314,13 +394,14 @@ case EPD_normal:       // B -> B, W -> W (New Image)
 - Flash memory and EEPROM memory are non-volatile (the information persists after the power is turned off). SRAM is volatile and will be lost when the power is cycled.
 - Flash (PROGMEM) memory can only be populated at program burn time. You can’t change the values in the flash after the program has started running.
 
-| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega | AtTiny85|
-|:--- | :---|:---|:---|:---|
-Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |8000 bytes|
-| SRAM | 2048 Bytes| ? | 8000 Bytes | 256 bytes |
-| EEPROM | 1024 Bytes | ? | 4000 Bytes | 512 bytes |
-| RAM | ? | 512 Bytes | ? | - |
-| Memory | ? | 2000 Bytes | ? | - |
+| Info | ATMega328p | MSP430 **G2553** IPW20R | Mega | AtTiny85| [MSP430**F5529**](http://www.ti.com/lit/ug/slau533d/slau533d.pdf) | 
+|:--- | :---|:---|:---|:---|:---|
+Flash | 32 kBytes (1 kByte used for bootloader) | 16KB | 256 kBytes (1 kByte used for bootloader) |8000 bytes|128Kbytes|
+| SRAM | 2048 Bytes| ? | 8000 Bytes | 256 bytes | 8000 bytes |
+| EEPROM | 1024 Bytes | ? | 4000 Bytes | 512 bytes | ? |
+| RAM | ? | 512 Bytes | ? | - | - |
+| Memory | ? | 2000 Bytes | ? | - | - |
+| Power | ? | ? | ? | ? | 1.8-V to 3.6-V operation |
 
 
 [More about MSP430 flash](http://www.ti.com/lit/ds/symlink/msp430g2553.pdf):
