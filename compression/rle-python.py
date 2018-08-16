@@ -20,8 +20,8 @@ imgdata = imgfile.getdata()
 # https://github.com/python-pillow/Pillow/blob/5e1a528eb25fdaa5d2761ce7f13c1bb4d97cc1eb/selftest.py
 print("len of imgdata: " + str(len(imgdata)))
 
-#for (int i = 0; i < )
-print(imgdata[0])
+for i in range(0, len(imgdata)):
+    print(imgdata[i])
 
 # To convert it to an ordinary sequence (e.g. for printing), use 
 #print(list(imgfile.getdata()))
