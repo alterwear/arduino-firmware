@@ -20,8 +20,19 @@ imgdata = imgfile.getdata()
 # https://github.com/python-pillow/Pillow/blob/5e1a528eb25fdaa5d2761ce7f13c1bb4d97cc1eb/selftest.py
 print("len of imgdata: " + str(len(imgdata)))
 
+rle = {}
+currentPixel = 0
+runLength = 0
+index = 0
 for i in range(0, len(imgdata)):
-    print(imgdata[i])
+    if (imgdata[i] == currentPixel):
+        runLength++
+    else:
+      rle[index] = runLength
+      index++
+      runLength = 0
+      currentPixel = imgdata[i]
+    #print(imgdata[i])
 
 # To convert it to an ordinary sequence (e.g. for printing), use 
 #print(list(imgfile.getdata()))
