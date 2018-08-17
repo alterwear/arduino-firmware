@@ -1,7 +1,7 @@
 from PIL import Image
 # useful: http://pillow.readthedocs.io/en/3.3.x/handbook/tutorial.html
 
-imgfile = Image.open("trip_start_1_44.xbm")
+imgfile = Image.open("test.xbm")
 
 print imgfile
 # size attribute is a 2-tuple containing width and height (in pixels)
@@ -25,14 +25,16 @@ currentPixel = 0
 runLength = 0
 index = 0
 for i in range(0, len(imgdata)):
+    print("i: " + str(i) + ", imgdata[i]: " + str(bin(imgdata[i])) + ", currentPixel: " + str(currentPixel))
     if (imgdata[i] == currentPixel):
-        runLength++
+        runLength += 1
     else:
       rle[index] = runLength
-      index++
+      index += 1
       runLength = 0
       currentPixel = imgdata[i]
     #print(imgdata[i])
+print(rle)
 
 # To convert it to an ordinary sequence (e.g. for printing), use 
 #print(list(imgfile.getdata()))
