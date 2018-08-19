@@ -16,6 +16,7 @@ print(imgfile.format, imgfile.size, imgfile.mode)
 # The sequence object is flattened, so that values for line one follow directly 
 # after the values of line zero, and so on.
 imgdata = imgfile.getdata()
+imgdataList = list(imgdata)
 
 # https://github.com/python-pillow/Pillow/blob/5e1a528eb25fdaa5d2761ce7f13c1bb4d97cc1eb/selftest.py
 print("len of imgdata: " + str(len(imgdata)))
@@ -34,8 +35,70 @@ print("len of imgdata: " + str(len(imgdata)))
 # i: 6, imgdata[i]: 0b0
 # i: 7, imgdata[i]: 0b11111111
 
+# 0x81, 0xFF, 0x03
+# = 0b10000001, 0b11111111, 0b00000011
+# RLE = {[0:1], [1:6], [7:9], [16:6], [22:2]}
+# NOTE: The above is what it SHOULD be, this is what I'm getting:
+""" imgdata[0]: 255
+imgdata[1]: 0
+imgdata[2]: 0
+imgdata[3]: 0
+imgdata[4]: 0
+imgdata[5]: 0
+imgdata[6]: 0
+imgdata[7]: 255
+imgdata[8]: 255
+imgdata[9]: 255
+imgdata[10]: 255
+imgdata[11]: 255
+imgdata[12]: 255
+imgdata[13]: 255
+imgdata[14]: 255
+imgdata[15]: 255
+imgdata[16]: 255
+imgdata[17]: 255 --> should flip to 0s at index 16
+imgdata[18]: 0
+imgdata[19]: 0
+imgdata[20]: 0
+imgdata[21]: 0 --> both index 21 and 22 should be 1s. wtf is happening.
+imgdata[22]: 0 """
+
+for i in range(0, 23):
+    print("imgdata["+str(i)+"]: " + str(imgdata[i]))
+
+# Same in a list:
+for index, item in enumerate(imgdataList):
+    print("imgdataList["+str(index)+"]: " + str(item))
+
+"""
+imgdataList[0]: 255
+imgdataList[1]: 0
+imgdataList[2]: 0
+imgdataList[3]: 0
+imgdataList[4]: 0
+imgdataList[5]: 0
+imgdataList[6]: 0
+imgdataList[7]: 255
+imgdataList[8]: 255
+imgdataList[9]: 255
+imgdataList[10]: 255
+imgdataList[11]: 255
+imgdataList[12]: 255
+imgdataList[13]: 255
+imgdataList[14]: 255
+imgdataList[15]: 255
+imgdataList[16]: 255
+imgdataList[17]: 255 --> why is this extended like this?
+imgdataList[18]: 0
+imgdataList[19]: 0
+imgdataList[20]: 0
+imgdataList[21]: 0 --> where are my other ones?
+imgdataList[22]: 0
+"""
+
+
 rle = {}
-currentPixel = 0
+currentPixel = imgdata[0] #start w whatever the first pixel is.
 runLength = 0
 index = 0
 for i in range(0, len(imgdata)):
@@ -45,9 +108,13 @@ for i in range(0, len(imgdata)):
         runLength += 1
     else:
       rle[index] = runLength
-      index += 1
-      runLength = 0
+      print("rle["+str(index)+"]: " + str(rle[index]) + ", i: " + str(i) + ", curr: " 
+            + str(currentPixel) + " imgdata["+str(i)+"]: " + str(imgdata[i]) )
+      runLength = 1
+      index = i
       currentPixel = imgdata[i]
+    if (i > 23):
+        break
 print(rle)
 
 # To convert it to an ordinary sequence (e.g. for printing), use 
