@@ -96,6 +96,25 @@ imgdataList[21]: 0 --> where are my other ones?
 imgdataList[22]: 0
 """
 
+# 0b11010001 or 0xD1 gets printed as  10001011
+# imgdata[8]: 255
+# imgdata[9]: 0
+# imgdata[10]: 0
+# imgdata[11]: 0
+# imgdata[12]: 255
+# imgdata[13]: 0
+# imgdata[14]: 255
+# imgdata[15]: 255
+
+#Endianness is backwards from what I expect.
+# From stackoverflow: https://stackoverflow.com/questions/1400012/endianness-of-integers-in-python
+#   Python's int has the same endianness as the processor it runs on.
+
+# Big Endian Byte Order: The most significant byte (the "big end") of the data is placed at 
+# the byte with the lowest address. The rest of the data is placed in order in the next three bytes in memory.
+
+#Little Endian Byte Order: The least significant byte (the "little end") of the data is placed 
+# at the byte with the lowest address. The rest of the data is placed in order in the next three bytes in memory.
 
 rle = {}
 currentPixel = imgdata[0] #start w whatever the first pixel is.
