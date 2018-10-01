@@ -15,6 +15,9 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
+**Circuit Diagram for Paul Schow's E-Papercard:**
+https://github.com/paulschow/epapercard/blob/master/Sch_Aug_14.pdf
+
 **label info**
 
 |Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
