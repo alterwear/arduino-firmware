@@ -168,21 +168,22 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 - display algs: standard, RLE, pattern + repeat.
 
 ### Plans
+
 - Android **Step 3**
   - Filter a photo
-  - Send bitmap.
+  - Send bitmap (RLE, or other compression schemes).
   - 
 - NFC **Step 2**
   - Pass-thru mode?
-  - Otherwise, store bitmap? (Molly thinks memory is too small)
+  - Otherwise, store bitmap? 888 bytes of freely-available user-writable memory. **Step 2.1**
   - Rx bitmap?
 - Arduino
-  - 
+  - Might not need to change this at all.
+  - Do reconstruction on the Arduino?
 - Eink
   - **Step 1** weird interlacing, bitmap tweaks, dithering algs, etc. Cool effects.
   - Speed up updates, what's the fastest time we can update stuff.
   - Understanding library more (partial update????)
-  - 
 
 
 ## Long-term wishlist TODO
