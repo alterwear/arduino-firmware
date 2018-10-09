@@ -154,6 +154,20 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## 2018-10-09 Eric meeting
+- Going down to Eink to visit on Oct 26th. 
+- 10:30am - tour, Eric will give a presentation. Interact w/ team, Q&A and brainstorming. Lunch.
+- Eric must be back to pick up kids by 3pm.
+- They are excited to work with us.
+
+### Demos
+- Want to show them something different from what we have shown them so far.
+- We want them to give us access to more material, access to proprietary things (unlikely), funding/resources to support the research (pending IP agreement).
+- eink story
+- demo 1: take pic, it gets turned into bitmap, gets sent across NFC, updates to screen.
+- display algs: standard, RLE, pattern + repeat.
+
+
 ## Long-term wishlist TODO
 1. Test epapercard stuff
   a. Get MSP430 running.
