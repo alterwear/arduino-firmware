@@ -167,6 +167,23 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 - demo 1: take pic, it gets turned into bitmap, gets sent across NFC, updates to screen.
 - display algs: standard, RLE, pattern + repeat.
 
+### Plans
+- Android **Step 3**
+  - Filter a photo
+  - Send bitmap.
+  - 
+- NFC **Step 2**
+  - Pass-thru mode?
+  - Otherwise, store bitmap? (Molly thinks memory is too small)
+  - Rx bitmap?
+- Arduino
+  - 
+- Eink
+  - **Step 1** weird interlacing, bitmap tweaks, dithering algs, etc. Cool effects.
+  - Speed up updates, what's the fastest time we can update stuff.
+  - Understanding library more (partial update????)
+  - 
+
 
 ## Long-term wishlist TODO
 1. Test epapercard stuff
