@@ -181,8 +181,9 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   - Might not need to change this at all.
   - Do reconstruction on the Arduino?
 - Eink
-  - **Step 1** weird interlacing, bitmap tweaks, dithering algs, etc. Cool effects.
+  - **Step 1** weird interlacing, bitmap tweaks, dithering algs, etc. Cool effects. Ability to draw. 8-bit aesthetic, etc.
   - Speed up updates, what's the fastest time we can update stuff.
+    - Setup a github w/ [a version of the EPD library](https://github.com/molecule/AlterWear-libraries) we can alter/edit to our heart's desire.
   - Understanding library more (partial update????)
 
 
@@ -230,7 +231,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 9. "Our interest is the creative mind you and your teams may be able to contribute."
 10. [idea: design touchable eink display?]
 11."exploratory is like a scout"
-12. align expectations first.
+12. align expectations first
   a. access to products/materials (more flexible, lower voltage, colors, sizes, programming, etc.
   b. gift (financial support, materials).
   c. Advance notice of publication stuff.
