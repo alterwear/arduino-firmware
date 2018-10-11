@@ -209,7 +209,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 2. We got paul's demo code + libraries compiling on both Windows and Mac.
 3. We updated the github repo for our branch of paul's code to have a more sensicle layout.
 4. Still getting upload errors on both Windows and Mac.
-     a. Windows: tilib: MSP430_Initailize: Could not find MSP-FET430UIF on specified COM port (that's a debugging interface that it shouldn't actually need, according to this forum post).
+     a. Windows: tilib: MSP430_Initailize: Could not find MSP-FET430UIF on specified COM port (that's a [debugging interface](http://www.ti.com/tool/MSP-FET430UIF) that it shouldn't actually need, according to this [forum post](https://e2e.ti.com/support/microcontrollers/msp430/f/166/t/264967?Error-Could-not-find-MSP-FET430UIF-on-specified-COM-port#pi320098=1)).
      b. Mac: Unable to find .hex file, but it's there and readable (same error as [this post](https://forum.43oh.com/topic/13296-mac-no-such-file-or-directory-when-uploading/)).
   
 
