@@ -186,7 +186,6 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
     - Setup a github w/ [a version of the EPD library](https://github.com/molecule/AlterWear-libraries) we can alter/edit to our heart's desire.
   - Understanding library more (partial update????)
 
-
 ## Long-term wishlist TODO
 1. Test epapercard stuff
   a. Get MSP430 running.
@@ -203,6 +202,16 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+
+#### 11 Oct 2018
+**Status**
+1. We successfully uploaded to launchpad via TI CCSTUDIO.
+2. We got paul's demo code + libraries compiling on both Windows and Mac.
+3. We updated the github repo for our branch of paul's code to have a more sensicle layout.
+4. Still getting upload errors on both Windows and Mac.
+     a. Windows: tilib: MSP430_Initailize: Could not find MSP-FET430UIF on specified COM port (that's a debugging interface that it shouldn't actually need, according to this forum post).
+     b. Mac: Unable to find .hex file, but it's there and readable (same error as [this post](https://forum.43oh.com/topic/13296-mac-no-such-file-or-directory-when-uploading/)).
+  
 
 #### 15 Aug 2018
 **Notes**
