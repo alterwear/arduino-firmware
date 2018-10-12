@@ -15,17 +15,20 @@
 - PDF [datasheet for the e-ink display.](http://www.pervasivedisplays.com/LiteratureRetrieve.aspx?ID=232432) 
 Screenshot.
 
+**Circuit Diagram for Paul Schow's E-Papercard:**
+https://github.com/paulschow/epapercard/blob/master/Sch_Aug_14.pdf
+
 **label info**
 
-|Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|
-|---|---|---|---|---|---|---|---|---|
-|rhonda (cracked)|C|E|G|020 (G2?)|A|S|012 (G1, eTC)|28X0497|
-|phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|
-|felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
-|ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|
-|purse|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|
-|spongebob|L|E|1|190|C|S|021 (G2, eTC) |01466D0T32|
-|fei hung|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|
+|Name|Digit# (Code)|2|3|4-6 (Display size)|7 (FPL Material)|8 (S?)|9-11 (Serial Number)|extras|code|
+|---|---|---|---|---|---|---|---|---|---|
+|rhonda (cracked)|C|E|G|020 (G2?)|A|S|012 (G1, eTC)|28X0497|?|
+|phuong|V|E|2|200|C|S|021 (G2, eTC)|02573P000462|V231-G2|
+|felicity|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|V231-G2|
+|ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|V231-G2|
+|purse|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|V231-G2|
+|spongebob|L|E|1|190|C|S|021 (G2, eTC) |01466D0T32|V231-G2|
+|fei hung|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|V231-G2|
 
 FPL Material "C" = Aurora Mb (V231), and:
 
@@ -151,6 +154,38 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## 2018-10-09 Eric meeting
+- Going down to Eink to visit on Oct 26th. 
+- 10:30am - tour, Eric will give a presentation. Interact w/ team, Q&A and brainstorming. Lunch.
+- Eric must be back to pick up kids by 3pm.
+- They are excited to work with us.
+
+### Demos
+- Want to show them something different from what we have shown them so far.
+- We want them to give us access to more material, access to proprietary things (unlikely), funding/resources to support the research (pending IP agreement).
+- eink story
+- demo 1: take pic, it gets turned into bitmap, gets sent across NFC, updates to screen.
+- display algs: standard, RLE, pattern + repeat.
+
+### Plans
+
+- Android **Step 3**
+  - Filter a photo
+  - Send bitmap (RLE, or other compression schemes).
+  - 
+- NFC **Step 2**
+  - Pass-thru mode?
+  - Otherwise, store bitmap? 888 bytes of freely-available user-writable memory. **Step 2.1**
+  - Rx bitmap?
+- Arduino
+  - Might not need to change this at all.
+  - Do reconstruction on the Arduino?
+- Eink
+  - **Step 1** weird interlacing, bitmap tweaks, dithering algs, etc. Cool effects. Ability to draw. 8-bit aesthetic, etc.
+  - Speed up updates, what's the fastest time we can update stuff.
+    - Setup a github w/ [a version of the EPD library](https://github.com/molecule/AlterWear-libraries) we can alter/edit to our heart's desire.
+  - Understanding library more (partial update????)
+
 ## Long-term wishlist TODO
 1. Test epapercard stuff
   a. Get MSP430 running.
@@ -167,6 +202,17 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+
+#### 11 Oct 2018
+**Status**
+1. We successfully uploaded to launchpad via TI CCSTUDIO.
+2. We got paul's demo code + libraries compiling on both Windows and Mac.
+3. We updated the github repo for our branch of paul's code to have a more sensicle layout.
+4. ~~Still getting upload errors on both Windows and Mac.~~ FIXED! See 5.
+    1. Windows: tilib: MSP430_Initailize: Could not find MSP-FET430UIF on specified COM port (that's a [debugging interface](http://www.ti.com/tool/MSP-FET430UIF) that it shouldn't actually need, according to this [forum post](https://e2e.ti.com/support/microcontrollers/msp430/f/166/t/264967?Error-Could-not-find-MSP-FET430UIF-on-specified-COM-port#pi320098=1)).
+    2. Mac: Unable to find .hex file, but it's there and readable (same error as [this post](https://forum.43oh.com/topic/13296-mac-no-such-file-or-directory-when-uploading/)).
+5. Switched over to using [PlatformIO for VSCode](https://docs.platformio.org/en/latest/ide/vscode.html#installation), [rearranged the libraries](https://www.dropbox.com/s/0twl3np2yw8q0iv/Screenshot%202018-10-11%2017.31.50.png?dl=0) according to the VSCode readme, and it uploaded w/ success! Need to confirm that it was *actually* successful (w/ blink?), then continue testing the fresh HW.
+  
 
 #### 15 Aug 2018
 **Notes**
@@ -195,7 +241,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 9. "Our interest is the creative mind you and your teams may be able to contribute."
 10. [idea: design touchable eink display?]
 11."exploratory is like a scout"
-12. align expectations first.
+12. align expectations first
   a. access to products/materials (more flexible, lower voltage, colors, sizes, programming, etc.
   b. gift (financial support, materials).
   c. Advance notice of publication stuff.
