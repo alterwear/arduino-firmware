@@ -203,6 +203,39 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 17 Oct 2018
+**Notes**
+1. Edited i2c-basic-test to be even more basic.
+2. All it does is read first 16 bytes from Wire/i2c off NFC and prints them out.
+3. Now, I'm sending "0xFF, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0xFF" from Android, hoping to be able to send bitmap-style bits over NFC.
+4. Here's what's received on the Arduino (remember user-defined bits start at 10 because the first 9 bytes are ntag metadata) (using [this ASCII table](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.ioaq100/ascii_table.gif)):
+
+```
+i: 10, byte: 48		0
+i: 11, byte: 120	x
+i: 12, byte: 70		F
+i: 13, byte: 70		F
+i: 14, byte: 44		,
+i: 15, byte: 32		(space)
+i: 16, byte: 48		0
+```
+
+So, clearly it's sent from Android and passed across NFC to Arduino as a string.
+5. Created read-bytes-from-nfc.ino to try parsing the ints.
+6. Now sending "FF FF 00 FF 00 FF FF"
+7. Here's what i see on Arduino.):
+
+```
+i: 10, byte: 70		F
+i: 11, byte: 70		F
+i: 12, byte: 32		(space)
+i: 13, byte: 70		F
+i: 14, byte: 70		F
+i: 15, byte: 32		(space)
+i: 16, byte: 48		0
+```
+
+
 #### 11 Oct 2018
 **Status**
 1. We successfully uploaded to launchpad via TI CCSTUDIO.
