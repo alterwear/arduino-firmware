@@ -204,6 +204,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## Current Status
 
 #### 17 Oct 2018
+**TODO**
+1. Need an ASCII-binary converter in arduino to read ascii bits sent over from NFC
+- https://forum.arduino.cc/index.php?topic=241663.0
+- https://forum.arduino.cc/index.php?topic=117999.0
+- https://www.arduino.cc/en/Tutorial/ASCIITable
+
 **Notes**
 1. Edited i2c-basic-test to be even more basic.
 2. All it does is read first 16 bytes from Wire/i2c off NFC and prints them out.
