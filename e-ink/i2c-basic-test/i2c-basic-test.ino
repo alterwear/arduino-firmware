@@ -54,6 +54,16 @@ void loop() {
         Serial.println(rdata[i]);
       }
      }
+     
+     Serial.println("");
+     Serial.println("printBits: ");
+     for (int i = 1; i <=16; i++) {
+       Serial.print("byte ");
+       Serial.print(i);
+       Serial.print(": ");
+       printBits(rdata[i]);
+       Serial.println("");
+     }
     }
     
     //EEPROM.write(eeprom_addr, current_state);
