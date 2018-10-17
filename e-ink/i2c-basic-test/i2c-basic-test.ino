@@ -7,7 +7,7 @@
  */
 
 // EEPROM
-#include <EEPROM.h>
+//#include <EEPROM.h>
 
 //i2c
 #define SLAVE_ADDR 0x55
@@ -16,8 +16,8 @@
 byte rdata[17];
 
 //EEPROM
-int eeprom_addr = 0;
-int current_state = 0; 
+//int eeprom_addr = 0;
+//int current_state = 0; 
 
 #include <Wire.h>
 
@@ -26,18 +26,11 @@ void setup() {
   Serial.begin(9600);          // start serial communication at 9600bps
   Serial.println("Code: i2c-basic-test");
 
-  current_state = EEPROM.read(eeprom_addr);
+  //current_state = EEPROM.read(eeprom_addr);
 }
 
-static int state = 0;
-byte desired_state;
-
 void loop() {
-  Serial.print("Current state: ");
-  Serial.println(current_state);
-  
-  Serial.println("requesting from i2c....");
-  //i2c: read block of user data from the device
+
   Wire.beginTransmission(byte(SLAVE_ADDR));
   Wire.write(int_reg_addr);
   Wire.endTransmission();
@@ -60,39 +53,10 @@ void loop() {
         Serial.print(", byte: ");
         Serial.println(rdata[i]);
       }
+     }
     }
-  }
-    Serial.println(desired_state, HEX);
-    int idesired_state = (int) desired_state;
-   
-    // this cast makes things weird
-    // send 0 via NFC, i2c reads 48
-    // send 1 via NFC, i2c reads 49
-    // send 2 via NFC, i2c reads 50
-    // send 3 via NFC, i2c reads 51
-
-    //right now this only supports switching between two images, but we can expand to have more!
-    if (idesired_state == 255 || idesired_state == 0){
-      //DO NOTHING; start-up bug
-    }
-    //WE CAN PROBABLY MOVE ALL OF THIS TO SETUP, SINCE EVERY I2C CHANGE WILL BE MARKED BY A POWER ON STATE
-    else if (idesired_state == current_state){
-      delay(1000);
-      //DO NOTHING; keep checking
-    } else {
-      
-    }
-    if (idesired_state == 49){
-      Serial.println("idesired_state is 49");
-    } else if (idesired_state == 48){
-      Serial.println("idesired_state is 48");
-    } else if (idesired_state = 50){
-      Serial.println("idesired_state is 50");
-    }
-
-    current_state = idesired_state;
-    //EEPROM
-    EEPROM.write(eeprom_addr, current_state);
+    
+    //EEPROM.write(eeprom_addr, current_state);
 
   delay(500);                  // wait a bit since people have to read the output :)
 }
