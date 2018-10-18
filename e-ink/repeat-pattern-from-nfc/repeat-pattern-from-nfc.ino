@@ -151,45 +151,16 @@ void loop() {
         Serial.print("i: ");
         Serial.print(i);
         Serial.print(", byte: ");
-        Serial.println(rdata[i]);
-      }
-     }
-
-     Serial.println("");
-     Serial.println("parseInts: ");
-     for (int i = 10; i <= 16; i++) {
-        Serial.print("byte ");
-        Serial.print(i);
-        Serial.print(", casted: ");
-        int casted = (int) rdata[i];
-        Serial.print(casted);
+        Serial.print(rdata[i]);
         Serial.print(", converted: ");
         long converted = convertFromHex(rdata[i]);
         Serial.println(converted);
+      }
      }
-     
-     Serial.println("");
-     Serial.println("printBits: ");
-     for (int i = 1; i <=16; i++) {
-       Serial.print("byte ");
-       Serial.print(i);
-       Serial.print(": ");
-       printBits(rdata[i]);
-       Serial.println("");
-     }
-    }
+  }
     
     //EEPROM.write(eeprom_addr, current_state);
 
   delay(500);                  // wait a bit since people have to read the output :)
 }
 
-// from here; http://forum.arduino.cc/index.php?topic=46320.0
-void printBits(byte myByte){
- for(byte mask = 0x80; mask; mask >>= 1){
-   if(mask  & myByte)
-       Serial.print('1');
-   else
-       Serial.print('0');
- }
-}
