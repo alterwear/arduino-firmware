@@ -51,7 +51,8 @@ EPD_Class EPD(EPD_SIZE,
 #define SLAVE_ADDR 0x55
 #define int_reg_addr 0x01      //first block of user memory
 
-byte rdata[17];
+byte rxDataOne[17];
+byte rxDataTwo[17];
 
 // current version number
 #define DEMO_VERSION "6"
@@ -146,21 +147,35 @@ void loop() {
     // you always have to read data in chunks of 16 or it'll fail, 
     // the first 9 bytes are ntag metadata,
     for (int i = 1; i <= 16; i++) {
-      rdata[i] = Wire.read();
-      if (i >= 10) {
-        Serial.print("i: ");
+      rxDataOne[i] = Wire.read();
+      //if (i >= 10) {
+        Serial.print("rxDataOne i: ");
         Serial.print(i);
         Serial.print(", byte: ");
-        Serial.print(rdata[i]);
+        Serial.print(rxDataOne[i]);
         Serial.print(", converted: ");
-        long converted = convertFromHex(rdata[i]);
+        long converted = convertFromHex(rxDataOne[i]);
         Serial.println(converted);
-      }
+      //}
+     }
+
+     //is this what it means to read in a second "chunk of 16"?
+     for (int i = 1; i <=16; i++) {
+      rxDataTwo[i] = Wire.read();
+      //if (i >= 10) {
+        Serial.print("rxDataTwo i: ");
+        Serial.print(i);
+        Serial.print(", byte: ");
+        Serial.print(rxDataTwo[i]);
+        Serial.print(", converted: ");
+        long converted = convertFromHex(rxDataTwo[i]);
+        Serial.println(converted);
+      //}
      }
   }
     
     //EEPROM.write(eeprom_addr, current_state);
 
-  delay(500);                  // wait a bit since people have to read the output :)
+  delay(1000);                  // wait a bit since people have to read the output :)
 }
 
