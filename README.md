@@ -202,6 +202,52 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+#### 18 Oct 2018
+**Notes**
+1. Following up on ascii-binary converter, that works now. So now I need to try and pass that in to the library, have it repeat properly, and display it on the eink to make sure it's in the right format/order. I assume there should be no spaces since those will show up as zeroes from the converter, so just a long string of image bits should do it.
+2. Created a simple image (pattern-simple) and noticed that the right-most line is 0x3c, and the next line over is 0xff (If I'm interpreting this layout correctly....). (ok I am).
+3. Tried to read in more than 8 bytes of data from i2c on the arduino (sending a larger chunk over from Android). Didn't work: first 16 bytes are header + some data, then next seems to be noise. Maybe need to do another loop? ~~Don't really understand how to read "a 16-byte chunk" when it looks like it's just~~ Yep: at top of loop is request for another 16. 2nd loop should do it. state machine will be a teeny bit annoying.
+
+
+#### 17 Oct 2018
+**TODO**
+1. Need an ASCII-binary converter in arduino to read ascii bits sent over from NFC
+- https://forum.arduino.cc/index.php?topic=241663.0
+- https://forum.arduino.cc/index.php?topic=117999.0
+- https://www.arduino.cc/en/Tutorial/ASCIITable
+
+**Notes**
+1. Edited i2c-basic-test to be even more basic.
+2. All it does is read first 16 bytes from Wire/i2c off NFC and prints them out.
+3. Now, I'm sending "0xFF, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0xFF" from Android, hoping to be able to send bitmap-style bits over NFC.
+4. Here's what's received on the Arduino (remember user-defined bits start at 10 because the first 9 bytes are ntag metadata) (using [this ASCII table](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.ioaq100/ascii_table.gif)):
+
+```
+i: 10, byte: 48		0
+i: 11, byte: 120	x
+i: 12, byte: 70		F
+i: 13, byte: 70		F
+i: 14, byte: 44		,
+i: 15, byte: 32		(space)
+i: 16, byte: 48		0
+```
+
+So, clearly it's sent from Android and passed across NFC to Arduino as a string.
+
+5. Created read-bytes-from-nfc.ino to try parsing the ints.
+6. Now sending "FF FF 00 FF 00 FF FF"
+7. Here's what i see on Arduino.):
+
+```
+i: 10, byte: 70		F
+i: 11, byte: 70		F
+i: 12, byte: 32		(space)
+i: 13, byte: 70		F
+i: 14, byte: 70		F
+i: 15, byte: 32		(space)
+i: 16, byte: 48		0
+```
+
 
 #### 11 Oct 2018
 **Status**
