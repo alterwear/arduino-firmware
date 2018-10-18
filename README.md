@@ -202,6 +202,10 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+#### 18 Oct 2018
+**Notes**
+1. Following up on ascii-binary converter, that works now. So now I need to try and pass that in to the library, have it repeat properly, and display it on the eink to make sure it's in the right format/order. I assume there should be no spaces since those will show up as zeroes from the converter, so just a long string of image bits should do it.
+
 
 #### 17 Oct 2018
 **TODO**
@@ -227,6 +231,7 @@ i: 16, byte: 48		0
 ```
 
 So, clearly it's sent from Android and passed across NFC to Arduino as a string.
+
 5. Created read-bytes-from-nfc.ino to try parsing the ints.
 6. Now sending "FF FF 00 FF 00 FF FF"
 7. Here's what i see on Arduino.):
