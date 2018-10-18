@@ -29,6 +29,11 @@ void setup() {
   //current_state = EEPROM.read(eeprom_addr);
 }
 
+unsigned long convertFromHex(int ascii){ 
+ if(ascii > 0x39) ascii -= 7; // adjust for hex letters upper or lower case
+ return(ascii & 0xf);
+}
+
 void loop() {
 
   Wire.beginTransmission(byte(SLAVE_ADDR));
@@ -57,9 +62,12 @@ void loop() {
      for (int i = 10; i <= 16; i++) {
         Serial.print("byte ");
         Serial.print(i);
-        Serial.print(": ");
+        Serial.print(", casted: ");
         int casted = (int) rdata[i];
-        Serial.println(casted);
+        Serial.print(casted);
+        Serial.print(", converted: ");
+        long converted = convertFromHex(rdata[i]);
+        Serial.println(converted);
      }
      
      Serial.println("");
