@@ -29,6 +29,7 @@ void setup() {
   //current_state = EEPROM.read(eeprom_addr);
 }
 
+// from comment #4: https://forum.arduino.cc/index.php?topic=241663.0
 unsigned long convertFromHex(int ascii){ 
  if(ascii > 0x39) ascii -= 7; // adjust for hex letters upper or lower case
  return(ascii & 0xf);
