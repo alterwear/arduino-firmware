@@ -205,6 +205,8 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 #### 18 Oct 2018
 **Notes**
 1. Following up on ascii-binary converter, that works now. So now I need to try and pass that in to the library, have it repeat properly, and display it on the eink to make sure it's in the right format/order. I assume there should be no spaces since those will show up as zeroes from the converter, so just a long string of image bits should do it.
+2. Created a simple image (pattern-simple) and noticed that the right-most line is 0x3c, and the next line over is 0xff (If I'm interpreting this layout correctly....). (ok I am).
+3. Tried to read in more than 8 bytes of data from i2c on the arduino (sending a larger chunk over from Android). Didn't work: first 16 bytes are header + some data, then next seems to be noise. Maybe need to do another loop? ~~Don't really understand how to read "a 16-byte chunk" when it looks like it's just~~ Yep: at top of loop is request for another 16. 2nd loop should do it. state machine will be a teeny bit annoying.
 
 
 #### 17 Oct 2018
