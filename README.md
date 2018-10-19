@@ -171,6 +171,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 - Android **Step 3**
   - Filter a photo
+  	- CD: see if there are existing android libraries to convert a photo to black and white only (no grayscale), convert black and white to bitmap, etc. 
   - Send bitmap (RLE, or other compression schemes).
   - 
 - NFC **Step 2**
