@@ -203,6 +203,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+
+#### 22 October 2018
+1. Added a new image to the Images folder, penguin_cow.xbm. It can be flipped vertically, and looks either like a penguin or a cow depending on the orientation.
+2. Tried to make a lenticular image, so that you see two different images depending on whether only the even lines are displayed or the odd lines. However, creating this in Adobe Illustrator was difficult. We could do this more easily by writing a script that would take 2 images that are both half the size as the e-ink screen, and then interweave them line by line. 
+3. Additional idea: overlay 2 images slowly over time with moire pattern
+
 #### 18 Oct 2018
 **Notes**
 1. Following up on ascii-binary converter, that works now. So now I need to try and pass that in to the library, have it repeat properly, and display it on the eink to make sure it's in the right format/order. I assume there should be no spaces since those will show up as zeroes from the converter, so just a long string of image bits should do it.
