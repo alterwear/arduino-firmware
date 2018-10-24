@@ -157,8 +157,9 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## 2018-10-09 Eric meeting
 - Going down to Eink to visit on Oct 26th. 
 - 10:30am - tour, Eric will give a presentation. Interact w/ team, Q&A and brainstorming. Lunch.
-- Eric must be back to pick up kids by 3pm.
+- Eric must be back to pick up kids by 3pm. (so leave around 1pm?)
 - They are excited to work with us.
+- Trying to bring across the rest of the research team to being on our side/excited about our vision.
 
 ### Demos
 - Want to show them something different from what we have shown them so far.
@@ -211,12 +212,18 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 ## Current Status
 
 #### 23 October 2018
-1. 
-time to write 30 bytes: 98.00ms
-time to write 100 bytes: 333.00
-time to write 200 bytes: 669.00
+**TODO**
+1. Slideshow of what we've done, challenges, videos of working stuff, discussion of vision.
+2. Downsample to smaller number of bits (whatever that version is for eink displays).
+3. Interlacing
+4. A return to 8-bit aesthetics. 8-bit aesthetics temporally.
+5. Capacitor charge on microcontroller 
 
-
+**Notes**
+1. Timing of writing to EEPROM 
+- time to write 30 bytes: 98.00ms
+- time to write 100 bytes: 333.00
+- time to write 200 bytes: 669.00
 
 #### 22 October 2018
 1. Added a new image to the Images folder, penguin_cow.xbm. It can be flipped vertically, and looks either like a penguin or a cow depending on the orientation.
