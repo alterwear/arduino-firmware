@@ -170,6 +170,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 #### Effects
 - Videos of different eink image effects.
+- Purse physical artifact
 - Sending over 100 (or appropriate # of bits from phone?)
 - Edge detection on phone
 - drawing application
