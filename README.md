@@ -167,6 +167,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 - demo 1: take pic, it gets turned into bitmap, gets sent across NFC, updates to screen.
 - display algs: standard, RLE, pattern + repeat.
 
+#### Effects
+- Videos of different eink image effects.
+- Sending over 100 (or appropriate # of bits from phone?)
+- Edge detection on phone
+- drawing application
+
 ### Plans
 
 - Android **Step 3**
@@ -203,6 +209,14 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
   a. Fix line in trip_ images - make smooth.
 
 ## Current Status
+
+#### 23 October 2018
+1. 
+time to write 30 bytes: 98.00ms
+time to write 100 bytes: 333.00
+time to write 200 bytes: 669.00
+
+
 
 #### 22 October 2018
 1. Added a new image to the Images folder, penguin_cow.xbm. It can be flipped vertically, and looks either like a penguin or a cow depending on the orientation.
