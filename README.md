@@ -28,7 +28,7 @@ https://github.com/paulschow/epapercard/blob/master/Sch_Aug_14.pdf
 |ijeoma|V|E|2|200|C|S|021, (G2, eTC)|02573P000454|V231-G2|
 |purse|L|E|1|144|C|S|021 (G2, eTC)|01465T2PK2|V231-G2|
 |spongebob|L|E|1|190|C|S|021 (G2, eTC) |01466D0T32|V231-G2|
-|fei hung|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|V231-G2|
+|fei hung (cracked)|L|E|1|144|C|S|021 (G2, eTC) |01465S1N62|V231-G2|
 
 FPL Material "C" = Aurora Mb (V231), and:
 
