@@ -212,6 +212,15 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
+#### 26 Octobere 2018
+- Hue told me their requirements at the first meeting: could have structured all of our presentation around that. (large size, commercial applications). 
+- They wanted to know what we found hard, what types of tech we needed going forward, pain points for us. 
+- Eric did a lot of work to build credibility (position us as "ahead of the curve": what seemed wacky in the past actually resulted in changes later: Apple implemented Eric's weird watch thing ~15 years later, Beam robots exist now and that was Eric's early work).
+- Their work is so commercial application-ey, so it's a little hard to understand how to bridge our creative approach, which focuses on interaction styles, and map it to their interests/requirements.
+- Question: What do they need / what are their phrases / arguments they need for their internal conversations?
+- We emphasized documentation and software as pain points and support needs.
+- Craig wanted to know what colors we wanted, and what other capabilities we thought were important - it seemed like they were going to decide on their engineering efforts based on our recommendations (don't feel like we are actually the experts here).
+
 #### 23 October 2018
 **TODO**
 1. Slideshow of what we've done, challenges, videos of working stuff, discussion of vision.
