@@ -154,6 +154,17 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## 2018-12-10 Plan for Spring Semester
+- Hardware: 
+  - debug
+  - design
+  - integration w/ textiles (Arianna)
+- Software:
+  - Firmware (running on Arduino) (Arianna)
+  - App (running on phone) (Arianna)
+- User study design + logistics (Arianna)
+  - Update IRB if needed
+
 ## 2018-10-09 Eric meeting
 - Going down to Eink to visit on Oct 26th. 
 - 10:30am - tour, Eric will give a presentation. Interact w/ team, Q&A and brainstorming. Lunch.
