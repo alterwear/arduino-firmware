@@ -1,4 +1,11 @@
 # AlterWear
+## new eink
+- image needs to be correctly formatted
+- using NFC 13 SP app from EINK.
+- have to hold it there a few seconds while it does redraw
+- EINK 101 may be getting setup.
+- Separate NDA from fancy new tech that's not even released. Start simple, get flexible material.
+
 ## Basic E-Ink Setup
 
 - NT3H1101 NFC chip
