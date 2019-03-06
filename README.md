@@ -161,6 +161,18 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## 2019-03-06 Plan
+- IRB
+    - add group version (get example from Noura - Molly)
+    - change recruitment stuff (find 'fashionable' people). (Christie)
+    - consider working w/ a club/ sports team / group (advantages: maybe single form factor).
+- Finalize form factors (depends on HW)
+- HW / SW
+    - get source code (of android app, firmware? interface?) (Christie email)
+    - get datasheets (Christie emailing)
+    - HW workshop 3/27 (scheduled)
+    - update Android apps to be one single app. (Ariana)
+
 ## 2018-12-10 Plan for Spring Semester
 - Hardware: 
   - debug
