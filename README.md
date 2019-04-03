@@ -161,9 +161,37 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
+## 2019-04-03 Plan
+- IRB
+    - Complete, needs Eric to check the assurance box, then we can submit.
+    - change recruitment stuff (find 'fashionable' people). (Christie)
+- Study
+    - Find groups on campus we'd like to recruit from and reach out to the club leaders.
+        - EthiCal, sell tshirts on Sproul.
+	- Innovative Design, big graphic design club
+	- Berkeley Innovation, UI/UX design club.
+	- DeCal something related to Q New Media.
+	- Sports clubs? Intramural / recreational?
+	- Origami (visual, crafting)
+	- Outlet art club.
+	- Comics Decal.
+    - Finalize form factors (depends on HW), update IRB if needed.
+- HW / SW
+    - The HW Eink brought is not useful for us. They therefore didn't share any code / datasheets, and aren't sure on whether that would be available.
+    - For now, Adafruit eink as dev HW.
+    - update Android apps to be one single app. (Ariana)
+- Feather assessments
+    - [ATSAMD51](https://www.adafruit.com/product/3857) does have low powermode according to [datasheet](https://www.microchip.com/wwwproducts/en/ATSAMD51G19A), unclear if it's used in adafruit's board. 512KB Flash and 192KB RAM
+    - [ATSAMD21](https://www.adafruit.com/product/2995). Has bluetooth nRF51 (BLE). Lacks extra storage.
+    - Atmega328p
+    - Basic Feather [Atmega 32u4](https://www.adafruit.com/product/2771) The one we have. 32K of flash and 2K of RAM
+- Adafruit eink
+    - takes several seconds to update.
+    - shouldn't refresh or change the display more than every 3 mins.
+
 ## 2019-03-06 Plan
 - IRB
-    - add group version (get example from Noura - Molly)
+    - add group version. DONE. Ex from Noura is in the drive.
     - change recruitment stuff (find 'fashionable' people). (Christie)
     - consider working w/ a club/ sports team / group (advantages: maybe single form factor).
 - Finalize form factors (depends on HW)
@@ -242,7 +270,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 
 ## Current Status
 
-#### 26 Octobere 2018
+#### 26 October 2018
 - Hue told me their requirements at the first meeting: could have structured all of our presentation around that. (large size, commercial applications). 
 - They wanted to know what we found hard, what types of tech we needed going forward, pain points for us. 
 - Eric did a lot of work to build credibility (position us as "ahead of the curve": what seemed wacky in the past actually resulted in changes later: Apple implemented Eric's weird watch thing ~15 years later, Beam robots exist now and that was Eric's early work).
