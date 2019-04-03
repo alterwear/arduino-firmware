@@ -1,7 +1,7 @@
 # AlterWear
-## new eink
+## new [eink](https://learn.adafruit.com/adafruit-eink-display-breakouts/arduino-code)
 - image needs to be correctly formatted
-- using NFC 13 SP app from EINK.
+- using NFC 13 SP app from EINK. 
 - have to hold it there a few seconds while it does redraw
 - EINK 101 may be getting setup.
 - Separate NDA from fancy new tech that's not even released. Start simple, get flexible material.
@@ -9,7 +9,7 @@
 ## Basic E-Ink Setup
 
 - NT3H1101 NFC chip
-- Arduino Pro Mini (Atmega328)
+- [Arduino Pro Mini (Atmega328)](https://learn.sparkfun.com/tutorials/using-the-arduino-pro-mini-33v)
 - eink_i2c code
 
 ### Hardware
