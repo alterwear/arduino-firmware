@@ -180,7 +180,7 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
     - The HW Eink brought is not useful for us. They therefore didn't share any code / datasheets, and aren't sure on whether that would be available.
     - For now, Adafruit eink as dev HW.
     - update Android apps to be one single app. (Ariana)
-- Feather assessments
+- Feather assessments: NONE CAN BE POWERED BY NFC!
     - [ATSAMD51](https://www.adafruit.com/product/3857) does have low powermode according to [datasheet](https://www.microchip.com/wwwproducts/en/ATSAMD51G19A), unclear if it's used in adafruit's board. 512KB Flash and 192KB RAM
     - [ATSAMD21](https://www.adafruit.com/product/2995). Has bluetooth nRF51 (BLE). Lacks extra storage.
     - Atmega328p
@@ -188,6 +188,12 @@ To debug from the .cpp library code, just add Serial.print() statements - they s
 - Adafruit eink
     - takes several seconds to update.
     - shouldn't refresh or change the display more than every 3 mins.
+- Paperino
+    - [tried](https://robpo.github.io/Paperino/) on Particle Photon board, but Photon board literally died while I was trying to upload to it.
+    - Next trying to compile example code for Pro Trinket, and getting compile errors: /Users/molecule/Documents/Arduino/libraries/PL_microEPD/src/PL_microEPD.h:83:43: error: overflow in constant expression
+     byte buffer[EPD_WIDTH * EPD_HEIGHT / 4];
+    - No related issues in the github so [I made a new github issue](https://github.com/RobPo/Paperino/issues/14), and hasn't been updated for 10 months.
+    - Is the firmware for the pro mini not able to handle this buffer size? Or maybe the code is just making assumptions?
 
 ## 2019-03-06 Plan
 - IRB
