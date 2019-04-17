@@ -161,25 +161,28 @@ Teensy e-paper adapter board (red): https://hackaday.io/project/13327-teensy-e-p
 
 To debug from the .cpp library code, just add Serial.print() statements - they show up like normal in the serial monitor.
 
-## 2019-04-03 Plan
+## ~~2019-04-03 Plan~~ 2019-04-17 notes
 - IRB
-    - Complete, needs Eric to check the assurance box, then we can submit.
-    - change recruitment stuff (find 'fashionable' people). (Christie)
+    - Complete, ~~needs Eric to check the assurance box, then we can submit.~~ Submitted, got comments back.
+    - change recruitment stuff (find 'fashionable' people). (Christie) **Did we do this? Or do we need to?**
 - Study
     - Find groups on campus we'd like to recruit from and reach out to the club leaders.
-        - EthiCal, sell tshirts on Sproul.
-	- Innovative Design, big graphic design club
-	- Berkeley Innovation, UI/UX design club.
+        - EthiCal, sell tshirts on Sproul. [link](https://ethicalapparel.org/)
+	- Innovative Design, big graphic design club [link](https://innovativedesign.club/)
+	- Berkeley Innovation, UI/UX design club. [link](https://www.berkeleyinnovation.org/)
 	- DeCal something related to Q New Media.
+	- Jill's undergrad class? Critical Practices project?
 	- Sports clubs? Intramural / recreational?
 	- Origami (visual, crafting)
 	- Outlet art club.
 	- Comics Decal.
     - Finalize form factors (depends on HW), update IRB if needed.
 - HW / SW
-    - The HW Eink brought is not useful for us. They therefore didn't share any code / datasheets, and aren't sure on whether that would be available.
+    - The HW Eink brought is not useful for us. They therefore didn't share any code / datasheets, and aren't sure on whether that would be available. **Any update on this?**
     - For now, Adafruit eink as dev HW.
     - update Android apps to be one single app. (Ariana)
+        - Arianna has moved all the apps to one app, and is now working on passing data from one activity to another. So, for example, you could take a picture, then load it into the "drawing" app, draw on the picture, then load it into "find edges" and find the edgs of your combined drawing and picture.
+	- We also thought through some UX details, and decided the end goal for the semester is an app where you pass bitmaps around between the different activities, editing as you go. We will leave the "pass to eink display" as code stubs for future decision once the HW has been finalized.
 - Feather assessments: NONE CAN BE POWERED BY NFC!
     - [ATSAMD51](https://www.adafruit.com/product/3857) does have low powermode according to [datasheet](https://www.microchip.com/wwwproducts/en/ATSAMD51G19A), unclear if it's used in adafruit's board. 512KB Flash and 192KB RAM
     - [ATSAMD21](https://www.adafruit.com/product/2995). Has bluetooth nRF51 (BLE). Lacks extra storage.
